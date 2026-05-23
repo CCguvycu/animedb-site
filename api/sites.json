@@ -1,12 +1,6 @@
 {
   "sites": [
     {
-      "name": "AnimePahe",
-      "url": "https://animepahe.ru/",
-      "tag": "sub",
-      "top": true
-    },
-    {
       "name": "HiAnime",
       "url": "https://hianime.to/",
       "tag": "sub",
@@ -119,8 +113,8 @@
       "tag": "sub"
     },
     {
-      "name": "KickAssAnime",
-      "url": "https://kickassanime.mx/",
+      "name": "Kaguya",
+      "url": "https://kaguya.app/",
       "tag": "sub"
     },
     {
@@ -358,10 +352,10 @@
       "tag": "manga"
     }
   ],
-  "count": 69,
-  "updated": "2026-05-23T01:40:31.803134+00:00",
+  "count": 68,
+  "updated": "2026-05-23T02:08:07.792312+00:00",
   "categories": {
-    "sub": 26,
+    "sub": 25,
     "both": 16,
     "dub": 3,
     "official": 12,
