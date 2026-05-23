@@ -28,7 +28,10 @@ jobs:
         run: python scripts/scrape_sites.py
 
       - name: Pull latest before commit
-        run: git pull --rebase origin main
+        run: |
+          git stash -- api/anime-ids.json api/sites.json
+          git pull --rebase origin main
+          git stash pop
 
       - name: Commit updates
         uses: stefanzweifel/git-auto-commit-action@v5
