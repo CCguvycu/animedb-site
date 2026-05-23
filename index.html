@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeDb — The Source of Truth</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    AnimeDb <span class="nav-badge">API</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#anime" class="active">Anime</a></li>
+    <li><a href="#sites">Sites</a></li>
+    <li><a href="#api">API</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://ccguvycu.github.io/anistream-site/" target="_blank" class="nav-animeweb">
+      ↗ AnimeWeb
+    </a>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────────────────────── -->
+<div class="page">
+<div class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="hero-dot"></span> Live Data Source</div>
+    <h1 class="hero-title">Anime<span>Db</span></h1>
+    <p class="hero-sub">The single source of truth powering AnimeWeb — anime catalog, streaming sites, and live config. All open, all free, auto-updating weekly.</p>
+    <div class="hero-stats" id="heroStats">
+      <div>
+        <div class="hstat-val" id="statIds">—</div>
+        <div class="hstat-lbl">Anime IDs</div>
+      </div>
+      <div>
+        <div class="hstat-val" id="statSites">—</div>
+        <div class="hstat-lbl">Streaming Sites</div>
+      </div>
+      <div>
+        <div class="hstat-val" id="statUpdated">—</div>
+        <div class="hstat-lbl">Last Updated</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main content ───────────────────────────────────────────────────────── -->
+<div class="wrap">
+
+  <!-- What's inside -->
+  <div class="card-grid" style="margin-bottom:2.5rem">
+    <div class="card">
+      <div class="card-icon">🗂</div>
+      <div class="card-title">Anime Catalog</div>
+      <div class="card-desc">1,257+ MAL IDs sourced from Jikan — top-rated, seasonal (2020–2025), genre picks. Grows every Monday via GitHub Action.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📡</div>
+      <div class="card-title">Streaming Sites</div>
+      <div class="card-desc">97 curated sites: Sub, Dub, Sub+Dub, Official, Manga. Tagged, categorised, with top-pick flags. AnimeWeb reads this live.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <div class="card-title">Live Config</div>
+      <div class="card-desc">Featured anime IDs, AnimeWeb URL, API endpoints. One JSON file controls what AnimeWeb highlights on the homepage.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">Auto-Updates</div>
+      <div class="card-desc">GitHub Action runs every Monday — Jikan scraper fetches new IDs across 81 endpoints and commits the diff automatically.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── Anime catalog ─────────────────────────────────────────────────────── -->
+  <div id="anime" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <div class="section-title">Anime Catalog <span class="section-badge" id="animeBadge">loading…</span></div>
+      <div style="font-size:.78rem;color:var(--dim)" id="animeUpdated"></div>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="animeSearch" type="text" placeholder="Search MAL IDs…" autocomplete="off">
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
+      <div style="padding:.75rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;font-size:.75rem;color:var(--dim)">
+        <span>Showing <strong id="animeShowing" style="color:var(--text)">—</strong> of <strong id="animeTotal" style="color:var(--text)">—</strong> IDs</span>
+        <span style="margin-left:auto">Source: <a href="api/anime-ids.json" target="_blank" style="color:var(--purple-lt);text-decoration:none">api/anime-ids.json</a></span>
+      </div>
+      <div id="animeGrid" style="display:flex;flex-wrap:wrap;gap:.4rem;padding:1rem;max-height:320px;overflow-y:auto"></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── Sites directory ───────────────────────────────────────────────────── -->
+  <div id="sites" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <div class="section-title">Streaming Sites <span class="section-badge" id="sitesBadge">loading…</span></div>
+      <a href="api/sites.json" target="_blank" style="font-size:.78rem;color:var(--purple-lt);text-decoration:none">api/sites.json ↗</a>
+    </div>
+
+    <div class="pill-row" id="tagFilter">
+      <button class="filter-pill on" data-tag="">All</button>
+      <button class="filter-pill" data-tag="sub">Sub</button>
+      <button class="filter-pill" data-tag="dub">Dub</button>
+      <button class="filter-pill" data-tag="both">Sub+Dub</button>
+      <button class="filter-pill" data-tag="official">Official</button>
+      <button class="filter-pill" data-tag="manga">Manga</button>
+    </div>
+
+    <div class="sites-grid" id="sitesGrid"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── API reference ─────────────────────────────────────────────────────── -->
+  <div id="api" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <div class="section-title">API Reference</div>
+      <span style="font-size:.78rem;color:var(--dim)">CORS-open GitHub Pages</span>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="api-method">GET</span></td>
+            <td class="api-url"><a href="api/anime-ids.json" target="_blank">api/anime-ids.json</a></td>
+            <td style="color:var(--muted);font-size:.8rem">Array of 1,257+ MAL IDs with count + updated timestamp</td>
+          </tr>
+          <tr>
+            <td><span class="api-method">GET</span></td>
+            <td class="api-url"><a href="api/sites.json" target="_blank">api/sites.json</a></td>
+            <td style="color:var(--muted);font-size:.8rem">97 streaming sites with name, url, tag, top flag</td>
+          </tr>
+          <tr>
+            <td><span class="api-method">GET</span></td>
+            <td class="api-url"><a href="api/config.json" target="_blank">api/config.json</a></td>
+            <td style="color:var(--muted);font-size:.8rem">Featured IDs, AnimeWeb URL, version, endpoint pointers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-top:1rem">
+      <div style="font-size:.78rem;color:var(--dim);margin-bottom:.75rem;font-weight:600">USAGE EXAMPLE</div>
+      <pre style="font-size:.78rem;color:var(--purple-lt);line-height:1.7;overflow-x:auto"><code>// Fetch anime IDs from AnimeDb
+const r    = await fetch('https://ccguvycu.github.io/animedb-site/api/anime-ids.json');
+const data = await r.json();
+// data.ids    → [1, 19, 20, 21, ...]
+// data.count  → 1257
+// data.updated → "2026-05-23T..."
+
+// Fetch streaming sites
+const s     = await fetch('https://ccguvycu.github.io/animedb-site/api/sites.json');
+const sites = await s.json();
+// sites.sites → [{ name, url, tag, top? }, ...]</code></pre>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<div class="footer">
+  AnimeDb — open data for <a href="https://ccguvycu.github.io/anistream-site/" target="_blank">AnimeWeb</a> ·
+  <a href="https://github.com/CCguvycu/animedb-site" target="_blank">GitHub</a> ·
+  Auto-updates every Monday
+</div>
+</div>
+
+<script>
+const BASE = 'https://ccguvycu.github.io/animedb-site';
+
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+// ── Load data ──────────────────────────────────────────────────────────────
+async function loadAll() {
+  const [animeRes, sitesRes] = await Promise.all([
+    fetch('api/anime-ids.json'),
+    fetch('api/sites.json'),
+  ]);
+  const animeData = await animeRes.json();
+  const sitesData = await sitesRes.json();
+
+  // Hero stats
+  document.getElementById('statIds').textContent    = animeData.count.toLocaleString();
+  document.getElementById('statSites').textContent  = sitesData.count;
+  const updated = new Date(animeData.updated);
+  document.getElementById('statUpdated').textContent = updated.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+
+  // Anime section
+  document.getElementById('animeBadge').textContent   = `${animeData.count} IDs`;
+  document.getElementById('animeUpdated').textContent = `Updated ${updated.toLocaleDateString()}`;
+  document.getElementById('animeTotal').textContent   = animeData.count;
+
+  renderIds(animeData.ids);
+
+  // Search IDs
+  let _st;
+  document.getElementById('animeSearch').addEventListener('input', e => {
+    clearTimeout(_st);
+    _st = setTimeout(() => {
+      const q = e.target.value.trim();
+      const filtered = q ? animeData.ids.filter(id => String(id).includes(q)) : animeData.ids;
+      renderIds(filtered);
+    }, 150);
+  });
+
+  // Sites section
+  document.getElementById('sitesBadge').textContent = `${sitesData.count} sites`;
+  renderSites(sitesData.sites, '');
+
+  // Tag filter
+  document.getElementById('tagFilter').addEventListener('click', e => {
+    const btn = e.target.closest('[data-tag]');
+    if (!btn) return;
+    const tag = btn.dataset.tag;
+    document.querySelectorAll('#tagFilter .filter-pill').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    renderSites(sitesData.sites, tag);
+  });
+}
+
+function renderIds(ids) {
+  const grid = document.getElementById('animeGrid');
+  document.getElementById('animeShowing').textContent = ids.length.toLocaleString();
+  grid.innerHTML = ids.map(id =>
+    `<span onclick="navigator.clipboard.writeText('${id}');toast('Copied ${id}')"
+      style="background:var(--card-hov);border:1px solid var(--border);border-radius:6px;
+      padding:.18rem .55rem;font-size:.72rem;font-family:monospace;cursor:pointer;
+      color:var(--muted);transition:all .15s"
+      onmouseover="this.style.borderColor='var(--purple)';this.style.color='var(--purple-lt)'"
+      onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'"
+    >${id}</span>`
+  ).join('');
+}
+
+function renderSites(sites, tag) {
+  const filtered = tag ? sites.filter(s => s.tag === tag) : sites;
+  const grid = document.getElementById('sitesGrid');
+  grid.innerHTML = filtered.map(s => {
+    const host = new URL(s.url).hostname;
+    const tagCls = `tag-${s.tag}`;
+    return `<a class="site-card" href="${s.url}" target="_blank" rel="noopener">
+      <img class="site-fav" src="https://www.google.com/s2/favicons?sz=32&domain=${host}" alt="" onerror="this.style.opacity=.3">
+      <span class="site-name">${s.name}</span>
+      <span class="site-tag ${tagCls}">${s.tag === 'both' ? 'sub+dub' : s.tag}</span>
+    </a>`;
+  }).join('');
+}
+
+loadAll().catch(console.error);
+</script>
+</body>
+</html>

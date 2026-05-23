@@ -1,0 +1,30 @@
+name: Weekly Anime ID Scrape
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install requests
+
+      - run: python scripts/scrape_ids.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: weekly anime ID update [skip ci]'
+          file_pattern: api/anime-ids.json
+          commit_user_name: 'animedb-bot'
+          commit_user_email: 'animedb-bot@users.noreply.github.com'

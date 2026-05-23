@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "anime_ids_url": "https://ccguvycu.github.io/animedb-site/api/anime-ids.json",
+  "sites_url": "https://ccguvycu.github.io/animedb-site/api/sites.json",
+  "animeweb_url": "https://ccguvycu.github.io/anistream-site/",
+  "featured_ids": [
+    21,
+    16498,
+    5114,
+    9253,
+    38000,
+    1535,
+    11061,
+    20,
+    32281,
+    30276
+  ],
+  "updated": "2026-05-22T09:00:50.833464+00:00"
+}

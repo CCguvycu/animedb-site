@@ -1,0 +1,506 @@
+{
+  "sites": [
+    {
+      "name": "HiAnime",
+      "url": "https://hianime.to/",
+      "tag": "sub",
+      "top": true
+    },
+    {
+      "name": "Miruro",
+      "url": "https://www.miruro.tv/",
+      "tag": "sub",
+      "top": true
+    },
+    {
+      "name": "AnimePahe",
+      "url": "https://animepahe.ru/",
+      "tag": "sub",
+      "top": true
+    },
+    {
+      "name": "Animetsu",
+      "url": "https://animetsu.cc/home",
+      "tag": "both",
+      "top": true
+    },
+    {
+      "name": "AnimeLok",
+      "url": "https://animelok.online/home",
+      "tag": "both",
+      "top": true
+    },
+    {
+      "name": "Marin",
+      "url": "https://marin.moe/",
+      "tag": "sub",
+      "top": true
+    },
+    {
+      "name": "Twist",
+      "url": "https://twist.moe/",
+      "tag": "sub",
+      "top": true
+    },
+    {
+      "name": "Rive",
+      "url": "https://www.rivestream.app/",
+      "tag": "both",
+      "top": true
+    },
+    {
+      "name": "aniwave",
+      "url": "https://aniwave.to/home",
+      "tag": "sub"
+    },
+    {
+      "name": "AniZone",
+      "url": "https://anizone.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "Anistream",
+      "url": "https://anistream.one/",
+      "tag": "sub"
+    },
+    {
+      "name": "AniKuro",
+      "url": "https://anikuro.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeParadise",
+      "url": "https://www.animeparadise.moe/",
+      "tag": "sub"
+    },
+    {
+      "name": "Anidap",
+      "url": "https://anidap.se/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeOnsen",
+      "url": "https://animeonsen.xyz/",
+      "tag": "sub"
+    },
+    {
+      "name": "FireAnime",
+      "url": "https://fireani.me/",
+      "tag": "sub"
+    },
+    {
+      "name": "Enma",
+      "url": "https://www.enma.lol/",
+      "tag": "sub"
+    },
+    {
+      "name": "Senshi",
+      "url": "https://senshi.live/",
+      "tag": "sub"
+    },
+    {
+      "name": "yugen",
+      "url": "https://yugen.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "1anime",
+      "url": "https://1ani.me/",
+      "tag": "sub"
+    },
+    {
+      "name": "KickAssAnime",
+      "url": "https://kickassanime.mx/",
+      "tag": "sub"
+    },
+    {
+      "name": "Tenshi",
+      "url": "https://tenshi.moe/",
+      "tag": "sub"
+    },
+    {
+      "name": "Kawaiifu",
+      "url": "https://kawaiifu.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeSuge",
+      "url": "https://animesuge.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeGlare",
+      "url": "https://animeglare.xyz/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeVibe",
+      "url": "https://animevibe.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeKami",
+      "url": "https://animekami.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeRam",
+      "url": "https://www.animeram.cc/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeSilo",
+      "url": "https://animesilo.cc/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeNoSub",
+      "url": "https://animenosub.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "Kiroku",
+      "url": "https://kiroku.my/",
+      "tag": "sub"
+    },
+    {
+      "name": "ReAnime",
+      "url": "https://reanime.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeXin",
+      "url": "https://animexin.dev/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeOwl",
+      "url": "https://animeowl.live/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeHub",
+      "url": "https://animehub.ac/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeRealms",
+      "url": "https://www.animerealms.org/",
+      "tag": "sub"
+    },
+    {
+      "name": "Lunar",
+      "url": "https://lunaranime.ru/",
+      "tag": "sub"
+    },
+    {
+      "name": "JustAnime",
+      "url": "https://justanime.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AniPlay",
+      "url": "https://aniplay.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeKhor",
+      "url": "https://animekhor.org/",
+      "tag": "sub"
+    },
+    {
+      "name": "MyAnime",
+      "url": "https://myanime.live/",
+      "tag": "sub"
+    },
+    {
+      "name": "Yomi",
+      "url": "https://yomi.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeDAO",
+      "url": "https://animedao.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeHub.io",
+      "url": "https://animehub.io/",
+      "tag": "sub"
+    },
+    {
+      "name": "GenoAnime",
+      "url": "https://genoanime.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeFever",
+      "url": "https://animefever.cc/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeStream",
+      "url": "https://anime.uniquestream.net/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeSaturn",
+      "url": "https://animesaturn.cx/",
+      "tag": "sub"
+    },
+    {
+      "name": "Animes.Vision",
+      "url": "https://animes.vision/",
+      "tag": "sub"
+    },
+    {
+      "name": "OtakuStream",
+      "url": "https://otakustream.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "AniDoor",
+      "url": "https://anidoor.me/",
+      "tag": "sub"
+    },
+    {
+      "name": "Anoboye",
+      "url": "https://anoboye.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "LuciferDonghua",
+      "url": "https://luciferdonghua.in/",
+      "tag": "sub"
+    },
+    {
+      "name": "KayoAnime",
+      "url": "https://kayoanime.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeOnline360",
+      "url": "https://animeonline360.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "GogoAnimes",
+      "url": "https://gogoanimes.fi/",
+      "tag": "sub"
+    },
+    {
+      "name": "GogoAnime",
+      "url": "https://gogoanime.by/",
+      "tag": "sub"
+    },
+    {
+      "name": "9Anime",
+      "url": "https://9anime.pl/",
+      "tag": "sub"
+    },
+    {
+      "name": "AniHQ",
+      "url": "https://anihq.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "CKSub",
+      "url": "https://cksub.org/",
+      "tag": "sub"
+    },
+    {
+      "name": "KissAnime",
+      "url": "https://kissanime.com.ru/",
+      "tag": "sub"
+    },
+    {
+      "name": "WCOStream",
+      "url": "https://wcostream.cc/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeRush",
+      "url": "https://animerush.tv/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeFreak",
+      "url": "https://animefreak.tv/",
+      "tag": "sub"
+    },
+    {
+      "name": "AllManga",
+      "url": "https://allmanga.to/",
+      "tag": "sub"
+    },
+    {
+      "name": "LMAnime",
+      "url": "https://lmanime.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeKaizoku",
+      "url": "https://animekaizoku.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "aniwave.live",
+      "url": "https://aniwave.live/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeRam",
+      "url": "https://www.animeram.cc/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeFlix",
+      "url": "https://animeflix.io/",
+      "tag": "sub"
+    },
+    {
+      "name": "AnimeSpirit",
+      "url": "https://animespirit.co/",
+      "tag": "sub"
+    },
+    {
+      "name": "Anime-sama",
+      "url": "https://anime-sama.fr/",
+      "tag": "sub"
+    },
+    {
+      "name": "VoirAnime",
+      "url": "https://voiranime.com/",
+      "tag": "sub"
+    },
+    {
+      "name": "BestDubAnime",
+      "url": "https://bestdubbedanime.com/",
+      "tag": "dub"
+    },
+    {
+      "name": "DubbedAnime",
+      "url": "https://dubbedanime.net/",
+      "tag": "dub"
+    },
+    {
+      "name": "AnimeFLV",
+      "url": "https://animeflv.net/",
+      "tag": "both"
+    },
+    {
+      "name": "AnimeLatino",
+      "url": "https://animelatino.net/",
+      "tag": "both"
+    },
+    {
+      "name": "AnimeFlv.nu",
+      "url": "https://animeflv.nu/",
+      "tag": "both"
+    },
+    {
+      "name": "JKAnime",
+      "url": "https://jkanime.net/",
+      "tag": "both"
+    },
+    {
+      "name": "KawaiiAnime",
+      "url": "https://kawaii-anime.com/",
+      "tag": "both"
+    },
+    {
+      "name": "AnimeLand",
+      "url": "https://w7.animeland.tv/",
+      "tag": "both"
+    },
+    {
+      "name": "Crunchyroll",
+      "url": "https://www.crunchyroll.com/",
+      "tag": "official"
+    },
+    {
+      "name": "Funimation",
+      "url": "https://www.funimation.com/",
+      "tag": "official"
+    },
+    {
+      "name": "HiDive",
+      "url": "https://www.hidive.com/",
+      "tag": "official"
+    },
+    {
+      "name": "Bilibili Anime",
+      "url": "https://www.bilibili.tv/",
+      "tag": "official"
+    },
+    {
+      "name": "Netflix Anime",
+      "url": "https://www.netflix.com/browse/genre/7424",
+      "tag": "official"
+    },
+    {
+      "name": "VRV",
+      "url": "https://vrv.co/",
+      "tag": "official"
+    },
+    {
+      "name": "VostFree",
+      "url": "https://vostfree.ws/",
+      "tag": "sub"
+    },
+    {
+      "name": "MavAnimes",
+      "url": "https://mavanimes.co/",
+      "tag": "sub"
+    },
+    {
+      "name": "MangaDex",
+      "url": "https://mangadex.org/",
+      "tag": "manga"
+    },
+    {
+      "name": "MangaPlus",
+      "url": "https://mangaplus.shueisha.co.jp/",
+      "tag": "manga"
+    },
+    {
+      "name": "MangaReader",
+      "url": "https://mangareader.to/",
+      "tag": "manga"
+    },
+    {
+      "name": "TCBScans",
+      "url": "https://tcbscans.me/",
+      "tag": "manga"
+    },
+    {
+      "name": "MangaKakalot",
+      "url": "https://mangakakalot.com/",
+      "tag": "manga"
+    },
+    {
+      "name": "MangaFire",
+      "url": "https://mangafire.to/",
+      "tag": "manga"
+    },
+    {
+      "name": "Bato.to",
+      "url": "https://bato.to/",
+      "tag": "manga"
+    },
+    {
+      "name": "MangaBuddy",
+      "url": "https://mangabuddy.com/",
+      "tag": "manga"
+    }
+  ],
+  "count": 97,
+  "updated": "2026-05-22T09:00:50.833464+00:00",
+  "categories": {
+    "sub": 72,
+    "dub": 2,
+    "both": 9,
+    "official": 6,
+    "manga": 8
+  }
+}
