@@ -1,9 +1,9 @@
-name: Weekly Anime ID Scrape
+name: Daily Anime Discovery
 
 on:
   schedule:
-    - cron: '0 3 * * 1'
-  workflow_dispatch:
+    - cron: '0 4 * * *'   # Every day at 04:00 UTC
+  workflow_dispatch:        # Manual trigger from GitHub UI or API
 
 jobs:
   scrape:
@@ -18,13 +18,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: pip install requests
+      - name: Install dependencies
+        run: pip install requests
 
-      - run: python scripts/scrape_ids.py
+      - name: Run discovery scraper
+        run: python scripts/scrape_ids.py
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Commit new IDs
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: weekly anime ID update [skip ci]'
+          commit_message: 'chore: daily anime discovery [skip ci]'
           file_pattern: api/anime-ids.json
           commit_user_name: 'animedb-bot'
           commit_user_email: 'animedb-bot@users.noreply.github.com'

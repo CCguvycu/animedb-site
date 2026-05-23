@@ -20,6 +20,9 @@
     <li><a href="#api">API</a></li>
   </ul>
   <div class="nav-right">
+    <button id="runNowBtn" onclick="runScraper()" style="font-size:.78rem;font-weight:700;color:#4ade80;border:1px solid rgba(74,222,128,.35);background:rgba(74,222,128,.08);padding:.3rem .85rem;border-radius:8px;cursor:pointer;transition:all .18s" onmouseover="this.style.background='rgba(74,222,128,.16)'" onmouseout="this.style.background='rgba(74,222,128,.08)'">
+      ▶ Run Now
+    </button>
     <a href="https://ccguvycu.github.io/anistream-site/" target="_blank" class="nav-animeweb">
       ↗ AnimeWeb
     </a>
@@ -32,7 +35,7 @@
   <div class="hero-inner">
     <div class="hero-tag"><span class="hero-dot"></span> Live Data Source</div>
     <h1 class="hero-title">Anime<span>Db</span></h1>
-    <p class="hero-sub">The single source of truth powering AnimeWeb — anime catalog, streaming sites, and live config. All open, all free, auto-updating weekly.</p>
+    <p class="hero-sub">The single source of truth powering AnimeWeb — anime catalog, streaming sites, and live config. All open, all free, auto-updating daily.</p>
     <div class="hero-stats" id="heroStats">
       <div>
         <div class="hstat-val" id="statIds">—</div>
@@ -52,6 +55,13 @@
 
 <!-- ── Main content ───────────────────────────────────────────────────────── -->
 <div class="wrap">
+
+  <!-- Run status bar -->
+  <div id="runStatus" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.75rem 1.1rem;margin-bottom:1.5rem;font-size:.82rem;display:flex;align-items:center;gap:.75rem">
+    <span id="runStatusIcon">⏳</span>
+    <span id="runStatusText">Starting scraper…</span>
+    <a href="https://github.com/CCguvycu/animedb-site/actions" target="_blank" style="margin-left:auto;font-size:.75rem;color:var(--purple-lt);text-decoration:none">View in GitHub Actions ↗</a>
+  </div>
 
   <!-- What's inside -->
   <div class="card-grid" style="margin-bottom:2.5rem">
@@ -272,6 +282,69 @@ function renderSites(sites, tag) {
 }
 
 loadAll().catch(console.error);
+
+// ── Run Now ──────────────────────────────────────────────────────
+async function runScraper() {
+  const btn = document.getElementById('runNowBtn');
+  const bar = document.getElementById('runStatus');
+  const icon = document.getElementById('runStatusIcon');
+  const msg  = document.getElementById('runStatusText');
+
+  // Get or prompt for PAT
+  let pat = localStorage.getItem('animedb_pat');
+  if (!pat) {
+    pat = prompt('Paste a GitHub PAT with Actions:write scope
+(stored locally in your browser only, never sent to any server)');
+    if (!pat) return;
+    localStorage.setItem('animedb_pat', pat.trim());
+    pat = pat.trim();
+  }
+
+  btn.textContent = '⏳ Running…';
+  btn.disabled = true;
+  bar.style.display = 'flex';
+  icon.textContent = '⏳';
+  msg.textContent = 'Triggering GitHub Action…';
+
+  try {
+    const res = await fetch('https://api.github.com/repos/CCguvycu/animedb-site/actions/workflows/scrape.yml/dispatches', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${pat}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ref: 'main' }),
+    });
+
+    if (res.status === 204) {
+      icon.textContent = '✓';
+      msg.textContent = 'Scraper triggered! New IDs will appear in api/anime-ids.json in ~5–10 min.';
+      btn.textContent = '✓ Triggered';
+      setTimeout(() => {
+        btn.textContent = '▶ Run Now';
+        btn.disabled = false;
+      }, 8000);
+    } else if (res.status === 401) {
+      localStorage.removeItem('animedb_pat');
+      icon.textContent = '✗';
+      msg.textContent = 'PAT invalid or expired — cleared. Click Run Now to re-enter.';
+      btn.textContent = '▶ Run Now';
+      btn.disabled = false;
+    } else {
+      const j = await res.json().catch(() => ({}));
+      icon.textContent = '✗';
+      msg.textContent = `Error ${res.status}: ${j.message || 'unknown'}`;
+      btn.textContent = '▶ Run Now';
+      btn.disabled = false;
+    }
+  } catch (e) {
+    icon.textContent = '✗';
+    msg.textContent = `Network error: ${e.message}`;
+    btn.textContent = '▶ Run Now';
+    btn.disabled = false;
+  }
+}
 </script>
 </body>
 </html>
