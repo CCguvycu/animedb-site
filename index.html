@@ -96,6 +96,16 @@
     .pat-save-btn { padding:.28rem .8rem;border-radius:8px;font-size:.74rem;font-weight:700;background:rgba(168,85,247,.14);border:1px solid rgba(168,85,247,.35);color:var(--purple-lt);cursor:pointer;font-family:inherit;transition:all .18s; }
     .pat-save-btn:hover { background:rgba(168,85,247,.24); }
     .pat-hint { font-size:.7rem;color:var(--dim); }
+    /* Push row */
+    .push-row { padding:.55rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;flex-wrap:wrap; }
+    .push-row-label { font-size:.72rem;color:var(--dim);font-weight:600;margin-right:.2rem; }
+    .push-row-btn { padding:.3rem .9rem;border-radius:8px;font-size:.74rem;font-weight:700;cursor:pointer;font-family:inherit;border:1px solid;transition:all .18s; }
+    .push-row-btn:disabled { opacity:.35;cursor:not-allowed; }
+    .push-btn-db { background:rgba(168,85,247,.13);border-color:rgba(168,85,247,.38);color:var(--purple-lt); }
+    .push-btn-db:not(:disabled):hover { background:rgba(168,85,247,.26); }
+    .push-btn-aw { background:rgba(59,130,246,.13);border-color:rgba(59,130,246,.38);color:#93c5fd; }
+    .push-btn-aw:not(:disabled):hover { background:rgba(59,130,246,.26); }
+    .push-row-hint { font-size:.69rem;color:var(--dim);margin-left:auto; }
 
     /* Progress */
     .scraper-progress-wrap { padding:0 1.5rem;height:0;overflow:hidden;transition:height .2s; }
@@ -269,6 +279,14 @@
         </div>
       </div>
 
+      <!-- Standalone push row -->
+      <div class="push-row" id="pushRow">
+        <span class="push-row-label">Push catalog:</span>
+        <button class="push-row-btn push-btn-db" id="syncDbBtn"  onclick="syncToAnimeDb()"  disabled>&#11014; Push to AnimeDb</button>
+        <button class="push-row-btn push-btn-aw" id="syncAwBtn"  onclick="syncToAnimeWeb()" disabled>&#11014; Push to AnimeWeb</button>
+        <span class="push-row-hint" id="pushRowHint">Connect GitHub to enable</span>
+      </div>
+
       <!-- Progress -->
       <div class="scraper-progress-wrap" id="scraperProgressWrap">
         <div class="scraper-progress-bar"><div class="scraper-progress-fill" id="scraperFill"></div></div>
@@ -435,6 +453,12 @@ function updatePatUI() {
   else      { btn.disabled = false; btn.title = ''; }
   const btnAw=document.getElementById('pushAwBtn');
   if(btnAw){ if(!ok){btnAw.disabled=true;}else{btnAw.disabled=false;} }
+  const sDb=document.getElementById('syncDbBtn');
+  const sAw=document.getElementById('syncAwBtn');
+  const hint=document.getElementById('pushRowHint');
+  if(sDb){ sDb.disabled=!ok; }
+  if(sAw){ sAw.disabled=!ok; }
+  if(hint){ hint.textContent=ok?'Syncs current catalog to GitHub':'Connect GitHub to enable'; }
 }
 document.getElementById('patField').addEventListener('keydown', e => { if(e.key==='Enter') savePat(); });
 
@@ -678,6 +702,52 @@ async function startScraper(){
 function stopScraper(){_scraperStop=true;}
 
 // ── Push to AnimeDb ────────────────────────────────────────────────────────
+// Push full catalog to AnimeDb (no scrape needed — syncs _allIds)
+async function syncToAnimeDb(){
+  const pat=getPat();
+  if(!pat){toast('Connect GitHub first');return;}
+  if(!_allIds.length){toast('Catalog not loaded yet — wait a moment');return;}
+  const btn=document.getElementById('syncDbBtn');
+  btn.disabled=true; btn.textContent='⏳ Syncing…';
+  logLine('log-head','');
+  logLine('log-head','▸ Syncing full catalog to AnimeDb…');
+  try{
+    const getRes=await fetch(`${GH_API}/repos/${GH_REPO}/contents/api/anime-ids.json`,{
+      headers:{'Authorization':`Bearer ${pat}`,'Accept':'application/vnd.github+json'}
+    });
+    if(!getRes.ok){const e=await getRes.json();throw new Error(e.message||`GET ${getRes.status}`);}
+    const fileData=await getRes.json();
+    const sha=fileData.sha;
+    const current=JSON.parse(atob(fileData.content.split('\n').join('')));
+    const merged=[...new Set([...current.ids,..._allIds,..._scraperNewIds])].sort((a,b)=>a-b);
+    const addedCount=merged.length-current.ids.length;
+    if(addedCount===0){
+      logLine('log-ok','▸ AnimeDb already up to date');
+      btn.textContent='✓ Up to date'; btn.disabled=false; return;
+    }
+    const updated={...current,ids:merged,count:merged.length,updated:new Date().toISOString()};
+    const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(updated,null,2))));
+    const putRes=await fetch(`${GH_API}/repos/${GH_REPO}/contents/api/anime-ids.json`,{
+      method:'PUT',
+      headers:{'Authorization':`Bearer ${pat}`,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
+      body:JSON.stringify({message:`chore: sync catalog — +${addedCount} IDs [skip ci]`,content:encoded,sha})
+    });
+    if(!putRes.ok){const e=await putRes.json();throw new Error(e.message||`PUT ${putRes.status}`);}
+    const pd=await putRes.json();
+    _allIds=merged;
+    document.getElementById('statIds').textContent=merged.length.toLocaleString();
+    btn.textContent=`✓ +${addedCount} pushed`; btn.style.color='#4ade80';
+    logLine('log-done',`▸ Pushed ${addedCount} IDs — catalog now ${merged.length.toLocaleString()}`);
+    logLine('log-ok',`▸ Commit: ${pd.commit?.sha?.slice(0,7)||'done'}`);
+    toast(`Synced +${addedCount} IDs to AnimeDb`);
+    setTimeout(()=>{btn.textContent='⬆ Push to AnimeDb';btn.style.color='';btn.disabled=false;},4000);
+  }catch(e){
+    logLine('log-err',`▸ AnimeDb sync failed: ${e.message}`);
+    toast(`Sync failed: ${e.message}`);
+    btn.textContent='⬆ Push to AnimeDb'; btn.disabled=false;
+  }
+}
+
 async function pushToAnimeDb(){
   const pat=getPat();
   if(!pat){toast('Connect GitHub first (see token row above)');return;}
@@ -750,6 +820,61 @@ async function pushToAnimeDb(){
 }
 
 // ── Push to AnimeWeb ──────────────────────────────────────────────────────
+// Push full catalog to AnimeWeb (no scrape needed — syncs _allIds)
+async function syncToAnimeWeb(){
+  const pat=getPat();
+  if(!pat){toast('Connect GitHub first');return;}
+  if(!_allIds.length){toast('Catalog not loaded yet — wait a moment');return;}
+  const btn=document.getElementById('syncAwBtn');
+  btn.disabled=true; btn.textContent='⏳ Syncing…';
+  logLine('log-head','');
+  logLine('log-head','▸ Syncing catalog to AnimeWeb (anistream-site)…');
+  const AW_REPO='CCguvycu/anistream-site';
+  const AW_PATH='data/anime-ids.json';
+  try{
+    let sha=null, existingIds=[];
+    const getRes=await fetch(`${GH_API}/repos/${AW_REPO}/contents/${AW_PATH}`,{
+      headers:{'Authorization':`Bearer ${pat}`,'Accept':'application/vnd.github+json'}
+    });
+    if(getRes.ok){
+      const fd=await getRes.json();
+      sha=fd.sha;
+      try{ existingIds=JSON.parse(atob(fd.content.split('\n').join(''))).ids||[]; }catch{}
+      logLine('log-ok',`▸ AnimeWeb has ${existingIds.length} IDs`);
+    }else if(getRes.status===404){
+      logLine('log-ok','▸ Creating data/anime-ids.json in anistream-site');
+    }else{
+      const e=await getRes.json(); throw new Error(e.message||`GET ${getRes.status}`);
+    }
+    const merged=[...new Set([...existingIds,..._allIds,..._scraperNewIds])].sort((a,b)=>a-b);
+    const addedCount=merged.length-existingIds.length;
+    if(addedCount===0){
+      logLine('log-ok','▸ AnimeWeb already up to date');
+      btn.textContent='✓ Up to date'; btn.disabled=false; return;
+    }
+    const out={ids:merged,count:merged.length,updated:new Date().toISOString(),source:'animedb-push'};
+    const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(out,null,2))));
+    const body={message:`chore: sync ${addedCount} IDs from AnimeDb [skip ci]`,content:encoded};
+    if(sha) body.sha=sha;
+    const putRes=await fetch(`${GH_API}/repos/${AW_REPO}/contents/${AW_PATH}`,{
+      method:'PUT',
+      headers:{'Authorization':`Bearer ${pat}`,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
+      body:JSON.stringify(body)
+    });
+    if(!putRes.ok){const e=await putRes.json();throw new Error(e.message||`PUT ${putRes.status}`);}
+    const pd=await putRes.json();
+    btn.textContent=`✓ +${addedCount} synced`; btn.style.color='#60a5fa';
+    logLine('log-done',`▸ AnimeWeb updated — +${addedCount} IDs, total ${merged.length.toLocaleString()}`);
+    logLine('log-ok',`▸ Commit: ${pd.commit?.sha?.slice(0,7)||'done'} in anistream-site`);
+    toast(`Synced +${addedCount} IDs to AnimeWeb`);
+    setTimeout(()=>{btn.textContent='⬆ Push to AnimeWeb';btn.style.color='';btn.disabled=false;},4000);
+  }catch(e){
+    logLine('log-err',`▸ AnimeWeb sync failed: ${e.message}`);
+    toast(`AnimeWeb sync failed: ${e.message}`);
+    btn.textContent='⬆ Push to AnimeWeb'; btn.disabled=false;
+  }
+}
+
 async function pushToAnimeWeb(){
   const pat=getPat();
   if(!pat){toast('Connect GitHub first');return;}
