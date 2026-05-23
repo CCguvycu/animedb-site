@@ -27,6 +27,9 @@ jobs:
       - name: Run site discovery
         run: python scripts/scrape_sites.py
 
+      - name: Pull latest before commit
+        run: git pull --rebase origin main
+
       - name: Commit updates
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
