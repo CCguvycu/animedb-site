@@ -130,6 +130,9 @@
     .btn-push { background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.3);color:#4ade80;font-size:.82rem; }
     .btn-push:hover:not(:disabled) { background:rgba(74,222,128,.2);border-color:#4ade80; }
     .btn-push:disabled { opacity:.5;cursor:not-allowed; }
+    .btn-push-aw { background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.3);color:#60a5fa;font-size:.82rem; }
+    .btn-push-aw:hover:not(:disabled) { background:rgba(96,165,250,.2);border-color:#60a5fa; }
+    .btn-push-aw:disabled { opacity:.5;cursor:not-allowed; }
     .btn-gh { background:rgba(100,116,139,.08);border-color:rgba(100,116,139,.25);color:var(--muted); }
     .btn-gh:hover { background:rgba(100,116,139,.14);color:var(--text); }
   </style>
@@ -287,6 +290,7 @@
       <!-- Actions -->
       <div class="scraper-actions" id="scraperActions">
         <button class="action-btn btn-push" id="pushBtn" onclick="pushToAnimeDb()">&#11014; Push to AnimeDb</button>
+        <button class="action-btn btn-push-aw" id="pushAwBtn" onclick="pushToAnimeWeb()">&#11014; Push to AnimeWeb</button>
         <button class="action-btn btn-export" onclick="exportJson()">&#11015; Export .json</button>
         <button class="action-btn btn-export" onclick="exportCsv()">&#11015; Export .csv</button>
         <a class="action-btn btn-gh" href="https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml" target="_blank">&#9654; Full GitHub run</a>
@@ -428,6 +432,8 @@ function updatePatUI() {
   const btn = document.getElementById('pushBtn');
   if (!ok) { btn.disabled = true; btn.title = 'Connect GitHub first'; }
   else      { btn.disabled = false; btn.title = ''; }
+  const btnAw=document.getElementById('pushAwBtn');
+  if(btnAw){ if(!ok){btnAw.disabled=true;}else{btnAw.disabled=false;} }
 }
 document.getElementById('patField').addEventListener('keydown', e => { if(e.key==='Enter') savePat(); });
 
@@ -604,6 +610,10 @@ async function startScraper(){
   pushBtn.textContent='&#11014; Push to AnimeDb';
   pushBtn.style.color='';
   pushBtn.disabled=!getPat();
+  const pushAwBtn=document.getElementById('pushAwBtn');
+  pushAwBtn.textContent='&#11014; Push to AnimeWeb';
+  pushAwBtn.style.color='';
+  pushAwBtn.disabled=!getPat();
 
   const eps=buildEndpoints(_scraperMode), total=eps.length;
   let newCount=0,dupCount=0,totFound=0,reqsDone=0,errCount=0;
@@ -734,6 +744,82 @@ async function pushToAnimeDb(){
     logLine('log-err',`▸ Push failed: ${e.message}`);
     toast(`Push failed: ${e.message}`);
     btn.textContent='&#11014; Push to AnimeDb';
+    btn.disabled=!getPat();
+  }
+}
+
+// ── Push to AnimeWeb ──────────────────────────────────────────────────────
+async function pushToAnimeWeb(){
+  const pat=getPat();
+  if(!pat){toast('Connect GitHub first');return;}
+  if(!_scraperNewIds.length&&_allIds.length===0){toast('Run the scraper first');return;}
+
+  const btn=document.getElementById('pushAwBtn');
+  btn.disabled=true;
+  btn.textContent='&#8987; Pushing…';
+
+  logLine('log-head','');
+  logLine('log-head','▸ Pushing to AnimeWeb (anistream-site) via GitHub Contents API…');
+
+  try{
+    const AW_REPO='CCguvycu/anistream-site';
+    const AW_PATH='data/anime-ids.json';
+
+    // 1. Try to get existing file (may not exist yet)
+    let sha=null;
+    let existingIds=[];
+    const getRes=await fetch(`${GH_API}/repos/${AW_REPO}/contents/${AW_PATH}`,{
+      headers:{'Authorization':`Bearer ${pat}`,'Accept':'application/vnd.github+json'}
+    });
+    if(getRes.ok){
+      const fd=await getRes.json();
+      sha=fd.sha;
+      try{ existingIds=JSON.parse(atob(fd.content.replace(/
+/g,''))).ids||[]; }catch{}
+      logLine('log-ok',`▸ Existing file found (${existingIds.length} IDs)`);
+    }else if(getRes.status===404){
+      logLine('log-ok','▸ File not found — will create data/anime-ids.json');
+    }else{
+      const e=await getRes.json();
+      throw new Error(e.message||`GET ${getRes.status}`);
+    }
+
+    // 2. Merge: existing + current catalog + new scraped IDs
+    const toAdd=_scraperNewIds.length>0?_scraperNewIds:[];
+    const merged=[...new Set([...existingIds,..._allIds,...toAdd])].sort((a,b)=>a-b);
+    const addedCount=merged.length-existingIds.length;
+
+    if(addedCount===0){
+      logLine('log-ok','▸ AnimeWeb already up to date');
+      btn.textContent='&#10003; Already up to date';
+      btn.disabled=false;
+      return;
+    }
+
+    // 3. Encode + commit
+    const out={ids:merged,count:merged.length,updated:new Date().toISOString(),source:'animedb-browser-push'};
+    const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(out,null,2))));
+    const body={message:`chore: sync ${addedCount} IDs from AnimeDb browser push [skip ci]`,content:encoded};
+    if(sha)body.sha=sha;
+
+    const putRes=await fetch(`${GH_API}/repos/${AW_REPO}/contents/${AW_PATH}`,{
+      method:'PUT',
+      headers:{'Authorization':`Bearer ${pat}`,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
+      body:JSON.stringify(body)
+    });
+    if(!putRes.ok){const e=await putRes.json();throw new Error(e.message||`PUT ${putRes.status}`);}
+    const putData=await putRes.json();
+
+    btn.textContent=`&#10003; Pushed ${addedCount} IDs`;
+    btn.style.color='#60a5fa';
+    logLine('log-done',`▸ AnimeWeb updated — ${addedCount} new IDs, catalog now at ${merged.length.toLocaleString()}`);
+    logLine('log-ok',`▸ Commit: ${putData.commit?.sha?.slice(0,7)||'done'} — data/anime-ids.json in anistream-site`);
+    toast(`Pushed ${addedCount} IDs to AnimeWeb`);
+
+  }catch(e){
+    logLine('log-err',`▸ Push to AnimeWeb failed: ${e.message}`);
+    toast(`AnimeWeb push failed: ${e.message}`);
+    btn.textContent='&#11014; Push to AnimeWeb';
     btn.disabled=!getPat();
   }
 }
