@@ -34,6 +34,117 @@
       padding: .1rem .4rem; margin-left: .4rem; vertical-align: middle;
     }
 
+    /* ── Featured Anime ───────────────────────────── */
+    .anime-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .9rem;
+    }
+    .anime-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r-lg); overflow: hidden;
+      text-decoration: none; color: var(--text);
+      transition: all .18s ease;
+    }
+    .anime-card:hover {
+      border-color: rgba(168,85,247,.4);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(168,85,247,.12);
+    }
+    .anime-cover {
+      width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;
+      background: var(--card-hov);
+    }
+    .anime-cover-skel {
+      width: 100%; aspect-ratio: 2/3;
+      background: linear-gradient(90deg, var(--card-hov) 25%, rgba(168,85,247,.06) 50%, var(--card-hov) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+    }
+    @keyframes shimmer { from { background-position: 200% 0 } to { background-position: -200% 0 } }
+    .anime-info { padding: .6rem .7rem; }
+    .anime-title {
+      font-size: .76rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .anime-score { font-size: .68rem; color: var(--gold); font-weight: 700; }
+    .anime-genres { display: flex; flex-wrap: wrap; gap: .2rem; margin-top: .35rem; }
+    .anime-genre {
+      font-size: .58rem; padding: .08rem .3rem; border-radius: 4px;
+      background: rgba(168,85,247,.1); color: var(--purple-lt); font-weight: 600;
+    }
+    .anime-skel-line {
+      height: .75rem; border-radius: 4px; margin-bottom: .35rem;
+      animation: shimmer 1.4s infinite;
+      background: linear-gradient(90deg, var(--card-hov) 25%, rgba(168,85,247,.06) 50%, var(--card-hov) 75%);
+      background-size: 200% 100%;
+    }
+
+    /* ── DB Lookup ────────────────────────────────── */
+    .lookup-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 1.5rem;
+    }
+    .lookup-input-row {
+      display: flex; gap: .65rem; align-items: center; margin-bottom: 1.1rem; flex-wrap: wrap;
+    }
+    .lookup-input {
+      flex: 1; min-width: 200px; max-width: 480px;
+      padding: .55rem 1rem;
+      border-radius: 100px; font-size: .85rem; font-family: inherit;
+      border: 1px solid var(--border); background: var(--card-hov); color: var(--text);
+      outline: none; transition: border-color .18s;
+    }
+    .lookup-input:focus { border-color: var(--purple); }
+    .lookup-input::placeholder { color: var(--dim); }
+    .lookup-btn {
+      padding: .55rem 1.25rem; border-radius: 100px; font-size: .8rem; font-weight: 700;
+      background: rgba(168,85,247,.14); border: 1px solid rgba(168,85,247,.35);
+      color: var(--purple-lt); cursor: pointer; transition: all .18s; font-family: inherit;
+    }
+    .lookup-btn:hover { background: rgba(168,85,247,.24); border-color: var(--purple); }
+    .lookup-result { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .lookup-cover {
+      width: 78px; height: 108px; object-fit: cover;
+      border-radius: var(--r); flex-shrink: 0; background: var(--card-hov);
+    }
+    .lookup-info { flex: 1; min-width: 0; }
+    .lookup-title { font-size: 1rem; font-weight: 800; margin-bottom: .35rem; line-height: 1.25; }
+    .lookup-meta { font-size: .75rem; color: var(--muted); margin-bottom: .6rem; }
+    .lookup-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .72rem; font-weight: 700; padding: .22rem .7rem; border-radius: 100px;
+    }
+    .badge-in  { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.25); }
+    .badge-out { background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.25); }
+    .lookup-genres { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .65rem; }
+    .lookup-empty { color: var(--dim); font-size: .85rem; padding: .5rem 0; }
+
+    /* ── Commits ──────────────────────────────────── */
+    .commit-row {
+      display: flex; align-items: flex-start; gap: .85rem;
+      padding: .7rem 1rem; border-bottom: 1px solid rgba(255,255,255,.04);
+      font-size: .8rem;
+    }
+    .commit-row:last-child { border-bottom: none; }
+    .commit-sha {
+      font-family: monospace; font-size: .7rem; color: var(--purple-lt);
+      flex-shrink: 0; padding-top: .05rem; text-decoration: none;
+    }
+    .commit-sha:hover { text-decoration: underline; }
+    .commit-msg { flex: 1; color: var(--muted); line-height: 1.4; word-break: break-word; }
+    .commit-msg strong { color: var(--text); font-weight: 500; }
+    .commit-time { font-size: .7rem; color: var(--dim); flex-shrink: 0; white-space: nowrap; }
+
+    /* ── Tab toggle ───────────────────────────────── */
+    .tab-toggle { display: flex; gap: .3rem; }
+    .tab-btn {
+      padding: .25rem .7rem; border-radius: 6px; font-size: .76rem; font-weight: 600;
+      border: 1px solid transparent; background: transparent; color: var(--dim);
+      cursor: pointer; font-family: inherit; transition: all .18s;
+    }
+    .tab-btn.on { background: rgba(168,85,247,.12); border-color: rgba(168,85,247,.3); color: var(--purple-lt); }
+    .tab-btn:hover:not(.on) { color: var(--text); background: rgba(255,255,255,.04); }
   </style>
 </head>
 <body>
@@ -44,7 +155,9 @@
     AnimeDb <span class="nav-badge">API</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#anime" class="active">Anime</a></li>
+    <li><a href="#featured" class="active">Featured</a></li>
+    <li><a href="#anime">Catalog</a></li>
+    <li><a href="#lookup">Lookup</a></li>
     <li><a href="#sites">Sites</a></li>
     <li><a href="#runs">Runs</a></li>
     <li><a href="#api">API</a></li>
@@ -55,8 +168,8 @@
       background:rgba(74,222,128,.08);padding:.3rem .85rem;border-radius:8px;text-decoration:none;transition:all .18s;display:inline-flex;align-items:center;gap:.4rem"
       onmouseover="this.style.background='rgba(74,222,128,.16)'"
       onmouseout="this.style.background='rgba(74,222,128,.08)'"
-    >▶ Run Now</a>
-    <a href="https://ccguvycu.github.io/anistream-site/" target="_blank" class="nav-animeweb">↗ AnimeWeb</a>
+    >&#9654; Run Now</a>
+    <a href="https://ccguvycu.github.io/anistream-site/" target="_blank" class="nav-animeweb">&#8599; AnimeWeb</a>
   </div>
 </nav>
 
@@ -64,16 +177,16 @@
 <div class="page">
 <div class="hero-banner">
   <div class="hero-inner">
-    <div class="hero-tag"><span class="hero-dot"></span> Live Data Source · Auto-updates daily</div>
+    <div class="hero-tag"><span class="hero-dot"></span> Live Data Source &middot; Auto-updates daily</div>
     <h1 class="hero-title">Anime<span>Db</span></h1>
-    <p class="hero-sub">The single source of truth powering AnimeWeb — anime catalog, streaming sites, and live config. Open, free, self-maintaining.</p>
+    <p class="hero-sub">The single source of truth powering AnimeWeb &mdash; anime catalog, streaming sites, and live config. Open, free, self-maintaining.</p>
     <div class="hero-stats">
       <div>
-        <div class="hstat-val" id="statIds">—</div>
+        <div class="hstat-val" id="statIds">&mdash;</div>
         <div class="hstat-lbl">Anime IDs</div>
       </div>
       <div>
-        <div class="hstat-val" id="statSites">—</div>
+        <div class="hstat-val" id="statSites">&mdash;</div>
         <div class="hstat-lbl">Live Sites</div>
       </div>
       <div>
@@ -81,7 +194,7 @@
         <div class="hstat-lbl">Endpoints/Run</div>
       </div>
       <div>
-        <div class="hstat-val" id="statUpdated">—</div>
+        <div class="hstat-val" id="statUpdated">&mdash;</div>
         <div class="hstat-lbl">Last Updated</div>
       </div>
     </div>
@@ -94,25 +207,39 @@
   <!-- What's inside -->
   <div class="card-grid" style="margin-bottom:2.5rem">
     <div class="card">
-      <div class="card-icon">🗂</div>
+      <div class="card-icon">&#128194;</div>
       <div class="card-title">Anime Catalog</div>
-      <div class="card-desc">3,255+ MAL IDs from Jikan — top-rated (pages 1–30), seasonal 2015–2025, 36 genres × 2 pages, 20 niche search terms. Grows daily.</div>
+      <div class="card-desc">3,255+ MAL IDs from Jikan &mdash; top-rated (pages 1&ndash;30), seasonal 2015&ndash;2025, 36 genres &times; 2 pages, 20 niche search terms. Grows daily.</div>
     </div>
     <div class="card">
-      <div class="card-icon">📡</div>
+      <div class="card-icon">&#128225;</div>
       <div class="card-title">Streaming Sites</div>
       <div class="card-desc">110 sites checked daily via HEAD requests. Dead sites auto-removed. Live sites tagged Sub / Dub / Sub+Dub / Official / Manga.</div>
     </div>
     <div class="card">
-      <div class="card-icon">⚡</div>
+      <div class="card-icon">&#9889;</div>
       <div class="card-title">Fast Scraper</div>
       <div class="card-desc">3 parallel threads for IDs (Jikan 3 req/s limit), 12 parallel threads for site checks. Full run completes in ~5 min.</div>
     </div>
     <div class="card">
-      <div class="card-icon">🔄</div>
+      <div class="card-icon">&#128260;</div>
       <div class="card-title">Daily Auto-Updates</div>
-      <div class="card-desc">GitHub Action at 04:00 UTC every day. Both scrapers run, diff committed automatically. Trigger on demand with ▶ Run Now.</div>
+      <div class="card-desc">GitHub Action at 04:00 UTC every day. Both scrapers run, diff committed automatically. Trigger on demand with &#9654; Run Now.</div>
     </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── Featured Anime ───────────────────────────────────────────────────── -->
+  <div id="featured" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <div class="section-title">Featured Anime <span class="section-badge" id="featuredBadge">loading&hellip;</span></div>
+      <div style="font-size:.78rem;color:var(--dim)">
+        Random picks from the catalog &middot;
+        <a id="featuredRefresh" href="#" style="color:var(--purple-lt);text-decoration:none">&#8635; Refresh</a>
+      </div>
+    </div>
+    <div class="anime-featured-grid" id="featuredGrid"></div>
   </div>
 
   <div class="divider"></div>
@@ -120,20 +247,20 @@
   <!-- ── Anime catalog ─────────────────────────────────────────────────────── -->
   <div id="anime" style="scroll-margin-top:80px">
     <div class="section-head">
-      <div class="section-title">Anime Catalog <span class="section-badge" id="animeBadge">loading…</span></div>
+      <div class="section-title">Anime Catalog <span class="section-badge" id="animeBadge">loading&hellip;</span></div>
       <div style="font-size:.78rem;color:var(--dim)" id="animeUpdated"></div>
     </div>
 
     <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" id="animeSearch" type="text" placeholder="Search MAL IDs…" autocomplete="off">
+      <span class="search-icon">&#128269;</span>
+      <input class="search-input" id="animeSearch" type="text" placeholder="Search MAL IDs&hellip;" autocomplete="off">
     </div>
 
     <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
       <div style="padding:.75rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;font-size:.75rem;color:var(--dim)">
-        <span>Showing <strong id="animeShowing" style="color:var(--text)">—</strong> of <strong id="animeTotal" style="color:var(--text)">—</strong> IDs</span>
+        <span>Showing <strong id="animeShowing" style="color:var(--text)">&mdash;</strong> of <strong id="animeTotal" style="color:var(--text)">&mdash;</strong> IDs</span>
         <span style="margin-left:auto">
-          <a href="api/anime-ids.json" target="_blank" style="color:var(--purple-lt);text-decoration:none">api/anime-ids.json ↗</a>
+          <a href="api/anime-ids.json" target="_blank" style="color:var(--purple-lt);text-decoration:none">api/anime-ids.json &#8599;</a>
         </span>
       </div>
       <div id="animeGrid" style="display:flex;flex-wrap:wrap;gap:.4rem;padding:1rem;max-height:320px;overflow-y:auto"></div>
@@ -142,14 +269,30 @@
 
   <div class="divider"></div>
 
+  <!-- ── DB Lookup ─────────────────────────────────────────────────────────── -->
+  <div id="lookup" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <div class="section-title">DB Lookup</div>
+      <span style="font-size:.78rem;color:var(--dim)">Search any anime &mdash; see if it's in the catalog</span>
+    </div>
+    <div class="lookup-box">
+      <div class="lookup-input-row">
+        <input class="lookup-input" id="lookupInput" type="text" placeholder="Type an anime title&hellip;" autocomplete="off">
+        <button class="lookup-btn" id="lookupBtn">Search</button>
+      </div>
+      <div id="lookupResult"></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- ── Sites directory ───────────────────────────────────────────────────── -->
   <div id="sites" style="scroll-margin-top:80px">
     <div class="section-head">
-      <div class="section-title">Streaming Sites <span class="section-badge" id="sitesBadge">loading…</span></div>
-      <a href="api/sites.json" target="_blank" style="font-size:.78rem;color:var(--purple-lt);text-decoration:none">api/sites.json ↗</a>
+      <div class="section-title">Streaming Sites <span class="section-badge" id="sitesBadge">loading&hellip;</span></div>
+      <a href="api/sites.json" target="_blank" style="font-size:.78rem;color:var(--purple-lt);text-decoration:none">api/sites.json &#8599;</a>
     </div>
 
-    <!-- Category breakdown -->
     <div id="siteCats" style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;font-size:.78rem;color:var(--dim)"></div>
 
     <div class="pill-row" id="tagFilter">
@@ -166,15 +309,26 @@
 
   <div class="divider"></div>
 
-  <!-- ── Recent runs ───────────────────────────────────────────────────────── -->
+  <!-- ── Activity (runs + commits) ─────────────────────────────────────────── -->
   <div id="runs" style="scroll-margin-top:80px">
     <div class="section-head">
-      <div class="section-title">Recent Runs</div>
-      <a href="https://github.com/CCguvycu/animedb-site/actions" target="_blank"
-        style="font-size:.78rem;color:var(--purple-lt);text-decoration:none">GitHub Actions ↗</a>
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <div class="section-title">Activity</div>
+        <div class="tab-toggle">
+          <button class="tab-btn on" id="tabRuns" onclick="switchTab('runs')">&#9654; Runs</button>
+          <button class="tab-btn" id="tabCommits" onclick="switchTab('commits')">&#9881; Commits</button>
+        </div>
+      </div>
+      <a href="https://github.com/CCguvycu/animedb-site" target="_blank"
+        style="font-size:.78rem;color:var(--purple-lt);text-decoration:none">GitHub &#8599;</a>
     </div>
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden" id="runsWrap">
-      <div style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading runs…</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
+      <div id="runsPane">
+        <div id="runsWrap" style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading runs&hellip;</div>
+      </div>
+      <div id="commitsPane" style="display:none">
+        <div id="commitsWrap" style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading commits&hellip;</div>
+      </div>
     </div>
   </div>
 
@@ -184,7 +338,7 @@
   <div id="api" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">API Reference</div>
-      <span style="font-size:.78rem;color:var(--dim)">CORS-open · GitHub Pages</span>
+      <span style="font-size:.78rem;color:var(--dim)">CORS-open &middot; GitHub Pages</span>
     </div>
 
     <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
@@ -196,12 +350,12 @@
           <tr>
             <td><span class="api-method">GET</span></td>
             <td class="api-url"><a href="api/anime-ids.json" target="_blank">api/anime-ids.json</a></td>
-            <td style="color:var(--muted);font-size:.8rem">3,255+ MAL IDs — <code>ids[]</code>, <code>count</code>, <code>updated</code>, <code>endpoints_run</code></td>
+            <td style="color:var(--muted);font-size:.8rem">3,255+ MAL IDs &mdash; <code>ids[]</code>, <code>count</code>, <code>updated</code>, <code>endpoints_run</code></td>
           </tr>
           <tr>
             <td><span class="api-method">GET</span></td>
             <td class="api-url"><a href="api/sites.json" target="_blank">api/sites.json</a></td>
-            <td style="color:var(--muted);font-size:.8rem">Live streaming sites — <code>name</code>, <code>url</code>, <code>tag</code>, <code>top?</code>, <code>categories{}</code></td>
+            <td style="color:var(--muted);font-size:.8rem">Live streaming sites &mdash; <code>name</code>, <code>url</code>, <code>tag</code>, <code>top?</code>, <code>categories{}</code></td>
           </tr>
           <tr>
             <td><span class="api-method">GET</span></td>
@@ -217,15 +371,15 @@
       <pre style="font-size:.78rem;color:var(--purple-lt);line-height:1.7;overflow-x:auto"><code>const ANIMEDB = 'https://ccguvycu.github.io/animedb-site';
 
 // Anime catalog
-const { ids, count } = await fetch(`${ANIMEDB}/api/anime-ids.json`).then(r => r.json());
-// ids → [1, 19, 20, ...3255 total]
+const { ids, count } = await fetch(`${ANIMEDB}/api/anime-ids.json`).then(r =&gt; r.json());
+// ids -&gt; [1, 19, 20, ...3255 total]
 
 // Live streaming sites
-const { sites } = await fetch(`${ANIMEDB}/api/sites.json`).then(r => r.json());
-// sites → [{ name:'HiAnime', url:'...', tag:'sub', top:true }, ...]
+const { sites } = await fetch(`${ANIMEDB}/api/sites.json`).then(r =&gt; r.json());
+// sites -&gt; [{ name:'HiAnime', url:'...', tag:'sub', top:true }, ...]
 
 // Filter by tag
-const subSites = sites.filter(s => s.tag === 'sub');</code></pre>
+const subSites = sites.filter(s =&gt; s.tag === 'sub');</code></pre>
     </div>
   </div>
 
@@ -233,13 +387,16 @@ const subSites = sites.filter(s => s.tag === 'sub');</code></pre>
 
 <!-- ── Footer ─────────────────────────────────────────────────────────────── -->
 <div class="footer">
-  AnimeDb — open data for <a href="https://ccguvycu.github.io/anistream-site/" target="_blank">AnimeWeb</a> ·
-  <a href="https://github.com/CCguvycu/animedb-site" target="_blank">GitHub</a> ·
+  AnimeDb &mdash; open data for <a href="https://ccguvycu.github.io/anistream-site/" target="_blank">AnimeWeb</a> &middot;
+  <a href="https://github.com/CCguvycu/animedb-site" target="_blank">GitHub</a> &middot;
   Auto-updates daily at 04:00 UTC
 </div>
 </div>
 
 <script>
+const ANILIST = 'https://graphql.anilist.co';
+let _allIds = [];
+
 function toast(msg) {
   const t = document.createElement('div');
   t.className = 'toast'; t.textContent = msg;
@@ -249,13 +406,22 @@ function toast(msg) {
 
 function timeAgo(iso) {
   const s = Math.round((Date.now() - new Date(iso)) / 1000);
-  if (s < 60)   return `${s}s ago`;
-  if (s < 3600) return `${Math.floor(s/60)}m ago`;
-  if (s < 86400)return `${Math.floor(s/3600)}h ago`;
+  if (s < 60)    return `${s}s ago`;
+  if (s < 3600)  return `${Math.floor(s/60)}m ago`;
+  if (s < 86400) return `${Math.floor(s/3600)}h ago`;
   return `${Math.floor(s/86400)}d ago`;
 }
 
-// ── Load data ──────────────────────────────────────────────────────────────
+function pickRandom(arr, n) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, n);
+}
+
+// ── Load catalog + sites ───────────────────────────────────────────────────
 async function loadAll() {
   const [animeRes, sitesRes] = await Promise.all([
     fetch('api/anime-ids.json'),
@@ -264,13 +430,13 @@ async function loadAll() {
   const animeData = await animeRes.json();
   const sitesData = await sitesRes.json();
 
-  // Hero stats
+  _allIds = animeData.ids;
+
   document.getElementById('statIds').textContent   = animeData.count.toLocaleString();
   document.getElementById('statSites').textContent = sitesData.count;
   const updated = new Date(animeData.updated);
   document.getElementById('statUpdated').textContent = updated.toLocaleDateString('en-GB', { day:'numeric', month:'short' });
 
-  // Anime section
   document.getElementById('animeBadge').textContent   = `${animeData.count.toLocaleString()} IDs`;
   document.getElementById('animeUpdated').textContent = `Updated ${timeAgo(animeData.updated)}`;
   document.getElementById('animeTotal').textContent   = animeData.count.toLocaleString();
@@ -285,13 +451,11 @@ async function loadAll() {
     }, 150);
   });
 
-  // Sites section
   document.getElementById('sitesBadge').textContent = `${sitesData.count} live`;
   if (sitesData.categories) {
-    const cats = sitesData.categories;
-    document.getElementById('siteCats').innerHTML = Object.entries(cats)
+    document.getElementById('siteCats').innerHTML = Object.entries(sitesData.categories)
       .map(([tag, n]) => `<span><strong style="color:var(--text)">${n}</strong> ${tag}</span>`)
-      .join(' · ');
+      .join(' &middot; ');
   }
   renderSites(sitesData.sites, '');
 
@@ -301,6 +465,12 @@ async function loadAll() {
     document.querySelectorAll('#tagFilter .filter-pill').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
     renderSites(sitesData.sites, btn.dataset.tag);
+  });
+
+  loadFeatured();
+  document.getElementById('featuredRefresh').addEventListener('click', e => {
+    e.preventDefault();
+    loadFeatured();
   });
 }
 
@@ -328,6 +498,136 @@ function renderSites(sites, tag) {
   }).join('');
 }
 
+// ── Featured anime ─────────────────────────────────────────────────────────
+async function loadFeatured() {
+  const grid  = document.getElementById('featuredGrid');
+  const badge = document.getElementById('featuredBadge');
+
+  grid.innerHTML = Array(8).fill(0).map(() =>
+    `<div class="anime-card">
+      <div class="anime-cover-skel"></div>
+      <div class="anime-info">
+        <div class="anime-skel-line" style="width:80%"></div>
+        <div class="anime-skel-line" style="width:45%"></div>
+      </div>
+    </div>`
+  ).join('');
+  badge.textContent = 'loading…';
+
+  const sampleIds = pickRandom(_allIds, 24);
+
+  const query = `query ($ids: [Int]) {
+    Page(perPage: 8) {
+      media(idMal_in: $ids, type: ANIME, sort: SCORE_DESC) {
+        idMal
+        title { romaji english }
+        coverImage { large }
+        averageScore
+        genres
+        siteUrl
+      }
+    }
+  }`;
+
+  try {
+    const res = await fetch(ANILIST, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ query, variables: { ids: sampleIds } })
+    });
+    const { data } = await res.json();
+    const media = data?.Page?.media || [];
+
+    if (!media.length) {
+      grid.innerHTML = '<p style="color:var(--dim);font-size:.85rem">Could not load featured anime. Try refreshing.</p>';
+      badge.textContent = '0';
+      return;
+    }
+
+    badge.textContent = `${media.length} shown`;
+    grid.innerHTML = media.map(m => {
+      const title  = m.title.english || m.title.romaji;
+      const score  = m.averageScore ? `&#9733; ${(m.averageScore / 10).toFixed(1)}` : '';
+      const genres = (m.genres || []).slice(0, 3);
+      return `<a class="anime-card" href="${m.siteUrl}" target="_blank" rel="noopener" title="${title}">
+        <img class="anime-cover" src="${m.coverImage.large}" alt="${title}" loading="lazy">
+        <div class="anime-info">
+          <div class="anime-title">${title}</div>
+          ${score ? `<div class="anime-score">${score}</div>` : ''}
+          <div class="anime-genres">${genres.map(g => `<span class="anime-genre">${g}</span>`).join('')}</div>
+        </div>
+      </a>`;
+    }).join('');
+  } catch {
+    grid.innerHTML = '<p style="color:var(--dim);font-size:.85rem">AniList unavailable. Try refreshing.</p>';
+    badge.textContent = 'error';
+  }
+}
+
+// ── DB Lookup ──────────────────────────────────────────────────────────────
+document.getElementById('lookupInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLookup();
+});
+document.getElementById('lookupBtn').addEventListener('click', doLookup);
+
+async function doLookup() {
+  const q = document.getElementById('lookupInput').value.trim();
+  if (!q) return;
+
+  const resultEl = document.getElementById('lookupResult');
+  resultEl.innerHTML = '<div class="lookup-empty">Searching…</div>';
+
+  const query = `query ($q: String) {
+    Media(search: $q, type: ANIME, sort: SEARCH_MATCH) {
+      idMal
+      title { romaji english }
+      coverImage { medium }
+      averageScore
+      genres
+      episodes
+      status
+      siteUrl
+      startDate { year }
+    }
+  }`;
+
+  try {
+    const res = await fetch(ANILIST, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ query, variables: { q } })
+    });
+    const { data, errors } = await res.json();
+
+    if (errors || !data?.Media) {
+      resultEl.innerHTML = '<div class="lookup-empty">No anime found for that title.</div>';
+      return;
+    }
+
+    const m     = data.Media;
+    const inDb  = _allIds.includes(m.idMal);
+    const title = m.title.english || m.title.romaji;
+    const score = m.averageScore ? `&#9733; ${(m.averageScore / 10).toFixed(1)}` : '';
+    const year  = m.startDate?.year || '';
+    const eps   = m.episodes ? ` &middot; ${m.episodes} eps` : '';
+    const genres = (m.genres || []).slice(0, 5);
+
+    resultEl.innerHTML = `<div class="lookup-result">
+      <img class="lookup-cover" src="${m.coverImage.medium}" alt="${title}" onerror="this.style.opacity=.3">
+      <div class="lookup-info">
+        <div class="lookup-title">${title}</div>
+        <div class="lookup-meta">${[year, m.status?.toLowerCase(), score].filter(Boolean).join(' &middot; ')}${eps}${m.idMal ? ` &middot; MAL ${m.idMal}` : ''}</div>
+        <span class="lookup-badge ${inDb ? 'badge-in' : 'badge-out'}">
+          ${inDb ? '&#10003; In catalog' : '&#10007; Not in catalog'}
+        </span>
+        <div class="lookup-genres">${genres.map(g => `<span class="anime-genre">${g}</span>`).join('')}</div>
+      </div>
+    </div>`;
+  } catch {
+    resultEl.innerHTML = '<div class="lookup-empty">AniList unavailable. Try again.</div>';
+  }
+}
+
 // ── Recent runs ────────────────────────────────────────────────────────────
 async function loadRuns() {
   const wrap = document.getElementById('runsWrap');
@@ -336,26 +636,65 @@ async function loadRuns() {
       headers: { 'Accept': 'application/vnd.github+json' }
     });
     const data = await res.json();
-    if (!data.workflow_runs?.length) { wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">No runs yet.</div>'; return; }
+    if (!data.workflow_runs?.length) {
+      wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">No runs yet.</div>';
+      return;
+    }
     wrap.innerHTML = data.workflow_runs.map(run => {
-      const cls = run.status === 'completed' ? (run.conclusion === 'success' ? 'completed' : 'failure') : run.status.replace(/ /g,'_');
+      const cls   = run.status === 'completed' ? (run.conclusion === 'success' ? 'completed' : 'failure') : run.status.replace(/ /g,'_');
       const label = run.status === 'completed' ? run.conclusion : run.status.replace(/_/g,' ');
       return `<div class="run-row">
         <span class="run-status ${cls}">${label}</span>
         <span class="run-name">${run.name}</span>
         <span class="run-time">${timeAgo(run.created_at)}</span>
-        <a class="run-link" href="${run.html_url}" target="_blank">↗ view</a>
+        <a class="run-link" href="${run.html_url}" target="_blank">&#8599; view</a>
       </div>`;
     }).join('');
   } catch {
-    wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">Could not load runs (GitHub API rate limit — try refreshing).</div>';
+    wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">Could not load runs (GitHub API rate limit &mdash; try refreshing).</div>';
   }
+}
+
+// ── Recent commits ─────────────────────────────────────────────────────────
+async function loadCommits() {
+  const wrap = document.getElementById('commitsWrap');
+  if (wrap.dataset.loaded) return;
+  wrap.dataset.loaded = '1';
+  try {
+    const res  = await fetch('https://api.github.com/repos/CCguvycu/animedb-site/commits?per_page=10', {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    const data = await res.json();
+    if (!Array.isArray(data) || !data.length) {
+      wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">No commits found.</div>';
+      return;
+    }
+    wrap.innerHTML = data.map(c => {
+      const msg = c.commit.message.split('\n')[0];
+      const sha = c.sha.slice(0, 7);
+      const ago = timeAgo(c.commit.author.date);
+      return `<div class="commit-row">
+        <a class="commit-sha" href="${c.html_url}" target="_blank">${sha}</a>
+        <span class="commit-msg"><strong>${msg}</strong></span>
+        <span class="commit-time">${ago}</span>
+      </div>`;
+    }).join('');
+  } catch {
+    wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">Could not load commits.</div>';
+  }
+}
+
+// ── Tab switcher ───────────────────────────────────────────────────────────
+function switchTab(tab) {
+  document.getElementById('tabRuns').classList.toggle('on', tab === 'runs');
+  document.getElementById('tabCommits').classList.toggle('on', tab === 'commits');
+  document.getElementById('runsPane').style.display    = tab === 'runs'    ? '' : 'none';
+  document.getElementById('commitsPane').style.display = tab === 'commits' ? '' : 'none';
+  if (tab === 'commits') loadCommits();
 }
 
 loadAll().catch(console.error);
 loadRuns().catch(console.error);
-
-
 </script>
 </body>
 </html>
