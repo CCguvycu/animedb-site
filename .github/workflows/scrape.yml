@@ -21,13 +21,16 @@ jobs:
       - name: Install dependencies
         run: pip install aiohttp
 
-      - name: Run discovery scraper
+      - name: Run anime ID discovery
         run: python scripts/scrape_ids.py
 
-      - name: Commit new IDs
+      - name: Run site discovery
+        run: python scripts/scrape_sites.py
+
+      - name: Commit updates
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: daily anime discovery [skip ci]'
-          file_pattern: api/anime-ids.json
+          commit_message: 'chore: daily discovery — IDs + sites [skip ci]'
+          file_pattern: api/anime-ids.json api/sites.json
           commit_user_name: 'animedb-bot'
           commit_user_email: 'animedb-bot@users.noreply.github.com'
