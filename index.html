@@ -396,6 +396,7 @@ function toast(msg) {
 }
 function timeAgo(iso) {
   const s = Math.round((Date.now()-new Date(iso))/1000);
+  if(s<=0) return 'just now';
   if(s<60) return `${s}s ago`; if(s<3600) return `${Math.floor(s/60)}m ago`;
   if(s<86400) return `${Math.floor(s/3600)}h ago`; return `${Math.floor(s/86400)}d ago`;
 }
@@ -699,7 +700,7 @@ async function pushToAnimeDb(){
     const sha=fileData.sha;
 
     // 2. Decode, merge, sort
-    const current=JSON.parse(atob(fileData.content.replace(/\n/g,'')));
+    const current=JSON.parse(atob(fileData.content.split('\n').join('')));
     const merged=[...new Set([...current.ids,..._scraperNewIds])].sort((a,b)=>a-b);
     const addedCount=merged.length-current.ids.length;
 
@@ -774,8 +775,7 @@ async function pushToAnimeWeb(){
     if(getRes.ok){
       const fd=await getRes.json();
       sha=fd.sha;
-      try{ existingIds=JSON.parse(atob(fd.content.replace(/
-/g,''))).ids||[]; }catch{}
+      try{ existingIds=JSON.parse(atob(fd.content.split('\n').join(''))).ids||[]; }catch{}
       logLine('log-ok',`▸ Existing file found (${existingIds.length} IDs)`);
     }else if(getRes.status===404){
       logLine('log-ok','▸ File not found — will create data/anime-ids.json');
@@ -858,9 +858,10 @@ async function loadCommits(){
     const r=await fetch(`${GH_API}/repos/${GH_REPO}/commits?per_page=10`,{headers:{'Accept':'application/vnd.github+json'}});
     const d=await r.json();
     if(!Array.isArray(d)||!d.length){w.innerHTML='<div style="padding:1rem;color:var(--dim)">No commits.</div>';return;}
+    const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
     w.innerHTML=d.map(c=>`<div class="commit-row">
       <a class="commit-sha" href="${c.html_url}" target="_blank">${c.sha.slice(0,7)}</a>
-      <span class="commit-msg"><strong>${c.commit.message.split('\n')[0]}</strong></span>
+      <span class="commit-msg"><strong>${esc(c.commit.message.split('\n')[0])}</strong></span>
       <span class="commit-time">${timeAgo(c.commit.author.date)}</span>
     </div>`).join('');
   }catch{w.innerHTML='<div style="padding:1rem;color:var(--dim)">Could not load commits.</div>';}
