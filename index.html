@@ -33,6 +33,37 @@
       background: rgba(74,222,128,.1); border-radius: 4px;
       padding: .1rem .4rem; margin-left: .4rem; vertical-align: middle;
     }
+
+    /* PAT settings */
+    .pat-bar {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: .65rem 1rem;
+      display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+    }
+    .pat-label { font-size: .75rem; color: var(--dim); flex-shrink: 0; font-weight: 600; }
+    .pat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .pat-dot.ok  { background: #4ade80; box-shadow: 0 0 4px #4ade80; }
+    .pat-dot.none{ background: #f87171; box-shadow: 0 0 4px #f87171; }
+    .pat-input {
+      flex: 1; min-width: 220px; padding: .35rem .75rem;
+      border-radius: 8px; font-size: .78rem; font-family: monospace;
+      border: 1px solid var(--border); background: var(--card-hov); color: var(--text);
+      outline: none; transition: border-color var(--t);
+    }
+    .pat-input:focus { border-color: var(--purple); }
+    .pat-input::placeholder { color: var(--dim); font-family: inherit; }
+    .pat-save {
+      font-size: .75rem; font-weight: 700; padding: .35rem .9rem;
+      border-radius: 8px; border: 1px solid rgba(168,85,247,.4);
+      background: rgba(168,85,247,.12); color: var(--purple-lt);
+      cursor: pointer; transition: all var(--t); white-space: nowrap;
+    }
+    .pat-save:hover { background: rgba(168,85,247,.22); border-color: var(--purple); }
+    .pat-clear {
+      font-size: .72rem; color: var(--dim); background: none; border: none;
+      cursor: pointer; padding: .25rem .5rem; border-radius: 6px; transition: color var(--t);
+    }
+    .pat-clear:hover { color: #f87171; }
   </style>
 </head>
 <body>
@@ -89,6 +120,16 @@
 
 <!-- ── Main content ───────────────────────────────────────────────────────── -->
 <div class="wrap">
+
+  <!-- PAT settings bar -->
+  <div class="pat-bar" style="margin-bottom:.85rem">
+    <span class="pat-label">GitHub PAT</span>
+    <span class="pat-dot" id="patDot"></span>
+    <span style="font-size:.72rem;color:var(--dim)" id="patStatus">checking…</span>
+    <input class="pat-input" id="patInput" type="password" placeholder="github_pat_… (Actions:write scope on animedb-site)" autocomplete="off">
+    <button class="pat-save" onclick="savePat()">Save</button>
+    <button class="pat-clear" onclick="clearPat()" title="Remove stored PAT">✕ clear</button>
+  </div>
 
   <!-- Run status bar -->
   <div id="runStatus" style="display:none;background:var(--card);border:1px solid var(--border);
@@ -366,26 +407,63 @@ async function loadRuns() {
 loadAll().catch(console.error);
 loadRuns().catch(console.error);
 
-// ── Run Now ────────────────────────────────────────────────────────────────
+// ── PAT helpers ───────────────────────────────────────────────────────────
+function updatePatUI() {
+  const pat  = localStorage.getItem('animedb_pat');
+  const dot  = document.getElementById('patDot');
+  const stat = document.getElementById('patStatus');
+  const inp  = document.getElementById('patInput');
+  if (pat) {
+    dot.className    = 'pat-dot ok';
+    stat.textContent = 'PAT saved ✓';
+    stat.style.color = '#4ade80';
+    inp.value        = '';
+    inp.placeholder  = 'PAT stored — paste new one to replace';
+  } else {
+    dot.className    = 'pat-dot none';
+    stat.textContent = 'No PAT — paste one and click Save';
+    stat.style.color = 'var(--dim)';
+    inp.placeholder  = 'github_pat_… (Actions:write on animedb-site)';
+  }
+}
+function savePat() {
+  const val = document.getElementById('patInput').value.trim();
+  if (!val) { toast('Paste your PAT first'); return; }
+  if (!val.startsWith('github_')) { toast('Should start with github_pat_'); return; }
+  localStorage.setItem('animedb_pat', val);
+  updatePatUI();
+  toast('PAT saved ✓');
+}
+function clearPat() {
+  localStorage.removeItem('animedb_pat');
+  updatePatUI();
+  toast('PAT cleared');
+}
+document.getElementById('patInput').addEventListener('keydown', e => { if (e.key === 'Enter') savePat(); });
+updatePatUI();
+
+// ── Run Now ──────────────────────────────────────────────
 async function runScraper() {
   const btn  = document.getElementById('runNowBtn');
   const bar  = document.getElementById('runStatus');
   const icon = document.getElementById('runStatusIcon');
   const msg  = document.getElementById('runStatusText');
 
-  let pat = localStorage.getItem('animedb_pat');
+  const pat = localStorage.getItem('animedb_pat');
   if (!pat) {
-    pat = prompt('Paste a GitHub PAT with Actions:write scope\n(stored in localStorage only — never leaves your browser)');
-    if (!pat) return;
-    localStorage.setItem('animedb_pat', pat.trim());
-    pat = pat.trim();
+    toast('Save your PAT first using the field at the top');
+    document.getElementById('patInput').focus();
+    bar.style.display = 'flex';
+    icon.textContent  = '⚠';
+    msg.textContent   = 'No PAT found — paste yours in the GitHub PAT bar above and click Save.';
+    return;
   }
 
-  btn.textContent = '⏳ Running…';
-  btn.disabled = true;
+  btn.textContent   = '⏳ Running…';
+  btn.disabled      = true;
   bar.style.display = 'flex';
-  icon.textContent = '⏳';
-  msg.textContent = 'Triggering GitHub Action…';
+  icon.textContent  = '⏳';
+  msg.textContent   = 'Triggering GitHub Action…';
 
   try {
     const res = await fetch('https://api.github.com/repos/CCguvycu/animedb-site/actions/workflows/scrape.yml/dispatches', {
@@ -396,24 +474,25 @@ async function runScraper() {
 
     if (res.status === 204) {
       icon.textContent = '✓';
-      msg.textContent = 'Scraper triggered — IDs + sites discovery running. Check Recent Runs below in ~30s.';
-      btn.textContent = '✓ Triggered';
+      msg.textContent  = 'Scraper triggered — IDs + sites discovery running. Runs panel updates in ~30s.';
+      btn.textContent  = '✓ Triggered';
       setTimeout(() => { loadRuns(); btn.textContent = '▶ Run Now'; btn.disabled = false; }, 8000);
     } else if (res.status === 401) {
       localStorage.removeItem('animedb_pat');
+      updatePatUI();
       icon.textContent = '✗';
-      msg.textContent = 'PAT invalid or expired — cleared. Click Run Now to re-enter.';
-      btn.textContent = '▶ Run Now'; btn.disabled = false;
+      msg.textContent  = 'PAT invalid or expired — cleared. Paste a new one in the PAT bar above.';
+      btn.textContent  = '▶ Run Now'; btn.disabled = false;
     } else {
       const j = await res.json().catch(() => ({}));
       icon.textContent = '✗';
-      msg.textContent = `Error ${res.status}: ${j.message || 'unknown'}`;
-      btn.textContent = '▶ Run Now'; btn.disabled = false;
+      msg.textContent  = `Error ${res.status}: ${j.message || 'unknown'}`;
+      btn.textContent  = '▶ Run Now'; btn.disabled = false;
     }
   } catch (e) {
     icon.textContent = '✗';
-    msg.textContent = `Network error: ${e.message}`;
-    btn.textContent = '▶ Run Now'; btn.disabled = false;
+    msg.textContent  = `Network error: ${e.message}`;
+    btn.textContent  = '▶ Run Now'; btn.disabled = false;
   }
 }
 </script>
