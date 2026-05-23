@@ -7,179 +7,137 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Run rows */
-    .run-row {
-      display: flex; align-items: center; gap: 1rem;
-      padding: .65rem 1rem; border-bottom: 1px solid rgba(255,255,255,.04); font-size: .8rem;
-    }
-    .run-row:last-child { border-bottom: none; }
-    .run-status { font-size: .68rem; font-weight: 700; padding: .15rem .5rem; border-radius: 100px; flex-shrink: 0; letter-spacing: .3px; }
-    .run-status.completed   { background: rgba(74,222,128,.12); color: #4ade80; }
-    .run-status.in_progress { background: rgba(251,191,36,.12);  color: #fbbf24; }
-    .run-status.queued      { background: rgba(148,163,184,.12); color: #94a3b8; }
-    .run-status.failure     { background: rgba(248,113,113,.12); color: #f87171; }
-    .run-name { flex: 1; color: var(--muted); }
-    .run-time { font-size: .72rem; color: var(--dim); flex-shrink: 0; }
-    .run-link { font-size: .72rem; color: var(--purple-lt); text-decoration: none; flex-shrink: 0; }
-    .run-link:hover { text-decoration: underline; }
+    .run-row { display:flex;align-items:center;gap:1rem;padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);font-size:.8rem; }
+    .run-row:last-child { border-bottom:none; }
+    .run-status { font-size:.68rem;font-weight:700;padding:.15rem .5rem;border-radius:100px;flex-shrink:0;letter-spacing:.3px; }
+    .run-status.completed   { background:rgba(74,222,128,.12);color:#4ade80; }
+    .run-status.in_progress { background:rgba(251,191,36,.12);color:#fbbf24; }
+    .run-status.queued      { background:rgba(148,163,184,.12);color:#94a3b8; }
+    .run-status.failure     { background:rgba(248,113,113,.12);color:#f87171; }
+    .run-name { flex:1;color:var(--muted); }
+    .run-time { font-size:.72rem;color:var(--dim);flex-shrink:0; }
+    .run-link { font-size:.72rem;color:var(--purple-lt);text-decoration:none;flex-shrink:0; }
+    .run-link:hover { text-decoration:underline; }
 
-    /* Featured grid */
-    .anime-featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .9rem; }
-    .anime-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; text-decoration: none; color: var(--text); transition: all .18s ease; }
-    .anime-card:hover { border-color: rgba(168,85,247,.4); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(168,85,247,.12); }
-    .anime-cover { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; background: var(--card-hov); }
-    .anime-cover-skel { width: 100%; aspect-ratio: 2/3; background: linear-gradient(90deg, var(--card-hov) 25%, rgba(168,85,247,.06) 50%, var(--card-hov) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
-    @keyframes shimmer { from { background-position: 200% 0 } to { background-position: -200% 0 } }
-    .anime-info { padding: .6rem .7rem; }
-    .anime-title { font-size: .76rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .anime-score { font-size: .68rem; color: var(--gold); font-weight: 700; }
-    .anime-genres { display: flex; flex-wrap: wrap; gap: .2rem; margin-top: .35rem; }
-    .anime-genre { font-size: .58rem; padding: .08rem .3rem; border-radius: 4px; background: rgba(168,85,247,.1); color: var(--purple-lt); font-weight: 600; }
-    .anime-skel-line { height: .75rem; border-radius: 4px; margin-bottom: .35rem; animation: shimmer 1.4s infinite; background: linear-gradient(90deg, var(--card-hov) 25%, rgba(168,85,247,.06) 50%, var(--card-hov) 75%); background-size: 200% 100%; }
+    /* Featured */
+    .anime-featured-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem; }
+    .anime-card { background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;color:var(--text);transition:all .18s ease; }
+    .anime-card:hover { border-color:rgba(168,85,247,.4);transform:translateY(-3px);box-shadow:0 8px 24px rgba(168,85,247,.12); }
+    .anime-cover { width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--card-hov); }
+    .anime-cover-skel { width:100%;aspect-ratio:2/3;background:linear-gradient(90deg,var(--card-hov) 25%,rgba(168,85,247,.06) 50%,var(--card-hov) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite; }
+    @keyframes shimmer { from{background-position:200% 0}to{background-position:-200% 0} }
+    .anime-info { padding:.6rem .7rem; }
+    .anime-title { font-size:.76rem;font-weight:700;line-height:1.3;margin-bottom:.3rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
+    .anime-score { font-size:.68rem;color:var(--gold);font-weight:700; }
+    .anime-genres { display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.35rem; }
+    .anime-genre { font-size:.58rem;padding:.08rem .3rem;border-radius:4px;background:rgba(168,85,247,.1);color:var(--purple-lt);font-weight:600; }
+    .anime-skel-line { height:.75rem;border-radius:4px;margin-bottom:.35rem;animation:shimmer 1.4s infinite;background:linear-gradient(90deg,var(--card-hov) 25%,rgba(168,85,247,.06) 50%,var(--card-hov) 75%);background-size:200% 100%; }
 
-    /* DB Lookup */
-    .lookup-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 1.5rem; }
-    .lookup-input-row { display: flex; gap: .65rem; align-items: center; margin-bottom: 1.1rem; flex-wrap: wrap; }
-    .lookup-input { flex: 1; min-width: 200px; max-width: 480px; padding: .55rem 1rem; border-radius: 100px; font-size: .85rem; font-family: inherit; border: 1px solid var(--border); background: var(--card-hov); color: var(--text); outline: none; transition: border-color .18s; }
-    .lookup-input:focus { border-color: var(--purple); }
-    .lookup-input::placeholder { color: var(--dim); }
-    .lookup-btn { padding: .55rem 1.25rem; border-radius: 100px; font-size: .8rem; font-weight: 700; background: rgba(168,85,247,.14); border: 1px solid rgba(168,85,247,.35); color: var(--purple-lt); cursor: pointer; transition: all .18s; font-family: inherit; }
-    .lookup-btn:hover { background: rgba(168,85,247,.24); border-color: var(--purple); }
-    .lookup-result { display: flex; gap: 1.1rem; align-items: flex-start; }
-    .lookup-cover { width: 78px; height: 108px; object-fit: cover; border-radius: var(--r); flex-shrink: 0; background: var(--card-hov); }
-    .lookup-info { flex: 1; min-width: 0; }
-    .lookup-title { font-size: 1rem; font-weight: 800; margin-bottom: .35rem; line-height: 1.25; }
-    .lookup-meta { font-size: .75rem; color: var(--muted); margin-bottom: .6rem; }
-    .lookup-badge { display: inline-flex; align-items: center; gap: .35rem; font-size: .72rem; font-weight: 700; padding: .22rem .7rem; border-radius: 100px; }
-    .badge-in  { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.25); }
-    .badge-out { background: rgba(248,113,113,.12); color: #f87171; border: 1px solid rgba(248,113,113,.25); }
-    .lookup-genres { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .65rem; }
-    .lookup-empty { color: var(--dim); font-size: .85rem; padding: .5rem 0; }
+    /* Lookup */
+    .lookup-box { background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem; }
+    .lookup-input-row { display:flex;gap:.65rem;align-items:center;margin-bottom:1.1rem;flex-wrap:wrap; }
+    .lookup-input { flex:1;min-width:200px;max-width:480px;padding:.55rem 1rem;border-radius:100px;font-size:.85rem;font-family:inherit;border:1px solid var(--border);background:var(--card-hov);color:var(--text);outline:none;transition:border-color .18s; }
+    .lookup-input:focus { border-color:var(--purple); }
+    .lookup-input::placeholder { color:var(--dim); }
+    .lookup-btn { padding:.55rem 1.25rem;border-radius:100px;font-size:.8rem;font-weight:700;background:rgba(168,85,247,.14);border:1px solid rgba(168,85,247,.35);color:var(--purple-lt);cursor:pointer;transition:all .18s;font-family:inherit; }
+    .lookup-btn:hover { background:rgba(168,85,247,.24);border-color:var(--purple); }
+    .lookup-result { display:flex;gap:1.1rem;align-items:flex-start; }
+    .lookup-cover { width:78px;height:108px;object-fit:cover;border-radius:var(--r);flex-shrink:0;background:var(--card-hov); }
+    .lookup-info { flex:1;min-width:0; }
+    .lookup-title { font-size:1rem;font-weight:800;margin-bottom:.35rem;line-height:1.25; }
+    .lookup-meta { font-size:.75rem;color:var(--muted);margin-bottom:.6rem; }
+    .lookup-badge { display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:700;padding:.22rem .7rem;border-radius:100px; }
+    .badge-in  { background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.25); }
+    .badge-out { background:rgba(248,113,113,.12);color:#f87171;border:1px solid rgba(248,113,113,.25); }
+    .lookup-genres { display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.65rem; }
+    .lookup-empty { color:var(--dim);font-size:.85rem;padding:.5rem 0; }
 
     /* Commits */
-    .commit-row { display: flex; align-items: flex-start; gap: .85rem; padding: .7rem 1rem; border-bottom: 1px solid rgba(255,255,255,.04); font-size: .8rem; }
-    .commit-row:last-child { border-bottom: none; }
-    .commit-sha { font-family: monospace; font-size: .7rem; color: var(--purple-lt); flex-shrink: 0; padding-top: .05rem; text-decoration: none; }
-    .commit-sha:hover { text-decoration: underline; }
-    .commit-msg { flex: 1; color: var(--muted); line-height: 1.4; word-break: break-word; }
-    .commit-msg strong { color: var(--text); font-weight: 500; }
-    .commit-time { font-size: .7rem; color: var(--dim); flex-shrink: 0; white-space: nowrap; }
+    .commit-row { display:flex;align-items:flex-start;gap:.85rem;padding:.7rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);font-size:.8rem; }
+    .commit-row:last-child { border-bottom:none; }
+    .commit-sha { font-family:monospace;font-size:.7rem;color:var(--purple-lt);flex-shrink:0;padding-top:.05rem;text-decoration:none; }
+    .commit-sha:hover { text-decoration:underline; }
+    .commit-msg { flex:1;color:var(--muted);line-height:1.4;word-break:break-word; }
+    .commit-msg strong { color:var(--text);font-weight:500; }
+    .commit-time { font-size:.7rem;color:var(--dim);flex-shrink:0;white-space:nowrap; }
 
     /* Tab toggle */
-    .tab-toggle { display: flex; gap: .3rem; }
-    .tab-btn { padding: .25rem .7rem; border-radius: 6px; font-size: .76rem; font-weight: 600; border: 1px solid transparent; background: transparent; color: var(--dim); cursor: pointer; font-family: inherit; transition: all .18s; }
-    .tab-btn.on { background: rgba(168,85,247,.12); border-color: rgba(168,85,247,.3); color: var(--purple-lt); }
-    .tab-btn:hover:not(.on) { color: var(--text); background: rgba(255,255,255,.04); }
+    .tab-toggle { display:flex;gap:.3rem; }
+    .tab-btn { padding:.25rem .7rem;border-radius:6px;font-size:.76rem;font-weight:600;border:1px solid transparent;background:transparent;color:var(--dim);cursor:pointer;font-family:inherit;transition:all .18s; }
+    .tab-btn.on { background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:var(--purple-lt); }
+    .tab-btn:hover:not(.on) { color:var(--text);background:rgba(255,255,255,.04); }
 
-    /* ── Scraper ────────────────────────────────────── */
-    .scraper-box {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--r-lg); overflow: hidden;
-    }
-    .scraper-controls {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-    }
-    .scraper-mode-group { display: flex; gap: .3rem; }
-    .mode-btn {
-      padding: .3rem .9rem; border-radius: 6px; font-size: .78rem; font-weight: 700;
-      border: 1px solid var(--border); background: transparent; color: var(--muted);
-      cursor: pointer; font-family: inherit; transition: all .18s;
-    }
-    .mode-btn.on { background: rgba(168,85,247,.12); border-color: rgba(168,85,247,.3); color: var(--purple-lt); }
-    .mode-btn:hover:not(.on) { border-color: var(--purple); color: var(--text); }
-    .scraper-run-btn {
-      padding: .38rem 1.25rem; border-radius: 8px; font-size: .82rem; font-weight: 700;
-      background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); color: #4ade80;
-      cursor: pointer; font-family: inherit; transition: all .18s;
-    }
-    .scraper-run-btn:hover:not(:disabled) { background: rgba(74,222,128,.18); border-color: #4ade80; }
-    .scraper-run-btn:disabled { opacity: .5; cursor: not-allowed; }
-    .scraper-stop-btn {
-      padding: .38rem 1.25rem; border-radius: 8px; font-size: .82rem; font-weight: 700;
-      background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.3); color: #f87171;
-      cursor: pointer; font-family: inherit; transition: all .18s; display: none;
-    }
-    .scraper-stop-btn:hover { background: rgba(248,113,113,.18); }
-    .scraper-meta { margin-left: auto; font-size: .75rem; color: var(--dim); }
+    /* ── Scraper ─────────────────────────────────── */
+    .scraper-box { background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden; }
+    .scraper-controls { padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.85rem;flex-wrap:wrap; }
+    .scraper-mode-group { display:flex;gap:.3rem; }
+    .mode-btn { padding:.3rem .9rem;border-radius:6px;font-size:.78rem;font-weight:700;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:inherit;transition:all .18s; }
+    .mode-btn.on { background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:var(--purple-lt); }
+    .mode-btn:hover:not(.on) { border-color:var(--purple);color:var(--text); }
+    .scraper-run-btn { padding:.38rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:700;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:#4ade80;cursor:pointer;font-family:inherit;transition:all .18s; }
+    .scraper-run-btn:hover:not(:disabled) { background:rgba(74,222,128,.18);border-color:#4ade80; }
+    .scraper-run-btn:disabled { opacity:.5;cursor:not-allowed; }
+    .scraper-stop-btn { padding:.38rem 1.25rem;border-radius:8px;font-size:.82rem;font-weight:700;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:#f87171;cursor:pointer;font-family:inherit;transition:all .18s;display:none; }
+    .scraper-stop-btn:hover { background:rgba(248,113,113,.18); }
+    .scraper-meta { font-size:.75rem;color:var(--dim); }
 
-    /* Progress bar */
-    .scraper-progress-wrap {
-      padding: 0 1.5rem; height: 0; overflow: hidden; transition: height .2s;
-    }
-    .scraper-progress-wrap.visible { height: 40px; }
-    .scraper-progress-bar {
-      height: 4px; background: var(--border); border-radius: 2px; margin-top: 10px;
-    }
-    .scraper-progress-fill {
-      height: 100%; border-radius: 2px; width: 0%;
-      background: linear-gradient(90deg, var(--purple), #3b82f6);
-      transition: width .3s ease;
-    }
-    .scraper-progress-label {
-      font-size: .68rem; color: var(--dim); margin-top: 5px;
-    }
+    /* PAT row */
+    .pat-row { padding:.65rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;font-size:.76rem; }
+    .pat-dot { width:7px;height:7px;border-radius:50%;flex-shrink:0; }
+    .pat-dot.ok  { background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.5); }
+    .pat-dot.off { background:var(--dim); }
+    .pat-label { color:var(--dim); }
+    .pat-action { font-size:.72rem;color:var(--purple-lt);cursor:pointer;text-decoration:none;background:none;border:none;font-family:inherit;padding:0; }
+    .pat-action:hover { text-decoration:underline; }
+    .pat-input-wrap { display:none;align-items:center;gap:.5rem;flex-wrap:wrap; }
+    .pat-input-wrap.open { display:flex; }
+    .pat-field { padding:.3rem .75rem;border-radius:8px;font-size:.76rem;font-family:monospace;border:1px solid var(--border);background:var(--card-hov);color:var(--text);outline:none;width:260px;transition:border-color .18s; }
+    .pat-field:focus { border-color:var(--purple); }
+    .pat-save-btn { padding:.28rem .8rem;border-radius:8px;font-size:.74rem;font-weight:700;background:rgba(168,85,247,.14);border:1px solid rgba(168,85,247,.35);color:var(--purple-lt);cursor:pointer;font-family:inherit;transition:all .18s; }
+    .pat-save-btn:hover { background:rgba(168,85,247,.24); }
+    .pat-hint { font-size:.7rem;color:var(--dim); }
 
-    /* Stats row */
-    .scraper-stats {
-      display: none; padding: .75rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      gap: 2rem; flex-wrap: wrap;
-    }
-    .scraper-stats.visible { display: flex; }
-    .sstat { display: flex; flex-direction: column; gap: .15rem; }
-    .sstat-val { font-size: 1.35rem; font-weight: 800; line-height: 1; }
-    .sstat-lbl { font-size: .65rem; text-transform: uppercase; letter-spacing: .05em; color: var(--dim); }
-    .sstat-new { color: #4ade80; }
-    .sstat-dup { color: var(--dim); }
-    .sstat-tot { color: var(--purple-lt); }
+    /* Progress */
+    .scraper-progress-wrap { padding:0 1.5rem;height:0;overflow:hidden;transition:height .2s; }
+    .scraper-progress-wrap.visible { height:40px; }
+    .scraper-progress-bar { height:4px;background:var(--border);border-radius:2px;margin-top:10px; }
+    .scraper-progress-fill { height:100%;border-radius:2px;width:0%;background:linear-gradient(90deg,var(--purple),#3b82f6);transition:width .3s ease; }
+    .scraper-progress-label { font-size:.68rem;color:var(--dim);margin-top:5px; }
 
-    /* Log terminal */
-    .scraper-log {
-      font-family: 'Courier New', monospace; font-size: .72rem; line-height: 1.55;
-      padding: 1rem 1.5rem; max-height: 260px; overflow-y: auto;
-      color: var(--muted);
-      background: rgba(0,0,0,.25);
-    }
-    .scraper-log:empty::before { content: 'Scraper output will appear here\2026'; color: var(--dim); }
-    .log-ok   { color: #4ade80; }
-    .log-new  { color: var(--purple-lt); font-weight: 700; }
-    .log-dup  { color: var(--dim); }
-    .log-err  { color: #f87171; }
-    .log-head { color: var(--gold); font-weight: 700; }
-    .log-done { color: #4ade80; font-weight: 700; font-size: .8rem; }
+    /* Stats */
+    .scraper-stats { display:none;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);gap:2rem;flex-wrap:wrap; }
+    .scraper-stats.visible { display:flex; }
+    .sstat { display:flex;flex-direction:column;gap:.15rem; }
+    .sstat-val { font-size:1.35rem;font-weight:800;line-height:1; }
+    .sstat-lbl { font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--dim); }
 
-    /* Export / actions row */
-    .scraper-actions {
-      display: none; padding: 1rem 1.5rem;
-      border-top: 1px solid var(--border);
-      gap: .65rem; flex-wrap: wrap; align-items: center;
-    }
-    .scraper-actions.visible { display: flex; }
-    .export-btn {
-      padding: .35rem 1rem; border-radius: 8px; font-size: .78rem; font-weight: 700;
-      background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.3); color: var(--purple-lt);
-      cursor: pointer; font-family: inherit; transition: all .18s; text-decoration: none;
-      display: inline-flex; align-items: center; gap: .35rem;
-    }
-    .export-btn:hover { background: rgba(168,85,247,.2); border-color: var(--purple); }
-    .gh-btn {
-      padding: .35rem 1rem; border-radius: 8px; font-size: .78rem; font-weight: 700;
-      background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.25); color: #4ade80;
-      cursor: pointer; font-family: inherit; transition: all .18s; text-decoration: none;
-      display: inline-flex; align-items: center; gap: .35rem;
-    }
-    .gh-btn:hover { background: rgba(74,222,128,.16); }
+    /* Log */
+    .scraper-log { font-family:'Courier New',monospace;font-size:.72rem;line-height:1.55;padding:1rem 1.5rem;max-height:260px;overflow-y:auto;color:var(--muted);background:rgba(0,0,0,.25); }
+    .scraper-log:empty::before { content:'Scraper output will appear here\2026';color:var(--dim); }
+    .log-ok   { color:#4ade80; }
+    .log-new  { color:var(--purple-lt);font-weight:700; }
+    .log-dup  { color:var(--dim); }
+    .log-err  { color:#f87171; }
+    .log-head { color:var(--gold);font-weight:700; }
+    .log-done { color:#4ade80;font-weight:700;font-size:.8rem; }
+
+    /* Actions */
+    .scraper-actions { display:none;padding:1rem 1.5rem;border-top:1px solid var(--border);gap:.65rem;flex-wrap:wrap;align-items:center; }
+    .scraper-actions.visible { display:flex; }
+    .action-btn { padding:.35rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .18s;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;border:1px solid; }
+    .btn-export { background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.3);color:var(--purple-lt); }
+    .btn-export:hover { background:rgba(168,85,247,.2);border-color:var(--purple); }
+    .btn-push { background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.3);color:#4ade80;font-size:.82rem; }
+    .btn-push:hover:not(:disabled) { background:rgba(74,222,128,.2);border-color:#4ade80; }
+    .btn-push:disabled { opacity:.5;cursor:not-allowed; }
+    .btn-gh { background:rgba(100,116,139,.08);border-color:rgba(100,116,139,.25);color:var(--muted); }
+    .btn-gh:hover { background:rgba(100,116,139,.14);color:var(--text); }
   </style>
 </head>
 <body>
 
-<!-- ── Navbar ─────────────────────────────────────────────────────────────── -->
 <nav class="navbar">
-  <a href="index.html" class="nav-logo">
-    AnimeDb <span class="nav-badge">API</span>
-  </a>
+  <a href="index.html" class="nav-logo">AnimeDb <span class="nav-badge">API</span></a>
   <ul class="nav-links">
     <li><a href="#featured" class="active">Featured</a></li>
     <li><a href="#anime">Catalog</a></li>
@@ -191,8 +149,7 @@
   </ul>
   <div class="nav-right">
     <a href="https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml" target="_blank"
-      style="font-size:.78rem;font-weight:700;color:#4ade80;border:1px solid rgba(74,222,128,.35);
-      background:rgba(74,222,128,.08);padding:.3rem .85rem;border-radius:8px;text-decoration:none;transition:all .18s;display:inline-flex;align-items:center;gap:.4rem"
+      style="font-size:.78rem;font-weight:700;color:#4ade80;border:1px solid rgba(74,222,128,.35);background:rgba(74,222,128,.08);padding:.3rem .85rem;border-radius:8px;text-decoration:none;transition:all .18s;display:inline-flex;align-items:center;gap:.4rem"
       onmouseover="this.style.background='rgba(74,222,128,.16)'"
       onmouseout="this.style.background='rgba(74,222,128,.08)'"
     >&#9654; Run Now</a>
@@ -200,7 +157,6 @@
   </div>
 </nav>
 
-<!-- ── Hero ───────────────────────────────────────────────────────────────── -->
 <div class="page">
 <div class="hero-banner">
   <div class="hero-inner">
@@ -218,47 +174,27 @@
 
 <div class="wrap">
 
-  <!-- Feature cards -->
   <div class="card-grid" style="margin-bottom:2.5rem">
-    <div class="card">
-      <div class="card-icon">&#128194;</div>
-      <div class="card-title">Anime Catalog</div>
-      <div class="card-desc">3,255+ MAL IDs from Jikan &mdash; top-rated, seasonal 2015&ndash;2025, 36 genres, 20 search terms. Grows daily.</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">&#128225;</div>
-      <div class="card-title">Streaming Sites</div>
-      <div class="card-desc">110 sites checked daily via HEAD. Dead sites auto-removed. Tagged Sub / Dub / Sub+Dub / Official / Manga.</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">&#9889;</div>
-      <div class="card-title">Built-in Scraper</div>
-      <div class="card-desc">Run ID discovery right from this page &mdash; no server needed. Quick (11 endpoints) or Full (120+ endpoints) mode.</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">&#128260;</div>
-      <div class="card-title">Daily Auto-Updates</div>
-      <div class="card-desc">GitHub Action at 04:00 UTC every day. Both scrapers run, diff committed automatically. Trigger on demand with &#9654; Run Now.</div>
-    </div>
+    <div class="card"><div class="card-icon">&#128194;</div><div class="card-title">Anime Catalog</div><div class="card-desc">3,255+ MAL IDs from Jikan &mdash; top-rated, seasonal 2015&ndash;2025, 36 genres, 20 search terms.</div></div>
+    <div class="card"><div class="card-icon">&#128225;</div><div class="card-title">Streaming Sites</div><div class="card-desc">110 sites checked daily. Dead sites auto-removed. Tagged Sub / Dub / Sub+Dub / Official / Manga.</div></div>
+    <div class="card"><div class="card-icon">&#9889;</div><div class="card-title">Built-in Scraper</div><div class="card-desc">Run ID discovery in the browser, review results, then push directly to the live catalog in one click.</div></div>
+    <div class="card"><div class="card-icon">&#128260;</div><div class="card-title">Daily Auto-Updates</div><div class="card-desc">GitHub Action at 04:00 UTC every day. Both scrapers run, diff committed automatically.</div></div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- ── Featured Anime ───────────────────────────────────────────────────── -->
+  <!-- Featured -->
   <div id="featured" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">Featured Anime <span class="section-badge" id="featuredBadge">loading&hellip;</span></div>
-      <div style="font-size:.78rem;color:var(--dim)">
-        Random picks from the catalog &middot;
-        <a id="featuredRefresh" href="#" style="color:var(--purple-lt);text-decoration:none">&#8635; Refresh</a>
-      </div>
+      <div style="font-size:.78rem;color:var(--dim)">Random picks &middot; <a id="featuredRefresh" href="#" style="color:var(--purple-lt);text-decoration:none">&#8635; Refresh</a></div>
     </div>
     <div class="anime-featured-grid" id="featuredGrid"></div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- ── Anime catalog ─────────────────────────────────────────────────────── -->
+  <!-- Catalog -->
   <div id="anime" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">Anime Catalog <span class="section-badge" id="animeBadge">loading&hellip;</span></div>
@@ -279,7 +215,7 @@
 
   <div class="divider"></div>
 
-  <!-- ── DB Lookup ─────────────────────────────────────────────────────────── -->
+  <!-- Lookup -->
   <div id="lookup" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">DB Lookup</div>
@@ -296,25 +232,38 @@
 
   <div class="divider"></div>
 
-  <!-- ── Built-in Scraper ──────────────────────────────────────────────────── -->
+  <!-- ── Scraper ─────────────────────────────────────────────────────────── -->
   <div id="scraper" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">Built-in Scraper <span class="section-badge" id="scraperBadge">ready</span></div>
-      <span style="font-size:.78rem;color:var(--dim)">Runs live in the browser &middot; Jikan v4 API</span>
+      <span style="font-size:.78rem;color:var(--dim)">Runs in the browser &middot; Jikan v4 &middot; push results live</span>
     </div>
 
     <div class="scraper-box">
 
       <!-- Controls -->
       <div class="scraper-controls">
-        <div style="font-size:.78rem;color:var(--dim);font-weight:600">Mode</div>
+        <div style="font-size:.75rem;color:var(--dim);font-weight:600">Mode</div>
         <div class="scraper-mode-group">
-          <button class="mode-btn on" id="modeQuick" onclick="setMode('quick')">Quick <span style="opacity:.6;font-weight:400">&mdash; 11 endpoints</span></button>
-          <button class="mode-btn" id="modeFull"  onclick="setMode('full')">Full <span style="opacity:.6;font-weight:400">&mdash; 120 endpoints</span></button>
+          <button class="mode-btn on" id="modeQuick" onclick="setMode('quick')">Quick <span style="opacity:.55;font-weight:400">11 endpoints</span></button>
+          <button class="mode-btn"    id="modeFull"  onclick="setMode('full')">Full <span style="opacity:.55;font-weight:400">120 endpoints</span></button>
         </div>
-        <button class="scraper-run-btn" id="scraperRunBtn"  onclick="startScraper()">&#9654; Run Scraper</button>
+        <button class="scraper-run-btn"  id="scraperRunBtn"  onclick="startScraper()">&#9654; Run Scraper</button>
         <button class="scraper-stop-btn" id="scraperStopBtn" onclick="stopScraper()">&#9632; Stop</button>
-        <div class="scraper-meta" id="scraperMeta">Select a mode and click Run</div>
+        <span class="scraper-meta" id="scraperMeta">Quick mode — ~5s</span>
+      </div>
+
+      <!-- GitHub PAT row -->
+      <div class="pat-row" id="patRow">
+        <span class="pat-dot off" id="patDot"></span>
+        <span class="pat-label" id="patLabel">GitHub: not connected</span>
+        <button class="pat-action" id="patToggleBtn" onclick="togglePatInput()">Connect</button>
+        <button class="pat-action" id="patClearBtn"  onclick="clearPat()" style="display:none;color:#f87171">Disconnect</button>
+        <div class="pat-input-wrap" id="patInputWrap">
+          <input class="pat-field" id="patField" type="password" placeholder="ghp_xxxx (public_repo scope)" autocomplete="off">
+          <button class="pat-save-btn" onclick="savePat()">Save</button>
+          <span class="pat-hint">Stored in localStorage &middot; never sent anywhere except api.github.com</span>
+        </div>
       </div>
 
       <!-- Progress -->
@@ -325,21 +274,22 @@
 
       <!-- Stats -->
       <div class="scraper-stats" id="scraperStats">
-        <div class="sstat"><div class="sstat-val sstat-new" id="sstatNew">0</div><div class="sstat-lbl">New IDs</div></div>
-        <div class="sstat"><div class="sstat-val sstat-dup" id="sstatDup">0</div><div class="sstat-lbl">Already in DB</div></div>
-        <div class="sstat"><div class="sstat-val sstat-tot" id="sstatTot">0</div><div class="sstat-lbl">Total found</div></div>
-        <div class="sstat"><div class="sstat-val" id="sstatReqs" style="color:var(--muted)">0</div><div class="sstat-lbl">Requests done</div></div>
+        <div class="sstat"><div class="sstat-val" id="sstatNew"  style="color:#4ade80">0</div><div class="sstat-lbl">New IDs</div></div>
+        <div class="sstat"><div class="sstat-val" id="sstatDup"  style="color:var(--dim)">0</div><div class="sstat-lbl">Already in DB</div></div>
+        <div class="sstat"><div class="sstat-val" id="sstatTot"  style="color:var(--purple-lt)">0</div><div class="sstat-lbl">Total found</div></div>
+        <div class="sstat"><div class="sstat-val" id="sstatReqs" style="color:var(--muted)">0</div><div class="sstat-lbl">Requests</div></div>
         <div class="sstat"><div class="sstat-val" id="sstatErrs" style="color:#f87171">0</div><div class="sstat-lbl">Errors</div></div>
       </div>
 
       <!-- Log -->
       <div class="scraper-log" id="scraperLog"></div>
 
-      <!-- Export -->
+      <!-- Actions -->
       <div class="scraper-actions" id="scraperActions">
-        <button class="export-btn" id="exportJsonBtn" onclick="exportJson()">&#11015; Export new IDs (.json)</button>
-        <button class="export-btn" onclick="exportCsv()">&#11015; Export new IDs (.csv)</button>
-        <a class="gh-btn" href="https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml" target="_blank">&#9654; Trigger full GitHub run</a>
+        <button class="action-btn btn-push" id="pushBtn" onclick="pushToAnimeDb()">&#11014; Push to AnimeDb</button>
+        <button class="action-btn btn-export" onclick="exportJson()">&#11015; Export .json</button>
+        <button class="action-btn btn-export" onclick="exportCsv()">&#11015; Export .csv</button>
+        <a class="action-btn btn-gh" href="https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml" target="_blank">&#9654; Full GitHub run</a>
         <span style="margin-left:auto;font-size:.72rem;color:var(--dim)" id="exportNote"></span>
       </div>
 
@@ -348,7 +298,7 @@
 
   <div class="divider"></div>
 
-  <!-- ── Sites directory ───────────────────────────────────────────────────── -->
+  <!-- Sites -->
   <div id="sites" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">Streaming Sites <span class="section-badge" id="sitesBadge">loading&hellip;</span></div>
@@ -368,31 +318,27 @@
 
   <div class="divider"></div>
 
-  <!-- ── Activity ─────────────────────────────────────────────────────────── -->
+  <!-- Activity -->
   <div id="runs" style="scroll-margin-top:80px">
     <div class="section-head">
       <div style="display:flex;align-items:center;gap:1rem;">
         <div class="section-title">Activity</div>
         <div class="tab-toggle">
-          <button class="tab-btn on" id="tabRuns" onclick="switchTab('runs')">&#9654; Runs</button>
-          <button class="tab-btn" id="tabCommits" onclick="switchTab('commits')">&#9881; Commits</button>
+          <button class="tab-btn on" id="tabRuns"    onclick="switchTab('runs')">&#9654; Runs</button>
+          <button class="tab-btn"    id="tabCommits" onclick="switchTab('commits')">&#9881; Commits</button>
         </div>
       </div>
       <a href="https://github.com/CCguvycu/animedb-site" target="_blank" style="font-size:.78rem;color:var(--purple-lt);text-decoration:none">GitHub &#8599;</a>
     </div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
-      <div id="runsPane">
-        <div id="runsWrap" style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading runs&hellip;</div>
-      </div>
-      <div id="commitsPane" style="display:none">
-        <div id="commitsWrap" style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading commits&hellip;</div>
-      </div>
+      <div id="runsPane"><div id="runsWrap" style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading runs&hellip;</div></div>
+      <div id="commitsPane" style="display:none"><div id="commitsWrap" style="padding:1.5rem;text-align:center;color:var(--dim);font-size:.82rem">Loading commits&hellip;</div></div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- ── API reference ─────────────────────────────────────────────────────── -->
+  <!-- API -->
   <div id="api" style="scroll-margin-top:80px">
     <div class="section-head">
       <div class="section-title">API Reference</div>
@@ -402,30 +348,18 @@
       <table class="api-table">
         <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
         <tbody>
-          <tr>
-            <td><span class="api-method">GET</span></td>
-            <td class="api-url"><a href="api/anime-ids.json" target="_blank">api/anime-ids.json</a></td>
-            <td style="color:var(--muted);font-size:.8rem">3,255+ MAL IDs &mdash; <code>ids[]</code>, <code>count</code>, <code>updated</code></td>
-          </tr>
-          <tr>
-            <td><span class="api-method">GET</span></td>
-            <td class="api-url"><a href="api/sites.json" target="_blank">api/sites.json</a></td>
-            <td style="color:var(--muted);font-size:.8rem">Live streaming sites &mdash; <code>name</code>, <code>url</code>, <code>tag</code>, <code>top?</code></td>
-          </tr>
-          <tr>
-            <td><span class="api-method">GET</span></td>
-            <td class="api-url"><a href="api/config.json" target="_blank">api/config.json</a></td>
-            <td style="color:var(--muted);font-size:.8rem">Featured IDs, endpoint URLs, AnimeWeb URL, version</td>
-          </tr>
+          <tr><td><span class="api-method">GET</span></td><td class="api-url"><a href="api/anime-ids.json" target="_blank">api/anime-ids.json</a></td><td style="color:var(--muted);font-size:.8rem">3,255+ MAL IDs &mdash; ids[], count, updated</td></tr>
+          <tr><td><span class="api-method">GET</span></td><td class="api-url"><a href="api/sites.json" target="_blank">api/sites.json</a></td><td style="color:var(--muted);font-size:.8rem">Live streaming sites &mdash; name, url, tag, top?</td></tr>
+          <tr><td><span class="api-method">GET</span></td><td class="api-url"><a href="api/config.json" target="_blank">api/config.json</a></td><td style="color:var(--muted);font-size:.8rem">Featured IDs, endpoint URLs, version</td></tr>
         </tbody>
       </table>
     </div>
     <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-top:1rem">
       <div style="font-size:.78rem;color:var(--dim);margin-bottom:.75rem;font-weight:600">USAGE EXAMPLE</div>
       <pre style="font-size:.78rem;color:var(--purple-lt);line-height:1.7;overflow-x:auto"><code>const ANIMEDB = 'https://ccguvycu.github.io/animedb-site';
-const { ids, count } = await fetch(`${ANIMEDB}/api/anime-ids.json`).then(r =&gt; r.json());
-const { sites }      = await fetch(`${ANIMEDB}/api/sites.json`).then(r =&gt; r.json());
-const subSites = sites.filter(s =&gt; s.tag === 'sub');</code></pre>
+const { ids }  = await fetch(`${ANIMEDB}/api/anime-ids.json`).then(r =&gt; r.json());
+const { sites } = await fetch(`${ANIMEDB}/api/sites.json`).then(r =&gt; r.json());
+const subs = sites.filter(s =&gt; s.tag === 'sub');</code></pre>
     </div>
   </div>
 
@@ -439,74 +373,100 @@ const subSites = sites.filter(s =&gt; s.tag === 'sub');</code></pre>
 </div>
 
 <script>
-const ANILIST = 'https://graphql.anilist.co';
-const JIKAN   = 'https://api.jikan.moe/v4';
-let _allIds   = [];
+const ANILIST  = 'https://graphql.anilist.co';
+const JIKAN    = 'https://api.jikan.moe/v4';
+const GH_API   = 'https://api.github.com';
+const GH_REPO  = 'CCguvycu/animedb-site';
+const PAT_KEY  = 'animedb_gh_pat';
+
+let _allIds        = [];
+let _scraperMode   = 'quick';
+let _scraperRunning = false;
+let _scraperStop   = false;
+let _scraperNewIds = [];
 
 // ── Utilities ─────────────────────────────────────────────────────────────
 function toast(msg) {
-  const t = document.createElement('div');
-  t.className = 'toast'; t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => t.remove(), 2500);
+  const t = document.createElement('div'); t.className='toast'; t.textContent=msg;
+  document.body.appendChild(t); setTimeout(()=>t.remove(),2500);
 }
 function timeAgo(iso) {
-  const s = Math.round((Date.now() - new Date(iso)) / 1000);
-  if (s < 60)    return `${s}s ago`;
-  if (s < 3600)  return `${Math.floor(s/60)}m ago`;
-  if (s < 86400) return `${Math.floor(s/3600)}h ago`;
-  return `${Math.floor(s/86400)}d ago`;
+  const s = Math.round((Date.now()-new Date(iso))/1000);
+  if(s<60) return `${s}s ago`; if(s<3600) return `${Math.floor(s/60)}m ago`;
+  if(s<86400) return `${Math.floor(s/3600)}h ago`; return `${Math.floor(s/86400)}d ago`;
 }
-function pickRandom(arr, n) {
-  const c = [...arr];
-  for (let i = c.length-1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [c[i],c[j]]=[c[j],c[i]]; }
-  return c.slice(0, n);
-}
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function pickRandom(arr,n){const c=[...arr];for(let i=c.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[c[i],c[j]]=[c[j],c[i]];}return c.slice(0,n);}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
 
-// ── Load catalog + sites ───────────────────────────────────────────────────
+// ── PAT management ─────────────────────────────────────────────────────────
+function getPat()  { return localStorage.getItem(PAT_KEY); }
+function savePat() {
+  const v = document.getElementById('patField').value.trim();
+  if (!v) return;
+  localStorage.setItem(PAT_KEY, v);
+  document.getElementById('patField').value = '';
+  document.getElementById('patInputWrap').classList.remove('open');
+  updatePatUI();
+  toast('GitHub token saved');
+}
+function clearPat() {
+  if (!confirm('Remove saved GitHub token?')) return;
+  localStorage.removeItem(PAT_KEY);
+  updatePatUI();
+  toast('Token removed');
+}
+function togglePatInput() {
+  document.getElementById('patInputWrap').classList.toggle('open');
+  document.getElementById('patField').focus();
+}
+function updatePatUI() {
+  const ok = !!getPat();
+  document.getElementById('patDot').className  = `pat-dot ${ok ? 'ok' : 'off'}`;
+  document.getElementById('patLabel').textContent = ok ? 'GitHub: connected' : 'GitHub: not connected';
+  document.getElementById('patToggleBtn').style.display = ok ? 'none' : '';
+  document.getElementById('patClearBtn').style.display  = ok ? ''     : 'none';
+  const btn = document.getElementById('pushBtn');
+  if (!ok) { btn.disabled = true; btn.title = 'Connect GitHub first'; }
+  else      { btn.disabled = false; btn.title = ''; }
+}
+document.getElementById('patField').addEventListener('keydown', e => { if(e.key==='Enter') savePat(); });
+
+// ── Catalog + sites ────────────────────────────────────────────────────────
 async function loadAll() {
   const [ar, sr] = await Promise.all([fetch('api/anime-ids.json'), fetch('api/sites.json')]);
-  const animeData = await ar.json();
-  const sitesData = await sr.json();
+  const A = await ar.json(), S = await sr.json();
+  _allIds = A.ids;
 
-  _allIds = animeData.ids;
-
-  document.getElementById('statIds').textContent    = animeData.count.toLocaleString();
-  document.getElementById('statSites').textContent  = sitesData.count;
-  const upd = new Date(animeData.updated);
-  document.getElementById('statUpdated').textContent = upd.toLocaleDateString('en-GB', { day:'numeric', month:'short' });
-
-  document.getElementById('animeBadge').textContent   = `${animeData.count.toLocaleString()} IDs`;
-  document.getElementById('animeUpdated').textContent = `Updated ${timeAgo(animeData.updated)}`;
-  document.getElementById('animeTotal').textContent   = animeData.count.toLocaleString();
-  renderIds(animeData.ids);
+  document.getElementById('statIds').textContent    = A.count.toLocaleString();
+  document.getElementById('statSites').textContent  = S.count;
+  document.getElementById('statUpdated').textContent = new Date(A.updated).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+  document.getElementById('animeBadge').textContent  = `${A.count.toLocaleString()} IDs`;
+  document.getElementById('animeUpdated').textContent = `Updated ${timeAgo(A.updated)}`;
+  document.getElementById('animeTotal').textContent  = A.count.toLocaleString();
+  renderIds(A.ids);
 
   let _st;
   document.getElementById('animeSearch').addEventListener('input', e => {
-    clearTimeout(_st);
-    _st = setTimeout(() => {
+    clearTimeout(_st); _st = setTimeout(() => {
       const q = e.target.value.trim();
-      renderIds(q ? animeData.ids.filter(id => String(id).includes(q)) : animeData.ids);
+      renderIds(q ? A.ids.filter(id=>String(id).includes(q)) : A.ids);
     }, 150);
   });
 
-  document.getElementById('sitesBadge').textContent = `${sitesData.count} live`;
-  if (sitesData.categories) {
-    document.getElementById('siteCats').innerHTML = Object.entries(sitesData.categories)
-      .map(([tag, n]) => `<span><strong style="color:var(--text)">${n}</strong> ${tag}</span>`).join(' &middot; ');
+  document.getElementById('sitesBadge').textContent = `${S.count} live`;
+  if (S.categories) {
+    document.getElementById('siteCats').innerHTML = Object.entries(S.categories)
+      .map(([t,n])=>`<span><strong style="color:var(--text)">${n}</strong> ${t}</span>`).join(' &middot; ');
   }
-  renderSites(sitesData.sites, '');
-
+  renderSites(S.sites,'');
   document.getElementById('tagFilter').addEventListener('click', e => {
-    const btn = e.target.closest('[data-tag]'); if (!btn) return;
-    document.querySelectorAll('#tagFilter .filter-pill').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-    renderSites(sitesData.sites, btn.dataset.tag);
+    const b = e.target.closest('[data-tag]'); if(!b) return;
+    document.querySelectorAll('#tagFilter .filter-pill').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); renderSites(S.sites, b.dataset.tag);
   });
 
   loadFeatured();
-  document.getElementById('featuredRefresh').addEventListener('click', e => { e.preventDefault(); loadFeatured(); });
+  document.getElementById('featuredRefresh').addEventListener('click', e=>{ e.preventDefault(); loadFeatured(); });
 }
 
 function renderIds(ids) {
@@ -521,314 +481,315 @@ function renderIds(ids) {
   ).join('');
 }
 
-function renderSites(sites, tag) {
-  const filtered = tag ? sites.filter(s => s.tag === tag) : sites;
-  document.getElementById('sitesGrid').innerHTML = filtered.map(s => {
-    const host = new URL(s.url).hostname;
+function renderSites(sites,tag){
+  const f=tag?sites.filter(s=>s.tag===tag):sites;
+  document.getElementById('sitesGrid').innerHTML=f.map(s=>{
+    const h=new URL(s.url).hostname;
     return `<a class="site-card" href="${s.url}" target="_blank" rel="noopener">
-      <img class="site-fav" src="https://www.google.com/s2/favicons?sz=32&domain=${host}" alt="" onerror="this.style.opacity=.3">
-      <span class="site-name">${s.name}${s.top ? ' ★' : ''}</span>
-      <span class="site-tag tag-${s.tag}">${s.tag === 'both' ? 'sub+dub' : s.tag}</span>
+      <img class="site-fav" src="https://www.google.com/s2/favicons?sz=32&domain=${h}" alt="" onerror="this.style.opacity=.3">
+      <span class="site-name">${s.name}${s.top?' ★':''}</span>
+      <span class="site-tag tag-${s.tag}">${s.tag==='both'?'sub+dub':s.tag}</span>
     </a>`;
   }).join('');
 }
 
-// ── Featured anime ─────────────────────────────────────────────────────────
-async function loadFeatured() {
-  const grid = document.getElementById('featuredGrid');
-  const badge = document.getElementById('featuredBadge');
-  grid.innerHTML = Array(8).fill(0).map(() =>
-    `<div class="anime-card"><div class="anime-cover-skel"></div><div class="anime-info">
-      <div class="anime-skel-line" style="width:80%"></div>
-      <div class="anime-skel-line" style="width:45%"></div>
-    </div></div>`
-  ).join('');
-  badge.textContent = 'loading…';
-
-  const sampleIds = pickRandom(_allIds, 24);
-  const query = `query ($ids: [Int]) { Page(perPage: 8) { media(idMal_in: $ids, type: ANIME, sort: SCORE_DESC) {
-    idMal title { romaji english } coverImage { large } averageScore genres siteUrl } } }`;
-  try {
-    const res = await fetch(ANILIST, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ query, variables: { ids: sampleIds } })
-    });
-    const { data } = await res.json();
-    const media = data?.Page?.media || [];
-    if (!media.length) { grid.innerHTML = '<p style="color:var(--dim);font-size:.85rem">Could not load. Try refreshing.</p>'; badge.textContent = '0'; return; }
-    badge.textContent = `${media.length} shown`;
-    grid.innerHTML = media.map(m => {
-      const title  = m.title.english || m.title.romaji;
-      const score  = m.averageScore ? `&#9733; ${(m.averageScore/10).toFixed(1)}` : '';
-      const genres = (m.genres || []).slice(0, 3);
-      return `<a class="anime-card" href="${m.siteUrl}" target="_blank" rel="noopener" title="${title}">
+// ── Featured ───────────────────────────────────────────────────────────────
+async function loadFeatured(){
+  const grid=document.getElementById('featuredGrid'), badge=document.getElementById('featuredBadge');
+  grid.innerHTML=Array(8).fill(0).map(()=>`<div class="anime-card"><div class="anime-cover-skel"></div>
+    <div class="anime-info"><div class="anime-skel-line" style="width:80%"></div><div class="anime-skel-line" style="width:45%"></div></div></div>`).join('');
+  badge.textContent='loading…';
+  const ids=pickRandom(_allIds,24);
+  const q=`query($ids:[Int]){Page(perPage:8){media(idMal_in:$ids,type:ANIME,sort:SCORE_DESC){idMal title{romaji english}coverImage{large}averageScore genres siteUrl}}}`;
+  try{
+    const r=await fetch(ANILIST,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({query:q,variables:{ids}})});
+    const{data}=await r.json(); const media=data?.Page?.media||[];
+    if(!media.length){grid.innerHTML='<p style="color:var(--dim)">Could not load.</p>';badge.textContent='0';return;}
+    badge.textContent=`${media.length} shown`;
+    grid.innerHTML=media.map(m=>{
+      const title=m.title.english||m.title.romaji;
+      const score=m.averageScore?`&#9733; ${(m.averageScore/10).toFixed(1)}`:'';
+      const genres=(m.genres||[]).slice(0,3);
+      return `<a class="anime-card" href="${m.siteUrl}" target="_blank" rel="noopener">
         <img class="anime-cover" src="${m.coverImage.large}" alt="${title}" loading="lazy">
-        <div class="anime-info">
-          <div class="anime-title">${title}</div>
-          ${score ? `<div class="anime-score">${score}</div>` : ''}
-          <div class="anime-genres">${genres.map(g => `<span class="anime-genre">${g}</span>`).join('')}</div>
-        </div>
-      </a>`;
+        <div class="anime-info"><div class="anime-title">${title}</div>${score?`<div class="anime-score">${score}</div>`:''}
+        <div class="anime-genres">${genres.map(g=>`<span class="anime-genre">${g}</span>`).join('')}</div></div></a>`;
     }).join('');
-  } catch { grid.innerHTML = '<p style="color:var(--dim);font-size:.85rem">AniList unavailable.</p>'; badge.textContent = 'error'; }
+  }catch{grid.innerHTML='<p style="color:var(--dim)">AniList unavailable.</p>';badge.textContent='error';}
 }
 
 // ── DB Lookup ──────────────────────────────────────────────────────────────
-document.getElementById('lookupInput').addEventListener('keydown', e => { if (e.key === 'Enter') doLookup(); });
-document.getElementById('lookupBtn').addEventListener('click', doLookup);
-
-async function doLookup() {
-  const q = document.getElementById('lookupInput').value.trim(); if (!q) return;
-  const el = document.getElementById('lookupResult');
-  el.innerHTML = '<div class="lookup-empty">Searching…</div>';
-  const query = `query ($q: String) { Media(search: $q, type: ANIME, sort: SEARCH_MATCH) {
-    idMal title { romaji english } coverImage { medium } averageScore genres episodes status siteUrl startDate { year } } }`;
-  try {
-    const res = await fetch(ANILIST, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ query, variables: { q } })
-    });
-    const { data, errors } = await res.json();
-    if (errors || !data?.Media) { el.innerHTML = '<div class="lookup-empty">No anime found.</div>'; return; }
-    const m     = data.Media;
-    const inDb  = _allIds.includes(m.idMal);
-    const title = m.title.english || m.title.romaji;
-    const score = m.averageScore ? `&#9733; ${(m.averageScore/10).toFixed(1)}` : '';
-    const eps   = m.episodes ? ` &middot; ${m.episodes} eps` : '';
-    const genres = (m.genres || []).slice(0, 5);
-    el.innerHTML = `<div class="lookup-result">
+document.getElementById('lookupInput').addEventListener('keydown',e=>{if(e.key==='Enter')doLookup();});
+document.getElementById('lookupBtn').addEventListener('click',doLookup);
+async function doLookup(){
+  const q=document.getElementById('lookupInput').value.trim(); if(!q)return;
+  const el=document.getElementById('lookupResult'); el.innerHTML='<div class="lookup-empty">Searching…</div>';
+  const query=`query($q:String){Media(search:$q,type:ANIME,sort:SEARCH_MATCH){idMal title{romaji english}coverImage{medium}averageScore genres episodes status siteUrl startDate{year}}}`;
+  try{
+    const r=await fetch(ANILIST,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({query,variables:{q}})});
+    const{data,errors}=await r.json();
+    if(errors||!data?.Media){el.innerHTML='<div class="lookup-empty">No anime found.</div>';return;}
+    const m=data.Media, inDb=_allIds.includes(m.idMal);
+    const title=m.title.english||m.title.romaji;
+    const score=m.averageScore?`&#9733; ${(m.averageScore/10).toFixed(1)}`:'';
+    const genres=(m.genres||[]).slice(0,5);
+    el.innerHTML=`<div class="lookup-result">
       <img class="lookup-cover" src="${m.coverImage.medium}" alt="${title}" onerror="this.style.opacity=.3">
       <div class="lookup-info">
         <div class="lookup-title">${title}</div>
-        <div class="lookup-meta">${[m.startDate?.year, m.status?.toLowerCase(), score].filter(Boolean).join(' &middot; ')}${eps}${m.idMal ? ` &middot; MAL ${m.idMal}` : ''}</div>
-        <span class="lookup-badge ${inDb ? 'badge-in' : 'badge-out'}">${inDb ? '&#10003; In catalog' : '&#10007; Not in catalog'}</span>
-        <div class="lookup-genres">${genres.map(g => `<span class="anime-genre">${g}</span>`).join('')}</div>
-      </div>
-    </div>`;
-  } catch { el.innerHTML = '<div class="lookup-empty">AniList unavailable.</div>'; }
+        <div class="lookup-meta">${[m.startDate?.year,m.status?.toLowerCase(),score].filter(Boolean).join(' &middot; ')}${m.episodes?` &middot; ${m.episodes} eps`:''}${m.idMal?` &middot; MAL ${m.idMal}`:''}</div>
+        <span class="lookup-badge ${inDb?'badge-in':'badge-out'}">${inDb?'&#10003; In catalog':'&#10007; Not in catalog'}</span>
+        <div class="lookup-genres">${genres.map(g=>`<span class="anime-genre">${g}</span>`).join('')}</div>
+      </div></div>`;
+  }catch{el.innerHTML='<div class="lookup-empty">AniList unavailable.</div>';}
 }
 
 // ── Scraper ────────────────────────────────────────────────────────────────
-let _scraperMode    = 'quick';
-let _scraperRunning = false;
-let _scraperStop    = false;
-let _scraperNewIds  = [];
-
-function setMode(m) {
-  _scraperMode = m;
-  document.getElementById('modeQuick').classList.toggle('on', m === 'quick');
-  document.getElementById('modeFull').classList.toggle('on', m === 'full');
-  const labels = { quick: '11 endpoints (~5s)', full: '120 endpoints (~45s)' };
-  document.getElementById('scraperMeta').textContent = labels[m];
+function setMode(m){
+  _scraperMode=m;
+  document.getElementById('modeQuick').classList.toggle('on',m==='quick');
+  document.getElementById('modeFull').classList.toggle('on',m==='full');
+  document.getElementById('scraperMeta').textContent=m==='quick'?'Quick mode — ~5s':'Full mode — ~45s';
 }
 
-function buildEndpoints(mode) {
-  const eps = [];
-  if (mode === 'quick') {
-    for (let p = 1; p <= 5; p++)  eps.push({ url: `${JIKAN}/top/anime?page=${p}`, label: `top/anime p${p}` });
-    const genres = [[1,'Action'],[2,'Adventure'],[4,'Comedy'],[8,'Drama'],[10,'Fantasy'],[22,'Romance']];
-    for (const [id, name] of genres) eps.push({ url: `${JIKAN}/anime?genres=${id}&order_by=score&sort=desc&page=1`, label: `genre:${name}` });
-  } else {
-    for (let p = 1; p <= 30; p++) eps.push({ url: `${JIKAN}/top/anime?page=${p}`, label: `top p${p}` });
-    for (const f of ['airing','upcoming','bypopularity','favorite']) {
-      for (let p = 1; p <= 4; p++) eps.push({ url: `${JIKAN}/top/anime?filter=${f}&page=${p}`, label: `${f} p${p}` });
-    }
-    const years = [2020,2021,2022,2023,2024,2025];
-    for (const y of years) {
-      for (const s of ['winter','spring','summer','fall']) eps.push({ url: `${JIKAN}/seasons/${y}/${s}?page=1`, label: `${y}/${s}` });
-    }
-    const genres = [[1,'Action'],[2,'Adventure'],[4,'Comedy'],[5,'AvantGarde'],[7,'Mystery'],[8,'Drama'],[10,'Fantasy'],[13,'Historical'],[14,'Horror'],[17,'MartialArts'],[18,'Mecha'],[19,'Music'],[22,'Romance'],[23,'School'],[24,'SciFi'],[27,'Shounen'],[36,'SliceOfLife'],[37,'Sports'],[41,'Suspense'],[62,'Isekai']];
-    for (const [id, name] of genres) {
-      for (let p = 1; p <= 2; p++) eps.push({ url: `${JIKAN}/anime?genres=${id}&order_by=score&sort=desc&page=${p}`, label: `${name} p${p}` });
-    }
-    const terms = ['demon','attack on','one piece','naruto','dragon ball','sword art','death note','fullmetal','bleach','hunter'];
-    for (const t of terms) eps.push({ url: `${JIKAN}/anime?q=${encodeURIComponent(t)}&order_by=score&sort=desc&page=1`, label: `search:${t}` });
+function buildEndpoints(mode){
+  const eps=[];
+  if(mode==='quick'){
+    for(let p=1;p<=5;p++) eps.push({url:`${JIKAN}/top/anime?page=${p}`,label:`top p${p}`});
+    for(const[id,n] of [[1,'Action'],[2,'Adventure'],[4,'Comedy'],[8,'Drama'],[10,'Fantasy'],[22,'Romance']])
+      eps.push({url:`${JIKAN}/anime?genres=${id}&order_by=score&sort=desc&page=1`,label:`genre:${n}`});
+  }else{
+    for(let p=1;p<=30;p++) eps.push({url:`${JIKAN}/top/anime?page=${p}`,label:`top p${p}`});
+    for(const f of['airing','upcoming','bypopularity','favorite'])
+      for(let p=1;p<=4;p++) eps.push({url:`${JIKAN}/top/anime?filter=${f}&page=${p}`,label:`${f} p${p}`});
+    for(const y of[2020,2021,2022,2023,2024,2025])
+      for(const s of['winter','spring','summer','fall'])
+        eps.push({url:`${JIKAN}/seasons/${y}/${s}?page=1`,label:`${y}/${s}`});
+    for(const[id,n] of[[1,'Action'],[2,'Adventure'],[4,'Comedy'],[5,'AvantGarde'],[7,'Mystery'],[8,'Drama'],[10,'Fantasy'],[13,'Historical'],[14,'Horror'],[17,'MartialArts'],[18,'Mecha'],[19,'Music'],[22,'Romance'],[23,'School'],[24,'SciFi'],[27,'Shounen'],[36,'SliceOfLife'],[37,'Sports'],[41,'Suspense'],[62,'Isekai']])
+      for(let p=1;p<=2;p++) eps.push({url:`${JIKAN}/anime?genres=${id}&order_by=score&sort=desc&page=${p}`,label:`${n} p${p}`});
+    for(const t of['demon','attack on','one piece','naruto','dragon ball','sword art','death note','fullmetal','bleach','hunter'])
+      eps.push({url:`${JIKAN}/anime?q=${encodeURIComponent(t)}&order_by=score&sort=desc&page=1`,label:`search:${t}`});
   }
   return eps;
 }
 
-function logLine(cls, text) {
-  const el = document.getElementById('scraperLog');
-  const line = document.createElement('div');
-  if (cls) line.className = cls;
-  line.textContent = text;
-  el.appendChild(line);
-  el.scrollTop = el.scrollHeight;
+function logLine(cls,text){
+  const el=document.getElementById('scraperLog');
+  const d=document.createElement('div'); if(cls)d.className=cls; d.textContent=text;
+  el.appendChild(d); el.scrollTop=el.scrollHeight;
 }
 
-function updateStats(newCount, dupCount, total, reqs, errs) {
-  document.getElementById('sstatNew').textContent  = newCount.toLocaleString();
-  document.getElementById('sstatDup').textContent  = dupCount.toLocaleString();
-  document.getElementById('sstatTot').textContent  = total.toLocaleString();
-  document.getElementById('sstatReqs').textContent = reqs;
-  document.getElementById('sstatErrs').textContent = errs;
+function updateStats(nw,dp,tot,req,err){
+  document.getElementById('sstatNew').textContent=nw.toLocaleString();
+  document.getElementById('sstatDup').textContent=dp.toLocaleString();
+  document.getElementById('sstatTot').textContent=tot.toLocaleString();
+  document.getElementById('sstatReqs').textContent=req;
+  document.getElementById('sstatErrs').textContent=err;
 }
 
-async function startScraper() {
-  if (_scraperRunning) return;
-  _scraperRunning = true;
-  _scraperStop    = false;
-  _scraperNewIds  = [];
+async function startScraper(){
+  if(_scraperRunning)return;
+  _scraperRunning=true; _scraperStop=false; _scraperNewIds=[];
 
-  document.getElementById('scraperRunBtn').disabled = true;
-  document.getElementById('scraperStopBtn').style.display = 'inline-flex';
+  document.getElementById('scraperRunBtn').disabled=true;
+  document.getElementById('scraperStopBtn').style.display='inline-flex';
   document.getElementById('scraperProgressWrap').classList.add('visible');
   document.getElementById('scraperStats').classList.add('visible');
   document.getElementById('scraperActions').classList.remove('visible');
-  document.getElementById('scraperLog').innerHTML = '';
-  document.getElementById('scraperBadge').textContent = 'running';
-  document.getElementById('scraperBadge').style.background = 'rgba(251,191,36,.12)';
-  document.getElementById('scraperBadge').style.color = '#fbbf24';
+  document.getElementById('scraperLog').innerHTML='';
+  document.getElementById('scraperBadge').textContent='running';
+  document.getElementById('scraperBadge').style.cssText='background:rgba(251,191,36,.12);color:#fbbf24';
 
-  const eps     = buildEndpoints(_scraperMode);
-  const total   = eps.length;
-  let newCount  = 0, dupCount = 0, totFound = 0, reqsDone = 0, errCount = 0;
-  const seen    = new Set(_allIds);
-  const newSet  = new Set();
+  const pushBtn=document.getElementById('pushBtn');
+  pushBtn.textContent='&#11014; Push to AnimeDb';
+  pushBtn.style.color='';
+  pushBtn.disabled=!getPat();
 
-  logLine('log-head', `▸ AnimeDb Browser Scraper — ${_scraperMode} mode — ${total} endpoints`);
-  logLine('log-head', `▸ Catalog has ${_allIds.length.toLocaleString()} IDs already`);
-  logLine(null, '');
+  const eps=buildEndpoints(_scraperMode), total=eps.length;
+  let newCount=0,dupCount=0,totFound=0,reqsDone=0,errCount=0;
+  const seen=new Set(_allIds), newSet=new Set();
 
-  for (let i = 0; i < eps.length; i++) {
-    if (_scraperStop) { logLine('log-err', '▸ Stopped by user.'); break; }
+  logLine('log-head',`▸ AnimeDb Browser Scraper — ${_scraperMode} mode — ${total} endpoints`);
+  logLine('log-head',`▸ Catalog: ${_allIds.length.toLocaleString()} IDs already stored`);
+  logLine(null,'');
 
-    const ep = eps[i];
-    const pct = Math.round(((i+1) / total) * 100);
-    document.getElementById('scraperFill').style.width = pct + '%';
-    document.getElementById('scraperProgressLabel').textContent = `${i+1} / ${total} — ${ep.label}`;
-
-    try {
-      const res  = await fetch(ep.url);
-      if (res.status === 429) {
-        logLine('log-err', `  [${ep.label}] rate limited — waiting 2s`);
-        await sleep(2000);
-        i--; continue;
-      }
-      const data = await res.json();
-      const items = data.data || [];
+  for(let i=0;i<eps.length;i++){
+    if(_scraperStop){logLine('log-err','▸ Stopped by user.');break;}
+    const ep=eps[i];
+    const pct=Math.round(((i+1)/total)*100);
+    document.getElementById('scraperFill').style.width=pct+'%';
+    document.getElementById('scraperProgressLabel').textContent=`${i+1} / ${total} — ${ep.label}`;
+    try{
+      const res=await fetch(ep.url);
+      if(res.status===429){logLine('log-err',`  [${ep.label}] rate limited — waiting 2s`);await sleep(2000);i--;continue;}
+      const data=await res.json(); const items=data.data||[];
       reqsDone++;
-
-      let epNew = 0, epDup = 0;
-      for (const item of items) {
-        const id = item.mal_id;
-        if (!id) continue;
-        totFound++;
-        if (seen.has(id)) { epDup++; dupCount++; }
-        else { epNew++; newCount++; seen.add(id); newSet.add(id); }
+      let epNew=0,epDup=0;
+      for(const item of items){
+        const id=item.mal_id; if(!id)continue; totFound++;
+        if(seen.has(id)){epDup++;dupCount++;}else{epNew++;newCount++;seen.add(id);newSet.add(id);}
       }
-
-      const cls = epNew > 0 ? 'log-new' : 'log-dup';
-      logLine(cls, `  [${ep.label}] ${items.length} anime — ${epNew} new, ${epDup} dup`);
-      updateStats(newCount, dupCount, totFound, reqsDone, errCount);
-
-    } catch (e) {
+      logLine(epNew>0?'log-new':'log-dup',`  [${ep.label}] ${items.length} anime — ${epNew} new, ${epDup} dup`);
+      updateStats(newCount,dupCount,totFound,reqsDone,errCount);
+    }catch(e){
       errCount++;
-      logLine('log-err', `  [${ep.label}] error: ${e.message}`);
-      updateStats(newCount, dupCount, totFound, reqsDone, errCount);
+      logLine('log-err',`  [${ep.label}] error: ${e.message}`);
+      updateStats(newCount,dupCount,totFound,reqsDone,errCount);
     }
-
     await sleep(360);
   }
 
-  _scraperNewIds = [...newSet];
-  const elapsed  = 'done';
-
-  logLine(null, '');
-  if (_scraperStop) {
-    logLine('log-err', `▸ Stopped. Found ${newCount} new IDs before stopping.`);
-  } else {
-    logLine('log-done', `▸ Complete — ${newCount} new IDs discovered, ${dupCount} already in DB`);
-    if (newCount > 0) {
-      logLine('log-new', `▸ ${newCount} new MAL IDs ready to export`);
-    } else {
-      logLine('log-ok', `▸ No new IDs found — catalog is up to date`);
-    }
+  _scraperNewIds=[...newSet];
+  logLine(null,'');
+  if(_scraperStop){
+    logLine('log-err',`▸ Stopped. ${newCount} new IDs found before stopping.`);
+  }else{
+    logLine('log-done',`▸ Complete — ${newCount} new IDs discovered, ${dupCount} already in DB`);
+    if(newCount>0) logLine('log-new',`▸ Ready to push ${newCount} new IDs to AnimeDb`);
+    else logLine('log-ok','▸ No new IDs — catalog is fully up to date');
   }
 
-  document.getElementById('scraperBadge').textContent = newCount > 0 ? `${newCount} new` : 'up to date';
-  document.getElementById('scraperBadge').style.background = newCount > 0 ? 'rgba(168,85,247,.12)' : 'rgba(74,222,128,.12)';
-  document.getElementById('scraperBadge').style.color = newCount > 0 ? 'var(--purple-lt)' : '#4ade80';
+  document.getElementById('scraperBadge').textContent=newCount>0?`${newCount} new`:'up to date';
+  document.getElementById('scraperBadge').style.cssText=newCount>0
+    ?'background:rgba(168,85,247,.12);color:var(--purple-lt)'
+    :'background:rgba(74,222,128,.12);color:#4ade80';
 
-  if (newCount > 0) {
-    document.getElementById('exportNote').textContent = `${newCount} new ID${newCount !== 1 ? 's' : ''} ready`;
+  if(newCount>0){
+    document.getElementById('exportNote').textContent=`${newCount} new ID${newCount!==1?'s':''} ready`;
     document.getElementById('scraperActions').classList.add('visible');
   }
-
-  document.getElementById('scraperRunBtn').disabled = false;
-  document.getElementById('scraperStopBtn').style.display = 'none';
+  document.getElementById('scraperRunBtn').disabled=false;
+  document.getElementById('scraperStopBtn').style.display='none';
   document.getElementById('scraperProgressWrap').classList.remove('visible');
-  _scraperRunning = false;
+  _scraperRunning=false;
 }
 
-function stopScraper() { _scraperStop = true; }
+function stopScraper(){_scraperStop=true;}
 
-function exportJson() {
-  const out = { ids: _scraperNewIds, count: _scraperNewIds.length, exported: new Date().toISOString(), note: 'New IDs from browser scraper — not yet in catalog' };
-  const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `animedb-new-ids-${Date.now()}.json`;
-  a.click();
+// ── Push to AnimeDb ────────────────────────────────────────────────────────
+async function pushToAnimeDb(){
+  const pat=getPat();
+  if(!pat){toast('Connect GitHub first (see token row above)');return;}
+  if(!_scraperNewIds.length){toast('No new IDs to push');return;}
+
+  const btn=document.getElementById('pushBtn');
+  btn.disabled=true;
+  btn.textContent='&#8987; Pushing…';
+
+  logLine('log-head','');
+  logLine('log-head','▸ Pushing to AnimeDb via GitHub Contents API…');
+
+  try{
+    // 1. Fetch current file + SHA
+    const getRes=await fetch(`${GH_API}/repos/${GH_REPO}/contents/api/anime-ids.json`,{
+      headers:{'Authorization':`Bearer ${pat}`,'Accept':'application/vnd.github+json'}
+    });
+    if(!getRes.ok){const e=await getRes.json();throw new Error(e.message||`GET ${getRes.status}`);}
+    const fileData=await getRes.json();
+    const sha=fileData.sha;
+
+    // 2. Decode, merge, sort
+    const current=JSON.parse(atob(fileData.content.replace(/\n/g,'')));
+    const merged=[...new Set([...current.ids,..._scraperNewIds])].sort((a,b)=>a-b);
+    const addedCount=merged.length-current.ids.length;
+
+    if(addedCount===0){
+      logLine('log-ok','▸ All IDs already in catalog — nothing to push');
+      btn.textContent='&#10003; Already up to date';
+      btn.disabled=false;
+      return;
+    }
+
+    // 3. Build updated JSON and base64-encode
+    const updated={...current,ids:merged,count:merged.length,updated:new Date().toISOString()};
+    const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(updated,null,2))));
+
+    // 4. Commit via PUT
+    const putRes=await fetch(`${GH_API}/repos/${GH_REPO}/contents/api/anime-ids.json`,{
+      method:'PUT',
+      headers:{'Authorization':`Bearer ${pat}`,'Content-Type':'application/json','Accept':'application/vnd.github+json'},
+      body:JSON.stringify({
+        message:`chore: add ${addedCount} IDs from browser scraper [skip ci]`,
+        content:encoded,
+        sha
+      })
+    });
+    if(!putRes.ok){const e=await putRes.json();throw new Error(e.message||`PUT ${putRes.status}`);}
+    const putData=await putRes.json();
+
+    // 5. Update local cache so stats are live
+    _allIds=merged;
+
+    btn.textContent=`&#10003; Pushed ${addedCount} IDs`;
+    btn.style.color='#4ade80';
+    logLine('log-done',`▸ Pushed ${addedCount} new IDs — catalog now at ${merged.length.toLocaleString()}`);
+    logLine('log-ok',`▸ Commit: ${putData.commit?.sha?.slice(0,7) || 'done'}`);
+    logLine('log-ok','▸ AnimeWeb will fetch the updated catalog on next page load');
+    toast(`Pushed ${addedCount} new IDs to AnimeDb`);
+
+    // Refresh hero stat
+    document.getElementById('statIds').textContent=merged.length.toLocaleString();
+
+  }catch(e){
+    logLine('log-err',`▸ Push failed: ${e.message}`);
+    toast(`Push failed: ${e.message}`);
+    btn.textContent='&#11014; Push to AnimeDb';
+    btn.disabled=!getPat();
+  }
 }
 
-function exportCsv() {
-  const csv = 'mal_id\n' + _scraperNewIds.join('\n');
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `animedb-new-ids-${Date.now()}.csv`;
-  a.click();
+// ── Export ─────────────────────────────────────────────────────────────────
+function exportJson(){
+  const out={ids:_scraperNewIds,count:_scraperNewIds.length,exported:new Date().toISOString()};
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));
+  a.download=`animedb-new-${Date.now()}.json`; a.click();
+}
+function exportCsv(){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['mal_id\n'+_scraperNewIds.join('\n')],{type:'text/csv'}));
+  a.download=`animedb-new-${Date.now()}.csv`; a.click();
 }
 
-// ── Recent runs ────────────────────────────────────────────────────────────
-async function loadRuns() {
-  const wrap = document.getElementById('runsWrap');
-  try {
-    const res  = await fetch('https://api.github.com/repos/CCguvycu/animedb-site/actions/runs?per_page=6', { headers: { 'Accept': 'application/vnd.github+json' } });
-    const data = await res.json();
-    if (!data.workflow_runs?.length) { wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">No runs yet.</div>'; return; }
-    wrap.innerHTML = data.workflow_runs.map(run => {
-      const cls   = run.status === 'completed' ? (run.conclusion === 'success' ? 'completed' : 'failure') : run.status.replace(/ /g,'_');
-      const label = run.status === 'completed' ? run.conclusion : run.status.replace(/_/g,' ');
-      return `<div class="run-row">
-        <span class="run-status ${cls}">${label}</span>
-        <span class="run-name">${run.name}</span>
-        <span class="run-time">${timeAgo(run.created_at)}</span>
-        <a class="run-link" href="${run.html_url}" target="_blank">&#8599; view</a>
-      </div>`;
+// ── Runs + commits ─────────────────────────────────────────────────────────
+async function loadRuns(){
+  const w=document.getElementById('runsWrap');
+  try{
+    const r=await fetch(`${GH_API}/repos/${GH_REPO}/actions/runs?per_page=6`,{headers:{'Accept':'application/vnd.github+json'}});
+    const d=await r.json();
+    if(!d.workflow_runs?.length){w.innerHTML='<div style="padding:1rem;color:var(--dim)">No runs yet.</div>';return;}
+    w.innerHTML=d.workflow_runs.map(run=>{
+      const cls=run.status==='completed'?(run.conclusion==='success'?'completed':'failure'):run.status.replace(/ /g,'_');
+      const lbl=run.status==='completed'?run.conclusion:run.status.replace(/_/g,' ');
+      return `<div class="run-row"><span class="run-status ${cls}">${lbl}</span><span class="run-name">${run.name}</span><span class="run-time">${timeAgo(run.created_at)}</span><a class="run-link" href="${run.html_url}" target="_blank">&#8599; view</a></div>`;
     }).join('');
-  } catch { wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">Could not load runs.</div>'; }
+  }catch{w.innerHTML='<div style="padding:1rem;color:var(--dim)">Could not load runs.</div>';}
+}
+async function loadCommits(){
+  const w=document.getElementById('commitsWrap');
+  if(w.dataset.loaded)return; w.dataset.loaded='1';
+  try{
+    const r=await fetch(`${GH_API}/repos/${GH_REPO}/commits?per_page=10`,{headers:{'Accept':'application/vnd.github+json'}});
+    const d=await r.json();
+    if(!Array.isArray(d)||!d.length){w.innerHTML='<div style="padding:1rem;color:var(--dim)">No commits.</div>';return;}
+    w.innerHTML=d.map(c=>`<div class="commit-row">
+      <a class="commit-sha" href="${c.html_url}" target="_blank">${c.sha.slice(0,7)}</a>
+      <span class="commit-msg"><strong>${c.commit.message.split('\n')[0]}</strong></span>
+      <span class="commit-time">${timeAgo(c.commit.author.date)}</span>
+    </div>`).join('');
+  }catch{w.innerHTML='<div style="padding:1rem;color:var(--dim)">Could not load commits.</div>';}
+}
+function switchTab(tab){
+  document.getElementById('tabRuns').classList.toggle('on',tab==='runs');
+  document.getElementById('tabCommits').classList.toggle('on',tab==='commits');
+  document.getElementById('runsPane').style.display=tab==='runs'?'':'none';
+  document.getElementById('commitsPane').style.display=tab==='commits'?'':'none';
+  if(tab==='commits')loadCommits();
 }
 
-async function loadCommits() {
-  const wrap = document.getElementById('commitsWrap');
-  if (wrap.dataset.loaded) return;
-  wrap.dataset.loaded = '1';
-  try {
-    const res  = await fetch('https://api.github.com/repos/CCguvycu/animedb-site/commits?per_page=10', { headers: { 'Accept': 'application/vnd.github+json' } });
-    const data = await res.json();
-    if (!Array.isArray(data) || !data.length) { wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">No commits found.</div>'; return; }
-    wrap.innerHTML = data.map(c => {
-      const msg = c.commit.message.split('\n')[0];
-      return `<div class="commit-row">
-        <a class="commit-sha" href="${c.html_url}" target="_blank">${c.sha.slice(0,7)}</a>
-        <span class="commit-msg"><strong>${msg}</strong></span>
-        <span class="commit-time">${timeAgo(c.commit.author.date)}</span>
-      </div>`;
-    }).join('');
-  } catch { wrap.innerHTML = '<div style="padding:1rem;color:var(--dim);font-size:.82rem">Could not load commits.</div>'; }
-}
-
-function switchTab(tab) {
-  document.getElementById('tabRuns').classList.toggle('on', tab === 'runs');
-  document.getElementById('tabCommits').classList.toggle('on', tab === 'commits');
-  document.getElementById('runsPane').style.display    = tab === 'runs'    ? '' : 'none';
-  document.getElementById('commitsPane').style.display = tab === 'commits' ? '' : 'none';
-  if (tab === 'commits') loadCommits();
-}
-
+// ── Init ───────────────────────────────────────────────────────────────────
 setMode('quick');
+updatePatUI();
 loadAll().catch(console.error);
 loadRuns().catch(console.error);
 </script>
