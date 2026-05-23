@@ -34,3 +34,8 @@ jobs:
           file_pattern: api/anime-ids.json api/sites.json
           commit_user_name: 'animedb-bot'
           commit_user_email: 'animedb-bot@users.noreply.github.com'
+
+      - name: Sync IDs to AnimeWeb
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: python scripts/sync_to_animeweb.py
