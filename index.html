@@ -282,9 +282,9 @@
       <!-- Standalone push row -->
       <div class="push-row" id="pushRow">
         <span class="push-row-label">Push catalog:</span>
-        <button class="push-row-btn push-btn-db" id="syncDbBtn"  onclick="syncToAnimeDb()"  disabled>&#11014; Push to AnimeDb</button>
-        <button class="push-row-btn push-btn-aw" id="syncAwBtn"  onclick="syncToAnimeWeb()" disabled>&#11014; Push to AnimeWeb</button>
-        <span class="push-row-hint" id="pushRowHint">Connect GitHub to enable</span>
+        <button class="push-row-btn push-btn-db" id="syncDbBtn"  onclick="syncToAnimeDb()">&#11014; Push to AnimeDb</button>
+        <button class="push-row-btn push-btn-aw" id="syncAwBtn"  onclick="syncToAnimeWeb()">&#11014; Push to AnimeWeb</button>
+        <span class="push-row-hint" id="pushRowHint">Connect GitHub for instant push &middot; or trigger via <a href="https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml" target="_blank" style="color:var(--purple-lt)">GitHub Actions &#8599;</a></span>
       </div>
 
       <!-- Progress -->
@@ -453,12 +453,10 @@ function updatePatUI() {
   else      { btn.disabled = false; btn.title = ''; }
   const btnAw=document.getElementById('pushAwBtn');
   if(btnAw){ if(!ok){btnAw.disabled=true;}else{btnAw.disabled=false;} }
-  const sDb=document.getElementById('syncDbBtn');
-  const sAw=document.getElementById('syncAwBtn');
   const hint=document.getElementById('pushRowHint');
-  if(sDb){ sDb.disabled=!ok; }
-  if(sAw){ sAw.disabled=!ok; }
-  if(hint){ hint.textContent=ok?'Syncs current catalog to GitHub':'Connect GitHub to enable'; }
+  if(hint){ hint.innerHTML=ok
+    ?'Connected &middot; instant push enabled'
+    :'Connect GitHub for instant push &middot; or trigger via <a href="https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml" target="_blank" style="color:var(--purple-lt)">GitHub Actions &#8599;</a>'; }
 }
 document.getElementById('patField').addEventListener('keydown', e => { if(e.key==='Enter') savePat(); });
 
@@ -705,7 +703,11 @@ function stopScraper(){_scraperStop=true;}
 // Push full catalog to AnimeDb (no scrape needed — syncs _allIds)
 async function syncToAnimeDb(){
   const pat=getPat();
-  if(!pat){toast('Connect GitHub first');return;}
+  if(!pat){
+    window.open('https://github.com/CCguvycu/animedb-site/actions/workflows/scrape.yml','_blank');
+    toast('Opening GitHub Actions — click Run workflow');
+    return;
+  }
   if(!_allIds.length){toast('Catalog not loaded yet — wait a moment');return;}
   const btn=document.getElementById('syncDbBtn');
   btn.disabled=true; btn.textContent='⏳ Syncing…';
@@ -823,7 +825,11 @@ async function pushToAnimeDb(){
 // Push full catalog to AnimeWeb (no scrape needed — syncs _allIds)
 async function syncToAnimeWeb(){
   const pat=getPat();
-  if(!pat){toast('Connect GitHub first');return;}
+  if(!pat){
+    window.open('https://github.com/CCguvycu/anistream-site/actions/workflows/scrape.yml','_blank');
+    toast('Opening GitHub Actions — click Run workflow');
+    return;
+  }
   if(!_allIds.length){toast('Catalog not loaded yet — wait a moment');return;}
   const btn=document.getElementById('syncAwBtn');
   btn.disabled=true; btn.textContent='⏳ Syncing…';
