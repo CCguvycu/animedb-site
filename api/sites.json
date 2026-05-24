@@ -1,12 +1,6 @@
 {
   "sites": [
     {
-      "name": "HiAnime",
-      "url": "https://hianime.to/",
-      "tag": "sub",
-      "top": true
-    },
-    {
       "name": "Miruro",
       "url": "https://www.miruro.tv/",
       "tag": "sub",
@@ -108,11 +102,6 @@
       "tag": "sub"
     },
     {
-      "name": "GogoAnime",
-      "url": "https://gogoanime.by/",
-      "tag": "sub"
-    },
-    {
       "name": "Kaguya",
       "url": "https://kaguya.app/",
       "tag": "sub"
@@ -188,6 +177,11 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -317,11 +311,6 @@
       "tag": "manga"
     },
     {
-      "name": "MangaBuddy",
-      "url": "https://mangabuddy.com/",
-      "tag": "manga"
-    },
-    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -352,13 +341,13 @@
       "tag": "manga"
     }
   ],
-  "count": 68,
-  "updated": "2026-05-23T13:58:35.508316+00:00",
+  "count": 66,
+  "updated": "2026-05-24T07:27:11.318377+00:00",
   "categories": {
-    "sub": 25,
-    "both": 16,
+    "sub": 23,
+    "both": 17,
     "dub": 3,
     "official": 12,
-    "manga": 12
+    "manga": 11
   }
 }
