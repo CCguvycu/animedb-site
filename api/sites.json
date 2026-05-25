@@ -102,6 +102,11 @@
       "tag": "sub"
     },
     {
+      "name": "GogoAnime",
+      "url": "https://gogoanime.by/",
+      "tag": "sub"
+    },
+    {
       "name": "Kaguya",
       "url": "https://kaguya.app/",
       "tag": "sub"
@@ -311,6 +316,11 @@
       "tag": "manga"
     },
     {
+      "name": "MangaBuddy",
+      "url": "https://mangabuddy.com/",
+      "tag": "manga"
+    },
+    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -341,13 +351,13 @@
       "tag": "manga"
     }
   ],
-  "count": 66,
-  "updated": "2026-05-24T07:27:11.318377+00:00",
+  "count": 68,
+  "updated": "2026-05-25T08:28:21.524781+00:00",
   "categories": {
-    "sub": 23,
+    "sub": 24,
     "both": 17,
     "dub": 3,
     "official": 12,
-    "manga": 11
+    "manga": 12
   }
 }
