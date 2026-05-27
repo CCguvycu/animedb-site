@@ -1,12 +1,6 @@
 {
   "sites": [
     {
-      "name": "HiAnime",
-      "url": "https://hianime.to/",
-      "tag": "sub",
-      "top": true
-    },
-    {
       "name": "Miruro",
       "url": "https://www.miruro.tv/",
       "tag": "sub",
@@ -88,11 +82,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniVibe",
-      "url": "https://anivibe.net/",
-      "tag": "sub"
-    },
-    {
       "name": "Aniwave",
       "url": "https://aniwave.to/",
       "tag": "sub"
@@ -105,11 +94,6 @@
     {
       "name": "AniZone",
       "url": "https://anizone.to/",
-      "tag": "sub"
-    },
-    {
-      "name": "GogoAnime",
-      "url": "https://gogoanime.by/",
       "tag": "sub"
     },
     {
@@ -191,6 +175,11 @@
       "tag": "both"
     },
     {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
+      "tag": "both"
+    },
+    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -213,11 +202,6 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
-      "tag": "dub"
-    },
-    {
-      "name": "AnimeLand",
-      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -317,6 +301,11 @@
       "tag": "manga"
     },
     {
+      "name": "MangaBuddy",
+      "url": "https://mangabuddy.com/",
+      "tag": "manga"
+    },
+    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -347,13 +336,13 @@
       "tag": "manga"
     }
   ],
-  "count": 67,
-  "updated": "2026-05-26T07:56:25.200600+00:00",
+  "count": 65,
+  "updated": "2026-05-27T08:11:15.795691+00:00",
   "categories": {
-    "sub": 25,
-    "both": 16,
-    "dub": 3,
+    "sub": 22,
+    "both": 17,
+    "dub": 2,
     "official": 12,
-    "manga": 11
+    "manga": 12
   }
 }
