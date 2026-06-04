@@ -122,6 +122,12 @@
       "tag": "sub"
     },
     {
+      "name": "AnimeLok",
+      "url": "https://animelok.online/home",
+      "tag": "both",
+      "top": true
+    },
+    {
       "name": "Animetsu",
       "url": "https://animetsu.cc/home",
       "tag": "both",
@@ -166,6 +172,11 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -330,11 +341,11 @@
       "tag": "manga"
     }
   ],
-  "count": 64,
-  "updated": "2026-06-03T09:02:15.148013+00:00",
+  "count": 66,
+  "updated": "2026-06-04T08:27:29.629421+00:00",
   "categories": {
     "sub": 24,
-    "both": 13,
+    "both": 15,
     "dub": 3,
     "official": 12,
     "manga": 12
