@@ -180,6 +180,11 @@
       "tag": "both"
     },
     {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
+      "tag": "both"
+    },
+    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -202,6 +207,11 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
+      "tag": "dub"
+    },
+    {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -301,11 +311,6 @@
       "tag": "manga"
     },
     {
-      "name": "MangaBuddy",
-      "url": "https://mangabuddy.com/",
-      "tag": "manga"
-    },
-    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -336,13 +341,13 @@
       "tag": "manga"
     }
   ],
-  "count": 65,
-  "updated": "2026-06-08T09:01:21.366476+00:00",
+  "count": 66,
+  "updated": "2026-06-09T07:56:33.979324+00:00",
   "categories": {
     "sub": 24,
-    "both": 15,
-    "dub": 2,
+    "both": 16,
+    "dub": 3,
     "official": 12,
-    "manga": 12
+    "manga": 11
   }
 }
