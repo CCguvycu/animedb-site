@@ -122,12 +122,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeLok",
-      "url": "https://animelok.online/home",
-      "tag": "both",
-      "top": true
-    },
-    {
       "name": "Animetsu",
       "url": "https://animetsu.cc/home",
       "tag": "both",
@@ -207,11 +201,6 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
-      "tag": "dub"
-    },
-    {
-      "name": "AnimeLand",
-      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -346,12 +335,12 @@
       "tag": "manga"
     }
   ],
-  "count": 67,
-  "updated": "2026-06-11T08:52:48.498647+00:00",
+  "count": 65,
+  "updated": "2026-06-12T08:31:55.166094+00:00",
   "categories": {
     "sub": 24,
-    "both": 16,
-    "dub": 3,
+    "both": 15,
+    "dub": 2,
     "official": 12,
     "manga": 12
   }
