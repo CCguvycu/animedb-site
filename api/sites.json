@@ -67,6 +67,11 @@
       "tag": "sub"
     },
     {
+      "name": "AniPlay",
+      "url": "https://aniplay.co/",
+      "tag": "sub"
+    },
+    {
       "name": "AniPlay.TV",
       "url": "https://aniplay.tv/",
       "tag": "sub"
@@ -300,11 +305,6 @@
       "tag": "manga"
     },
     {
-      "name": "MangaBuddy",
-      "url": "https://mangabuddy.com/",
-      "tag": "manga"
-    },
-    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -336,12 +336,12 @@
     }
   ],
   "count": 65,
-  "updated": "2026-06-14T08:21:43.561184+00:00",
+  "updated": "2026-06-15T10:30:40.781915+00:00",
   "categories": {
-    "sub": 23,
+    "sub": 24,
     "both": 16,
     "dub": 3,
     "official": 12,
-    "manga": 11
+    "manga": 10
   }
 }
