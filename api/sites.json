@@ -195,11 +195,6 @@
       "tag": "both"
     },
     {
-      "name": "WcoStream",
-      "url": "https://www.wcostream.tv/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
       "tag": "dub"
@@ -272,11 +267,6 @@
       "tag": "official"
     },
     {
-      "name": "Tubi",
-      "url": "https://tubitv.com/",
-      "tag": "official"
-    },
-    {
       "name": "MangaDex",
       "url": "https://mangadex.org/",
       "tag": "manga",
@@ -330,13 +320,13 @@
       "tag": "manga"
     }
   ],
-  "count": 64,
-  "updated": "2026-06-17T09:08:59.446309+00:00",
+  "count": 62,
+  "updated": "2026-06-18T09:00:23.449966+00:00",
   "categories": {
     "sub": 24,
-    "both": 15,
+    "both": 14,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 10
   }
 }
