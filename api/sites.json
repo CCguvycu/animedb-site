@@ -180,6 +180,11 @@
       "tag": "both"
     },
     {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
+      "tag": "both"
+    },
+    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -192,6 +197,11 @@
     {
       "name": "WcoAnime",
       "url": "https://www.wcofun.net/",
+      "tag": "both"
+    },
+    {
+      "name": "WcoStream",
+      "url": "https://www.wcostream.tv/",
       "tag": "both"
     },
     {
@@ -267,6 +277,11 @@
       "tag": "official"
     },
     {
+      "name": "Tubi",
+      "url": "https://tubitv.com/",
+      "tag": "official"
+    },
+    {
       "name": "MangaDex",
       "url": "https://mangadex.org/",
       "tag": "manga",
@@ -320,13 +335,13 @@
       "tag": "manga"
     }
   ],
-  "count": 62,
-  "updated": "2026-06-18T09:00:23.449966+00:00",
+  "count": 65,
+  "updated": "2026-06-19T09:18:44.919018+00:00",
   "categories": {
     "sub": 24,
-    "both": 14,
+    "both": 16,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
