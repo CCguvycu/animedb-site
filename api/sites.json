@@ -117,6 +117,11 @@
       "tag": "sub"
     },
     {
+      "name": "VoirAnime",
+      "url": "https://www.voiranime.art/",
+      "tag": "sub"
+    },
+    {
       "name": "WitAnime",
       "url": "https://witanime.cyou/",
       "tag": "sub"
@@ -330,10 +335,10 @@
       "tag": "manga"
     }
   ],
-  "count": 64,
-  "updated": "2026-06-22T09:54:09.944147+00:00",
+  "count": 65,
+  "updated": "2026-06-23T07:56:20.229384+00:00",
   "categories": {
-    "sub": 24,
+    "sub": 25,
     "both": 15,
     "dub": 3,
     "official": 12,
