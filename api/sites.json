@@ -1,6 +1,12 @@
 {
   "sites": [
     {
+      "name": "AnimePahe",
+      "url": "https://animepahe.ru/",
+      "tag": "sub",
+      "top": true
+    },
+    {
       "name": "Miruro",
       "url": "https://www.miruro.tv/",
       "tag": "sub",
@@ -335,10 +341,10 @@
       "tag": "manga"
     }
   ],
-  "count": 65,
-  "updated": "2026-06-23T07:56:20.229384+00:00",
+  "count": 66,
+  "updated": "2026-06-24T07:47:26.214986+00:00",
   "categories": {
-    "sub": 25,
+    "sub": 26,
     "both": 15,
     "dub": 3,
     "official": 12,
