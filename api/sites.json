@@ -1,12 +1,6 @@
 {
   "sites": [
     {
-      "name": "AnimePahe",
-      "url": "https://animepahe.ru/",
-      "tag": "sub",
-      "top": true
-    },
-    {
       "name": "Miruro",
       "url": "https://www.miruro.tv/",
       "tag": "sub",
@@ -191,6 +185,11 @@
       "tag": "both"
     },
     {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
+      "tag": "both"
+    },
+    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -342,10 +341,10 @@
     }
   ],
   "count": 66,
-  "updated": "2026-06-25T07:49:25.506935+00:00",
+  "updated": "2026-06-26T08:07:36.070200+00:00",
   "categories": {
-    "sub": 26,
-    "both": 15,
+    "sub": 25,
+    "both": 16,
     "dub": 3,
     "official": 12,
     "manga": 10
