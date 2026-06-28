@@ -215,6 +215,11 @@
       "tag": "dub"
     },
     {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
+      "tag": "dub"
+    },
+    {
       "name": "DubbedAnimeHQ",
       "url": "https://dubbedanime.io/",
       "tag": "dub"
@@ -340,12 +345,12 @@
       "tag": "manga"
     }
   ],
-  "count": 66,
-  "updated": "2026-06-27T07:05:24.761248+00:00",
+  "count": 67,
+  "updated": "2026-06-28T08:04:26.328527+00:00",
   "categories": {
     "sub": 25,
     "both": 16,
-    "dub": 3,
+    "dub": 4,
     "official": 12,
     "manga": 10
   }
