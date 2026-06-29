@@ -82,11 +82,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniVibe",
-      "url": "https://anivibe.net/",
-      "tag": "sub"
-    },
-    {
       "name": "Aniwave",
       "url": "https://aniwave.to/",
       "tag": "sub"
@@ -345,10 +340,10 @@
       "tag": "manga"
     }
   ],
-  "count": 67,
-  "updated": "2026-06-28T08:04:26.328527+00:00",
+  "count": 66,
+  "updated": "2026-06-29T09:05:07.396456+00:00",
   "categories": {
-    "sub": 25,
+    "sub": 24,
     "both": 16,
     "dub": 4,
     "official": 12,
