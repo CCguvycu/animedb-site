@@ -67,11 +67,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniPlay",
-      "url": "https://aniplay.co/",
-      "tag": "sub"
-    },
-    {
       "name": "AniPlay.TV",
       "url": "https://aniplay.tv/",
       "tag": "sub"
@@ -210,6 +205,11 @@
       "tag": "dub"
     },
     {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
+      "tag": "dub"
+    },
+    {
       "name": "DubbedAnimeHQ",
       "url": "https://dubbedanime.io/",
       "tag": "dub"
@@ -336,11 +336,11 @@
     }
   ],
   "count": 65,
-  "updated": "2026-06-30T08:00:16.134024+00:00",
+  "updated": "2026-07-01T08:25:04.693609+00:00",
   "categories": {
-    "sub": 24,
+    "sub": 23,
     "both": 16,
-    "dub": 3,
+    "dub": 4,
     "official": 12,
     "manga": 10
   }
