@@ -210,11 +210,6 @@
       "tag": "dub"
     },
     {
-      "name": "DubbedAnimeHQ",
-      "url": "https://dubbedanime.io/",
-      "tag": "dub"
-    },
-    {
       "name": "Funimation",
       "url": "https://www.funimation.com/",
       "tag": "dub"
@@ -335,12 +330,12 @@
       "tag": "manga"
     }
   ],
-  "count": 65,
-  "updated": "2026-07-01T08:25:04.693609+00:00",
+  "count": 64,
+  "updated": "2026-07-02T07:39:25.482687+00:00",
   "categories": {
     "sub": 23,
     "both": 16,
-    "dub": 4,
+    "dub": 3,
     "official": 12,
     "manga": 10
   }
