@@ -140,11 +140,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeFever",
-      "url": "https://www.animefever.cc/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeFreak",
       "url": "https://animefreak.tv/",
       "tag": "both"
@@ -157,11 +152,6 @@
     {
       "name": "AnimeHub",
       "url": "https://animehub.ac/",
-      "tag": "both"
-    },
-    {
-      "name": "AnimeStream",
-      "url": "https://animestream.in/",
       "tag": "both"
     },
     {
@@ -330,11 +320,11 @@
       "tag": "manga"
     }
   ],
-  "count": 64,
-  "updated": "2026-07-02T07:39:25.482687+00:00",
+  "count": 62,
+  "updated": "2026-07-03T07:26:56.206937+00:00",
   "categories": {
     "sub": 23,
-    "both": 16,
+    "both": 14,
     "dub": 3,
     "official": 12,
     "manga": 10
