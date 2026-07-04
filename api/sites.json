@@ -150,11 +150,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeHub",
-      "url": "https://animehub.ac/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeVibe",
       "url": "https://animevibe.to/",
       "tag": "both"
@@ -192,11 +187,6 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
-      "tag": "dub"
-    },
-    {
-      "name": "AnimeLand",
-      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -320,12 +310,12 @@
       "tag": "manga"
     }
   ],
-  "count": 62,
-  "updated": "2026-07-03T07:26:56.206937+00:00",
+  "count": 60,
+  "updated": "2026-07-04T06:52:58.095074+00:00",
   "categories": {
     "sub": 23,
-    "both": 14,
-    "dub": 3,
+    "both": 13,
+    "dub": 2,
     "official": 12,
     "manga": 10
   }
