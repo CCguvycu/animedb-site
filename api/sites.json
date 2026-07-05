@@ -27,11 +27,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeHeaven",
-      "url": "https://animeheaven.me/",
-      "tag": "sub"
-    },
-    {
       "name": "AnimeKhor",
       "url": "https://animekhor.xyz/",
       "tag": "sub"
@@ -190,6 +185,11 @@
       "tag": "dub"
     },
     {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
+      "tag": "dub"
+    },
+    {
       "name": "Funimation",
       "url": "https://www.funimation.com/",
       "tag": "dub"
@@ -311,11 +311,11 @@
     }
   ],
   "count": 60,
-  "updated": "2026-07-04T06:52:58.095074+00:00",
+  "updated": "2026-07-05T07:32:39.424198+00:00",
   "categories": {
-    "sub": 23,
+    "sub": 22,
     "both": 13,
-    "dub": 2,
+    "dub": 3,
     "official": 12,
     "manga": 10
   }
