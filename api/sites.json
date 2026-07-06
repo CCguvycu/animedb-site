@@ -27,6 +27,11 @@
       "tag": "sub"
     },
     {
+      "name": "AnimeHeaven",
+      "url": "https://animeheaven.me/",
+      "tag": "sub"
+    },
+    {
       "name": "AnimeKhor",
       "url": "https://animekhor.xyz/",
       "tag": "sub"
@@ -310,10 +315,10 @@
       "tag": "manga"
     }
   ],
-  "count": 60,
-  "updated": "2026-07-05T07:32:39.424198+00:00",
+  "count": 61,
+  "updated": "2026-07-06T08:27:06.169719+00:00",
   "categories": {
-    "sub": 22,
+    "sub": 23,
     "both": 13,
     "dub": 3,
     "official": 12,
