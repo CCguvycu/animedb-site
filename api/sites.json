@@ -175,11 +175,6 @@
       "tag": "both"
     },
     {
-      "name": "WcoAnime",
-      "url": "https://www.wcofun.net/",
-      "tag": "both"
-    },
-    {
       "name": "WcoStream",
       "url": "https://www.wcostream.tv/",
       "tag": "both"
@@ -315,11 +310,11 @@
       "tag": "manga"
     }
   ],
-  "count": 61,
-  "updated": "2026-07-08T06:41:57.287343+00:00",
+  "count": 60,
+  "updated": "2026-07-09T07:42:43.324337+00:00",
   "categories": {
     "sub": 23,
-    "both": 13,
+    "both": 12,
     "dub": 3,
     "official": 12,
     "manga": 10
