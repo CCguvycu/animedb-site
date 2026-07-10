@@ -175,6 +175,11 @@
       "tag": "both"
     },
     {
+      "name": "WcoAnime",
+      "url": "https://www.wcofun.net/",
+      "tag": "both"
+    },
+    {
       "name": "WcoStream",
       "url": "https://www.wcostream.tv/",
       "tag": "both"
@@ -182,11 +187,6 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
-      "tag": "dub"
-    },
-    {
-      "name": "AnimeLand",
-      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -311,11 +311,11 @@
     }
   ],
   "count": 60,
-  "updated": "2026-07-09T07:42:43.324337+00:00",
+  "updated": "2026-07-10T07:42:15.850534+00:00",
   "categories": {
     "sub": 23,
-    "both": 12,
-    "dub": 3,
+    "both": 13,
+    "dub": 2,
     "official": 12,
     "manga": 10
   }
