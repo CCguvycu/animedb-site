@@ -155,11 +155,6 @@
       "tag": "both"
     },
     {
-      "name": "Aniplot",
-      "url": "https://aniplot.com/",
-      "tag": "both"
-    },
-    {
       "name": "Aniwatch",
       "url": "https://aniwatch.to/",
       "tag": "both"
@@ -187,6 +182,11 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
+      "tag": "dub"
+    },
+    {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -311,11 +311,11 @@
     }
   ],
   "count": 60,
-  "updated": "2026-07-10T07:42:15.850534+00:00",
+  "updated": "2026-07-11T06:26:10.836707+00:00",
   "categories": {
     "sub": 23,
-    "both": 13,
-    "dub": 2,
+    "both": 12,
+    "dub": 3,
     "official": 12,
     "manga": 10
   }
