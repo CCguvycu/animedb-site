@@ -112,6 +112,12 @@
       "tag": "sub"
     },
     {
+      "name": "AnimeLok",
+      "url": "https://animelok.online/home",
+      "tag": "both",
+      "top": true
+    },
+    {
       "name": "Animetsu",
       "url": "https://animetsu.cc/home",
       "tag": "both",
@@ -246,11 +252,6 @@
       "tag": "official"
     },
     {
-      "name": "Tubi",
-      "url": "https://tubitv.com/",
-      "tag": "official"
-    },
-    {
       "name": "MangaDex",
       "url": "https://mangadex.org/",
       "tag": "manga",
@@ -305,12 +306,12 @@
     }
   ],
   "count": 59,
-  "updated": "2026-07-13T07:07:05.542280+00:00",
+  "updated": "2026-07-14T06:25:02.403074+00:00",
   "categories": {
     "sub": 22,
-    "both": 12,
+    "both": 13,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 10
   }
 }
