@@ -135,11 +135,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeFreak",
-      "url": "https://animefreak.tv/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeGG",
       "url": "https://animegg.org/",
       "tag": "both"
@@ -252,6 +247,11 @@
       "tag": "official"
     },
     {
+      "name": "Tubi",
+      "url": "https://tubitv.com/",
+      "tag": "official"
+    },
+    {
       "name": "MangaDex",
       "url": "https://mangadex.org/",
       "tag": "manga",
@@ -306,12 +306,12 @@
     }
   ],
   "count": 59,
-  "updated": "2026-07-14T06:25:02.403074+00:00",
+  "updated": "2026-07-15T06:28:15.707139+00:00",
   "categories": {
     "sub": 22,
-    "both": 13,
+    "both": 12,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
