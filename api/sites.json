@@ -130,11 +130,6 @@
       "top": true
     },
     {
-      "name": "Anilinkz",
-      "url": "https://anilinkz.to/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeGG",
       "url": "https://animegg.org/",
       "tag": "both"
@@ -305,11 +300,11 @@
       "tag": "manga"
     }
   ],
-  "count": 59,
-  "updated": "2026-07-15T06:28:15.707139+00:00",
+  "count": 58,
+  "updated": "2026-07-16T06:32:08.133337+00:00",
   "categories": {
     "sub": 22,
-    "both": 12,
+    "both": 11,
     "dub": 3,
     "official": 12,
     "manga": 10
