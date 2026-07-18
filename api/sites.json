@@ -290,23 +290,18 @@
       "tag": "manga"
     },
     {
-      "name": "TCBScans",
-      "url": "https://tcbscans.me/",
-      "tag": "manga"
-    },
-    {
       "name": "WeebCentral",
       "url": "https://weebcentral.com/",
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-07-17T06:30:54.382097+00:00",
+  "count": 57,
+  "updated": "2026-07-18T06:18:25.614177+00:00",
   "categories": {
     "sub": 22,
     "both": 11,
     "dub": 3,
     "official": 12,
-    "manga": 10
+    "manga": 9
   }
 }
