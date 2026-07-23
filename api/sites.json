@@ -135,11 +135,6 @@
       "top": true
     },
     {
-      "name": "AnimeGG",
-      "url": "https://animegg.org/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeStream",
       "url": "https://animestream.in/",
       "tag": "both"
@@ -147,6 +142,11 @@
     {
       "name": "AnimeVibe",
       "url": "https://animevibe.to/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniplot",
+      "url": "https://aniplot.com/",
       "tag": "both"
     },
     {
@@ -275,6 +275,11 @@
       "tag": "manga"
     },
     {
+      "name": "MangaBuddy",
+      "url": "https://mangabuddy.com/",
+      "tag": "manga"
+    },
+    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -300,13 +305,13 @@
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-07-22T06:42:21.533941+00:00",
+  "count": 59,
+  "updated": "2026-07-23T06:43:28.230504+00:00",
   "categories": {
     "sub": 23,
     "both": 11,
     "dub": 3,
     "official": 12,
-    "manga": 9
+    "manga": 10
   }
 }
