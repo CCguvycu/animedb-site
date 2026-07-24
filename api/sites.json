@@ -135,6 +135,11 @@
       "top": true
     },
     {
+      "name": "AnimeGG",
+      "url": "https://animegg.org/",
+      "tag": "both"
+    },
+    {
       "name": "AnimeStream",
       "url": "https://animestream.in/",
       "tag": "both"
@@ -305,11 +310,11 @@
       "tag": "manga"
     }
   ],
-  "count": 59,
-  "updated": "2026-07-23T06:43:28.230504+00:00",
+  "count": 60,
+  "updated": "2026-07-24T06:39:02.059735+00:00",
   "categories": {
     "sub": 23,
-    "both": 11,
+    "both": 12,
     "dub": 3,
     "official": 12,
     "manga": 10
