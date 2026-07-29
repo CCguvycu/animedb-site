@@ -68,11 +68,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniPlay",
-      "url": "https://aniplay.co/",
-      "tag": "sub"
-    },
-    {
       "name": "AniPlay.TV",
       "url": "https://aniplay.tv/",
       "tag": "sub"
@@ -316,10 +311,10 @@
       "tag": "manga"
     }
   ],
-  "count": 61,
-  "updated": "2026-07-28T06:39:43.320202+00:00",
+  "count": 60,
+  "updated": "2026-07-29T06:44:51.562789+00:00",
   "categories": {
-    "sub": 24,
+    "sub": 23,
     "both": 12,
     "dub": 3,
     "official": 12,
