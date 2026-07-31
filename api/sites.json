@@ -93,6 +93,11 @@
       "tag": "sub"
     },
     {
+      "name": "GogoAnime",
+      "url": "https://gogoanime.by/",
+      "tag": "sub"
+    },
+    {
       "name": "Kaguya",
       "url": "https://kaguya.app/",
       "tag": "sub"
@@ -111,6 +116,12 @@
       "name": "WitAnime",
       "url": "https://witanime.cyou/",
       "tag": "sub"
+    },
+    {
+      "name": "AnimeLok",
+      "url": "https://animelok.online/home",
+      "tag": "both",
+      "top": true
     },
     {
       "name": "Animetsu",
@@ -177,6 +188,11 @@
     {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
+      "tag": "dub"
+    },
+    {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
       "tag": "dub"
     },
     {
@@ -300,12 +316,12 @@
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-07-30T06:42:36.452636+00:00",
+  "count": 61,
+  "updated": "2026-07-31T06:57:29.855004+00:00",
   "categories": {
-    "sub": 22,
-    "both": 12,
-    "dub": 2,
+    "sub": 23,
+    "both": 13,
+    "dub": 3,
     "official": 12,
     "manga": 10
   }
