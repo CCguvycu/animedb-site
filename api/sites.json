@@ -286,11 +286,6 @@
       "tag": "manga"
     },
     {
-      "name": "MangaBuddy",
-      "url": "https://mangabuddy.com/",
-      "tag": "manga"
-    },
-    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -316,13 +311,13 @@
       "tag": "manga"
     }
   ],
-  "count": 61,
-  "updated": "2026-08-03T07:40:34.897908+00:00",
+  "count": 60,
+  "updated": "2026-08-04T06:41:47.907688+00:00",
   "categories": {
     "sub": 23,
     "both": 13,
     "dub": 3,
     "official": 12,
-    "manga": 10
+    "manga": 9
   }
 }
