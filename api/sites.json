@@ -161,6 +161,11 @@
       "tag": "both"
     },
     {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
+      "tag": "both"
+    },
+    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -206,6 +211,11 @@
       "url": "https://www.netflix.com/",
       "tag": "official",
       "top": true
+    },
+    {
+      "name": "Amazon Prime",
+      "url": "https://www.primevideo.com/",
+      "tag": "official"
     },
     {
       "name": "Apple TV+",
@@ -301,13 +311,13 @@
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-08-10T05:40:23.911103+00:00",
+  "count": 60,
+  "updated": "2026-08-11T05:22:06.070108+00:00",
   "categories": {
     "sub": 23,
-    "both": 12,
+    "both": 13,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 9
   }
 }
