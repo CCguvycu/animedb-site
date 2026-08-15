@@ -186,6 +186,11 @@
       "tag": "dub"
     },
     {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
+      "tag": "dub"
+    },
+    {
       "name": "Funimation",
       "url": "https://www.funimation.com/",
       "tag": "dub"
@@ -301,12 +306,12 @@
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-08-14T05:50:44.738735+00:00",
+  "count": 59,
+  "updated": "2026-08-15T04:45:17.246735+00:00",
   "categories": {
     "sub": 23,
     "both": 12,
-    "dub": 2,
+    "dub": 3,
     "official": 12,
     "manga": 9
   }
