@@ -68,11 +68,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniPlay.TV",
-      "url": "https://aniplay.tv/",
-      "tag": "sub"
-    },
-    {
       "name": "Anistream",
       "url": "https://anistream.xyz/",
       "tag": "sub"
@@ -158,6 +153,11 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -307,10 +307,10 @@
     }
   ],
   "count": 59,
-  "updated": "2026-08-19T04:49:50.819921+00:00",
+  "updated": "2026-08-20T04:51:05.005521+00:00",
   "categories": {
-    "sub": 23,
-    "both": 12,
+    "sub": 22,
+    "both": 13,
     "dub": 3,
     "official": 12,
     "manga": 9
