@@ -68,6 +68,11 @@
       "tag": "sub"
     },
     {
+      "name": "AniPlay.TV",
+      "url": "https://aniplay.tv/",
+      "tag": "sub"
+    },
+    {
       "name": "Anistream",
       "url": "https://anistream.xyz/",
       "tag": "sub"
@@ -156,11 +161,6 @@
       "tag": "both"
     },
     {
-      "name": "Aniwatch",
-      "url": "https://aniwatch.to/",
-      "tag": "both"
-    },
-    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -233,11 +233,6 @@
       "tag": "official"
     },
     {
-      "name": "Hulu",
-      "url": "https://www.hulu.com/",
-      "tag": "official"
-    },
-    {
       "name": "Muse Asia",
       "url": "https://www.youtube.com/@MuseAsia",
       "tag": "official"
@@ -306,13 +301,13 @@
       "tag": "manga"
     }
   ],
-  "count": 59,
-  "updated": "2026-08-20T04:51:05.005521+00:00",
+  "count": 58,
+  "updated": "2026-08-21T04:51:27.650792+00:00",
   "categories": {
-    "sub": 22,
-    "both": 13,
+    "sub": 23,
+    "both": 12,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 9
   }
 }
