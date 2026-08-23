@@ -166,11 +166,6 @@
       "tag": "both"
     },
     {
-      "name": "Kayoanime",
-      "url": "https://kayoanime.com/",
-      "tag": "both"
-    },
-    {
       "name": "ToonamiAftermath",
       "url": "https://www.toonamiaftermath.com/",
       "tag": "both"
@@ -316,11 +311,11 @@
       "tag": "manga"
     }
   ],
-  "count": 61,
-  "updated": "2026-08-22T04:46:02.756759+00:00",
+  "count": 60,
+  "updated": "2026-08-23T04:50:50.468561+00:00",
   "categories": {
     "sub": 23,
-    "both": 13,
+    "both": 12,
     "dub": 3,
     "official": 12,
     "manga": 10
