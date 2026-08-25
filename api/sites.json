@@ -161,6 +161,11 @@
       "tag": "both"
     },
     {
+      "name": "Kayoanime",
+      "url": "https://kayoanime.com/",
+      "tag": "both"
+    },
+    {
       "name": "ToonamiAftermath",
       "url": "https://www.toonamiaftermath.com/",
       "tag": "both"
@@ -238,6 +243,11 @@
       "tag": "official"
     },
     {
+      "name": "Pluto TV",
+      "url": "https://pluto.tv/",
+      "tag": "official"
+    },
+    {
       "name": "RetroCrush",
       "url": "https://www.retrocrush.tv/",
       "tag": "official"
@@ -301,13 +311,13 @@
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-08-24T04:58:46.865668+00:00",
+  "count": 60,
+  "updated": "2026-08-25T04:52:19.494900+00:00",
   "categories": {
     "sub": 23,
-    "both": 11,
+    "both": 12,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
