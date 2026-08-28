@@ -141,6 +141,11 @@
       "tag": "both"
     },
     {
+      "name": "AnimeGG",
+      "url": "https://animegg.org/",
+      "tag": "both"
+    },
+    {
       "name": "AnimeStream",
       "url": "https://animestream.in/",
       "tag": "both"
@@ -148,11 +153,6 @@
     {
       "name": "AnimeVibe",
       "url": "https://animevibe.to/",
-      "tag": "both"
-    },
-    {
-      "name": "Aniwatch",
-      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -307,7 +307,7 @@
     }
   ],
   "count": 59,
-  "updated": "2026-08-27T15:14:14.664155+00:00",
+  "updated": "2026-08-28T16:10:07.375377+00:00",
   "categories": {
     "sub": 23,
     "both": 11,
