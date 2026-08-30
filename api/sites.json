@@ -141,11 +141,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeGG",
-      "url": "https://animegg.org/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeStream",
       "url": "https://animestream.in/",
       "tag": "both"
@@ -201,6 +196,11 @@
       "url": "https://www.netflix.com/",
       "tag": "official",
       "top": true
+    },
+    {
+      "name": "Amazon Prime",
+      "url": "https://www.primevideo.com/",
+      "tag": "official"
     },
     {
       "name": "Apple TV+",
@@ -302,12 +302,12 @@
     }
   ],
   "count": 58,
-  "updated": "2026-08-29T11:05:33.527104+00:00",
+  "updated": "2026-08-30T10:00:55.671029+00:00",
   "categories": {
     "sub": 23,
-    "both": 11,
+    "both": 10,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
