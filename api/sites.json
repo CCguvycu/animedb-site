@@ -156,6 +156,11 @@
       "tag": "both"
     },
     {
+      "name": "Aniplot",
+      "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
       "name": "Aniwatch",
       "url": "https://aniwatch.to/",
       "tag": "both"
@@ -311,11 +316,11 @@
       "tag": "manga"
     }
   ],
-  "count": 60,
-  "updated": "2026-09-01T09:27:48.778072+00:00",
+  "count": 61,
+  "updated": "2026-09-02T08:43:02.708510+00:00",
   "categories": {
     "sub": 23,
-    "both": 12,
+    "both": 13,
     "dub": 3,
     "official": 12,
     "manga": 10
