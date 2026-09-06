@@ -141,11 +141,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeGG",
-      "url": "https://animegg.org/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeStream",
       "url": "https://animestream.in/",
       "tag": "both"
@@ -156,8 +151,18 @@
       "tag": "both"
     },
     {
+      "name": "AnimeWave",
+      "url": "https://animewave.net/",
+      "tag": "both"
+    },
+    {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -311,11 +316,11 @@
       "tag": "manga"
     }
   ],
-  "count": 60,
-  "updated": "2026-09-05T08:21:24.499055+00:00",
+  "count": 61,
+  "updated": "2026-09-06T08:38:55.934554+00:00",
   "categories": {
     "sub": 23,
-    "both": 12,
+    "both": 13,
     "dub": 3,
     "official": 12,
     "manga": 10
