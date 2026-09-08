@@ -218,11 +218,6 @@
       "top": true
     },
     {
-      "name": "Amazon Prime",
-      "url": "https://www.primevideo.com/",
-      "tag": "official"
-    },
-    {
       "name": "Apple TV+",
       "url": "https://tv.apple.com/",
       "tag": "official"
@@ -321,13 +316,13 @@
       "tag": "manga"
     }
   ],
-  "count": 62,
-  "updated": "2026-09-07T09:15:11.655225+00:00",
+  "count": 61,
+  "updated": "2026-09-08T08:52:43.450322+00:00",
   "categories": {
     "sub": 23,
     "both": 14,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 10
   }
 }
