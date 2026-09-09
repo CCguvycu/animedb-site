@@ -108,6 +108,11 @@
       "tag": "sub"
     },
     {
+      "name": "Neko",
+      "url": "https://neko-sama.fr/",
+      "tag": "sub"
+    },
+    {
       "name": "VoirAnime",
       "url": "https://www.voiranime.art/",
       "tag": "sub"
@@ -218,6 +223,11 @@
       "top": true
     },
     {
+      "name": "Amazon Prime",
+      "url": "https://www.primevideo.com/",
+      "tag": "official"
+    },
+    {
       "name": "Apple TV+",
       "url": "https://tv.apple.com/",
       "tag": "official"
@@ -316,13 +326,13 @@
       "tag": "manga"
     }
   ],
-  "count": 61,
-  "updated": "2026-09-08T08:52:43.450322+00:00",
+  "count": 63,
+  "updated": "2026-09-09T08:57:26.604633+00:00",
   "categories": {
-    "sub": 23,
+    "sub": 24,
     "both": 14,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
