@@ -18,11 +18,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniKuro",
-      "url": "https://anikuro.com/",
-      "tag": "sub"
-    },
-    {
       "name": "AnimeBlkom",
       "url": "https://animeblkom.net/",
       "tag": "sub"
@@ -58,11 +53,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeXin",
-      "url": "https://animexin.xyz/",
-      "tag": "sub"
-    },
-    {
       "name": "AniMixPlay",
       "url": "https://animixplay.to/",
       "tag": "sub"
@@ -70,16 +60,6 @@
     {
       "name": "AniPlay.TV",
       "url": "https://aniplay.tv/",
-      "tag": "sub"
-    },
-    {
-      "name": "Anistream",
-      "url": "https://anistream.xyz/",
-      "tag": "sub"
-    },
-    {
-      "name": "Aniwave",
-      "url": "https://aniwave.to/",
       "tag": "sub"
     },
     {
@@ -103,13 +83,13 @@
       "tag": "sub"
     },
     {
-      "name": "Marin",
-      "url": "https://marin.moe/",
+      "name": "Neko",
+      "url": "https://neko-sama.fr/",
       "tag": "sub"
     },
     {
-      "name": "Neko",
-      "url": "https://neko-sama.fr/",
+      "name": "VoirAnime",
+      "url": "https://www.voiranime.art/",
       "tag": "sub"
     },
     {
@@ -316,10 +296,10 @@
       "tag": "manga"
     }
   ],
-  "count": 61,
-  "updated": "2026-09-13T09:24:51.205707+00:00",
+  "count": 57,
+  "updated": "2026-09-14T09:52:03.446486+00:00",
   "categories": {
-    "sub": 23,
+    "sub": 19,
     "both": 13,
     "dub": 3,
     "official": 12,
