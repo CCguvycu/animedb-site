@@ -18,6 +18,11 @@
       "tag": "sub"
     },
     {
+      "name": "AniKuro",
+      "url": "https://anikuro.com/",
+      "tag": "sub"
+    },
+    {
       "name": "AnimeBlkom",
       "url": "https://animeblkom.net/",
       "tag": "sub"
@@ -53,11 +58,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniMixPlay",
-      "url": "https://animixplay.to/",
-      "tag": "sub"
-    },
-    {
       "name": "AniPlay.TV",
       "url": "https://aniplay.tv/",
       "tag": "sub"
@@ -80,6 +80,11 @@
     {
       "name": "Kaguya",
       "url": "https://kaguya.app/",
+      "tag": "sub"
+    },
+    {
+      "name": "Marin",
+      "url": "https://marin.moe/",
       "tag": "sub"
     },
     {
@@ -296,10 +301,10 @@
       "tag": "manga"
     }
   ],
-  "count": 57,
-  "updated": "2026-09-14T09:52:03.446486+00:00",
+  "count": 58,
+  "updated": "2026-09-15T09:28:15.076260+00:00",
   "categories": {
-    "sub": 19,
+    "sub": 20,
     "both": 13,
     "dub": 3,
     "official": 12,
