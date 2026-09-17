@@ -48,11 +48,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeRush",
-      "url": "https://www.animerush.tv/",
-      "tag": "sub"
-    },
-    {
       "name": "AnimeSaturn",
       "url": "https://www.animesaturn.cx/",
       "tag": "sub"
@@ -113,12 +108,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeLok",
-      "url": "https://animelok.online/home",
-      "tag": "both",
-      "top": true
-    },
-    {
       "name": "Animetsu",
       "url": "https://animetsu.cc/home",
       "tag": "both",
@@ -158,6 +147,11 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -206,6 +200,11 @@
       "url": "https://www.netflix.com/",
       "tag": "official",
       "top": true
+    },
+    {
+      "name": "Amazon Prime",
+      "url": "https://www.primevideo.com/",
+      "tag": "official"
     },
     {
       "name": "Apple TV+",
@@ -307,12 +306,12 @@
     }
   ],
   "count": 59,
-  "updated": "2026-09-16T09:21:31.435419+00:00",
+  "updated": "2026-09-17T09:28:58.579866+00:00",
   "categories": {
-    "sub": 22,
+    "sub": 21,
     "both": 13,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
