@@ -237,11 +237,6 @@
       "tag": "official"
     },
     {
-      "name": "Pluto TV",
-      "url": "https://pluto.tv/",
-      "tag": "official"
-    },
-    {
       "name": "RetroCrush",
       "url": "https://www.retrocrush.tv/",
       "tag": "official"
@@ -305,13 +300,13 @@
       "tag": "manga"
     }
   ],
-  "count": 59,
-  "updated": "2026-09-22T09:20:02.216453+00:00",
+  "count": 58,
+  "updated": "2026-09-23T09:21:46.568826+00:00",
   "categories": {
     "sub": 21,
     "both": 13,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 10
   }
 }
