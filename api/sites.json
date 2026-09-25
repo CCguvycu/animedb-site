@@ -180,6 +180,11 @@
       "tag": "dub"
     },
     {
+      "name": "AnimeLand",
+      "url": "https://www.animeland.us/",
+      "tag": "dub"
+    },
+    {
       "name": "Funimation",
       "url": "https://www.funimation.com/",
       "tag": "dub"
@@ -265,6 +270,11 @@
       "top": true
     },
     {
+      "name": "Bato.to",
+      "url": "https://bato.to/",
+      "tag": "manga"
+    },
+    {
       "name": "ComicK",
       "url": "https://comick.io/",
       "tag": "manga"
@@ -300,13 +310,13 @@
       "tag": "manga"
     }
   ],
-  "count": 58,
-  "updated": "2026-09-24T09:16:56.474663+00:00",
+  "count": 60,
+  "updated": "2026-09-25T09:40:06.266973+00:00",
   "categories": {
     "sub": 21,
     "both": 13,
-    "dub": 2,
+    "dub": 3,
     "official": 12,
-    "manga": 10
+    "manga": 11
   }
 }
