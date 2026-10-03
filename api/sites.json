@@ -53,11 +53,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeXin",
-      "url": "https://animexin.xyz/",
-      "tag": "sub"
-    },
-    {
       "name": "AniMixPlay",
       "url": "https://animixplay.to/",
       "tag": "sub"
@@ -110,12 +105,6 @@
     {
       "name": "Animetsu",
       "url": "https://animetsu.cc/home",
-      "tag": "both",
-      "top": true
-    },
-    {
-      "name": "Rive",
-      "url": "https://rivestream.live/",
       "tag": "both",
       "top": true
     },
@@ -310,11 +299,11 @@
       "tag": "manga"
     }
   ],
-  "count": 60,
-  "updated": "2026-10-02T10:33:42.911092+00:00",
+  "count": 58,
+  "updated": "2026-10-03T09:55:49.811699+00:00",
   "categories": {
-    "sub": 21,
-    "both": 13,
+    "sub": 20,
+    "both": 12,
     "dub": 3,
     "official": 12,
     "manga": 11
