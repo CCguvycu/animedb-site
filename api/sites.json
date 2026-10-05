@@ -108,12 +108,6 @@
       "tag": "sub"
     },
     {
-      "name": "Rive",
-      "url": "https://rivestream.live/",
-      "tag": "both",
-      "top": true
-    },
-    {
       "name": "AnimeDekho",
       "url": "https://animedekho.com/",
       "tag": "both"
@@ -304,11 +298,11 @@
       "tag": "manga"
     }
   ],
-  "count": 59,
-  "updated": "2026-10-04T11:30:30.635038+00:00",
+  "count": 58,
+  "updated": "2026-10-05T12:17:57.864877+00:00",
   "categories": {
     "sub": 21,
-    "both": 12,
+    "both": 11,
     "dub": 3,
     "official": 12,
     "manga": 11
