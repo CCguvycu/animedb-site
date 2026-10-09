@@ -179,11 +179,6 @@
       "tag": "dub"
     },
     {
-      "name": "GogoAnimeDub",
-      "url": "https://www.gogoanime3.co/",
-      "tag": "dub"
-    },
-    {
       "name": "Crunchyroll",
       "url": "https://www.crunchyroll.com/",
       "tag": "official",
@@ -194,11 +189,6 @@
       "url": "https://www.netflix.com/",
       "tag": "official",
       "top": true
-    },
-    {
-      "name": "Amazon Prime",
-      "url": "https://www.primevideo.com/",
-      "tag": "official"
     },
     {
       "name": "Apple TV+",
@@ -304,13 +294,13 @@
       "tag": "manga"
     }
   ],
-  "count": 59,
-  "updated": "2026-10-08T12:14:42.848550+00:00",
+  "count": 57,
+  "updated": "2026-10-09T12:13:45.832959+00:00",
   "categories": {
     "sub": 20,
     "both": 12,
-    "dub": 4,
-    "official": 12,
+    "dub": 3,
+    "official": 11,
     "manga": 11
   }
 }
