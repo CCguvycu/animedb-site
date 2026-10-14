@@ -88,11 +88,6 @@
       "tag": "sub"
     },
     {
-      "name": "Marin",
-      "url": "https://marin.moe/",
-      "tag": "sub"
-    },
-    {
       "name": "Neko",
       "url": "https://neko-sama.fr/",
       "tag": "sub"
@@ -191,6 +186,11 @@
       "top": true
     },
     {
+      "name": "Amazon Prime",
+      "url": "https://www.primevideo.com/",
+      "tag": "official"
+    },
+    {
       "name": "Apple TV+",
       "url": "https://tv.apple.com/",
       "tag": "official"
@@ -264,11 +264,6 @@
       "tag": "manga"
     },
     {
-      "name": "MangaBuddy",
-      "url": "https://mangabuddy.com/",
-      "tag": "manga"
-    },
-    {
       "name": "MangaFox",
       "url": "https://fanfox.net/",
       "tag": "manga"
@@ -294,13 +289,13 @@
       "tag": "manga"
     }
   ],
-  "count": 57,
-  "updated": "2026-10-13T12:32:51.842993+00:00",
+  "count": 56,
+  "updated": "2026-10-14T10:24:42.365971+00:00",
   "categories": {
-    "sub": 20,
+    "sub": 19,
     "both": 12,
     "dub": 3,
-    "official": 11,
-    "manga": 11
+    "official": 12,
+    "manga": 10
   }
 }
