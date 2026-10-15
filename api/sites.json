@@ -88,6 +88,11 @@
       "tag": "sub"
     },
     {
+      "name": "Marin",
+      "url": "https://marin.moe/",
+      "tag": "sub"
+    },
+    {
       "name": "Neko",
       "url": "https://neko-sama.fr/",
       "tag": "sub"
@@ -184,11 +189,6 @@
       "url": "https://www.netflix.com/",
       "tag": "official",
       "top": true
-    },
-    {
-      "name": "Amazon Prime",
-      "url": "https://www.primevideo.com/",
-      "tag": "official"
     },
     {
       "name": "Apple TV+",
@@ -290,12 +290,12 @@
     }
   ],
   "count": 56,
-  "updated": "2026-10-14T10:24:42.365971+00:00",
+  "updated": "2026-10-15T09:59:50.362877+00:00",
   "categories": {
-    "sub": 19,
+    "sub": 20,
     "both": 12,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 10
   }
 }
