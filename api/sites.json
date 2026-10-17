@@ -18,11 +18,6 @@
       "tag": "sub"
     },
     {
-      "name": "AniKuro",
-      "url": "https://anikuro.com/",
-      "tag": "sub"
-    },
-    {
       "name": "AnimeBlkom",
       "url": "https://animeblkom.net/",
       "tag": "sub"
@@ -85,11 +80,6 @@
     {
       "name": "Kaguya",
       "url": "https://kaguya.app/",
-      "tag": "sub"
-    },
-    {
-      "name": "Marin",
-      "url": "https://marin.moe/",
       "tag": "sub"
     },
     {
@@ -191,11 +181,6 @@
       "top": true
     },
     {
-      "name": "Amazon Prime",
-      "url": "https://www.primevideo.com/",
-      "tag": "official"
-    },
-    {
       "name": "Apple TV+",
       "url": "https://tv.apple.com/",
       "tag": "official"
@@ -294,13 +279,13 @@
       "tag": "manga"
     }
   ],
-  "count": 57,
-  "updated": "2026-10-16T09:52:07.922126+00:00",
+  "count": 54,
+  "updated": "2026-10-17T09:22:46.876420+00:00",
   "categories": {
-    "sub": 20,
+    "sub": 18,
     "both": 12,
     "dub": 3,
-    "official": 12,
+    "official": 11,
     "manga": 10
   }
 }
