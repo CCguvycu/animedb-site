@@ -18,6 +18,11 @@
       "tag": "sub"
     },
     {
+      "name": "AniKuro",
+      "url": "https://anikuro.com/",
+      "tag": "sub"
+    },
+    {
       "name": "AnimeBlkom",
       "url": "https://animeblkom.net/",
       "tag": "sub"
@@ -80,6 +85,11 @@
     {
       "name": "Kaguya",
       "url": "https://kaguya.app/",
+      "tag": "sub"
+    },
+    {
+      "name": "Marin",
+      "url": "https://marin.moe/",
       "tag": "sub"
     },
     {
@@ -279,10 +289,10 @@
       "tag": "manga"
     }
   ],
-  "count": 54,
-  "updated": "2026-10-17T09:22:46.876420+00:00",
+  "count": 56,
+  "updated": "2026-10-18T09:42:14.390788+00:00",
   "categories": {
-    "sub": 18,
+    "sub": 20,
     "both": 12,
     "dub": 3,
     "official": 11,
