@@ -53,6 +53,11 @@
       "tag": "sub"
     },
     {
+      "name": "AnimeXin",
+      "url": "https://animexin.xyz/",
+      "tag": "sub"
+    },
+    {
       "name": "AniMixPlay",
       "url": "https://animixplay.to/",
       "tag": "sub"
@@ -289,10 +294,10 @@
       "tag": "manga"
     }
   ],
-  "count": 56,
-  "updated": "2026-10-19T10:44:01.125794+00:00",
+  "count": 57,
+  "updated": "2026-10-20T10:17:40.577658+00:00",
   "categories": {
-    "sub": 19,
+    "sub": 20,
     "both": 12,
     "dub": 3,
     "official": 12,
