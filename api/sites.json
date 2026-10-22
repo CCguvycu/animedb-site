@@ -124,11 +124,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeVibe",
-      "url": "https://animevibe.to/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeWave",
       "url": "https://animewave.net/",
       "tag": "both"
@@ -136,11 +131,6 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
-      "tag": "both"
-    },
-    {
-      "name": "Aniwatch",
-      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -189,6 +179,11 @@
       "url": "https://www.netflix.com/",
       "tag": "official",
       "top": true
+    },
+    {
+      "name": "Amazon Prime",
+      "url": "https://www.primevideo.com/",
+      "tag": "official"
     },
     {
       "name": "Apple TV+",
@@ -289,13 +284,13 @@
       "tag": "manga"
     }
   ],
-  "count": 56,
-  "updated": "2026-10-21T10:14:32.883802+00:00",
+  "count": 55,
+  "updated": "2026-10-22T10:16:51.441964+00:00",
   "categories": {
     "sub": 20,
-    "both": 12,
+    "both": 10,
     "dub": 3,
-    "official": 11,
+    "official": 12,
     "manga": 10
   }
 }
