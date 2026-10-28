@@ -149,11 +149,6 @@
       "tag": "both"
     },
     {
-      "name": "WcoStream",
-      "url": "https://www.wcostream.tv/",
-      "tag": "both"
-    },
-    {
       "name": "AnimeGlare",
       "url": "https://animeglare.xyz/",
       "tag": "dub"
@@ -284,11 +279,11 @@
       "tag": "manga"
     }
   ],
-  "count": 55,
-  "updated": "2026-10-27T10:43:22.681269+00:00",
+  "count": 54,
+  "updated": "2026-10-28T11:27:34.542529+00:00",
   "categories": {
     "sub": 19,
-    "both": 11,
+    "both": 10,
     "dub": 3,
     "official": 12,
     "manga": 10
