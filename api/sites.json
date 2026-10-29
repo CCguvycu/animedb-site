@@ -53,6 +53,11 @@
       "tag": "sub"
     },
     {
+      "name": "AnimeXin",
+      "url": "https://animexin.xyz/",
+      "tag": "sub"
+    },
+    {
       "name": "AniMixPlay",
       "url": "https://animixplay.to/",
       "tag": "sub"
@@ -129,11 +134,6 @@
       "tag": "both"
     },
     {
-      "name": "Aniwatch",
-      "url": "https://aniwatch.to/",
-      "tag": "both"
-    },
-    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -146,6 +146,11 @@
     {
       "name": "WcoAnime",
       "url": "https://www.wcofun.net/",
+      "tag": "both"
+    },
+    {
+      "name": "WcoStream",
+      "url": "https://www.wcostream.tv/",
       "tag": "both"
     },
     {
@@ -279,10 +284,10 @@
       "tag": "manga"
     }
   ],
-  "count": 54,
-  "updated": "2026-10-28T11:27:34.542529+00:00",
+  "count": 55,
+  "updated": "2026-10-29T11:48:15.439851+00:00",
   "categories": {
-    "sub": 19,
+    "sub": 20,
     "both": 10,
     "dub": 3,
     "official": 12,
