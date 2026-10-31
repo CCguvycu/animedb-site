@@ -83,11 +83,6 @@
       "tag": "sub"
     },
     {
-      "name": "Kaguya",
-      "url": "https://kaguya.app/",
-      "tag": "sub"
-    },
-    {
       "name": "Marin",
       "url": "https://marin.moe/",
       "tag": "sub"
@@ -294,10 +289,10 @@
       "tag": "manga"
     }
   ],
-  "count": 57,
-  "updated": "2026-10-30T11:48:29.025774+00:00",
+  "count": 56,
+  "updated": "2026-10-31T11:17:17.671393+00:00",
   "categories": {
-    "sub": 20,
+    "sub": 19,
     "both": 11,
     "dub": 3,
     "official": 12,
