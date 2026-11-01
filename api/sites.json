@@ -38,11 +38,6 @@
       "tag": "sub"
     },
     {
-      "name": "AnimeOnsen",
-      "url": "https://www.animeonsen.xyz/",
-      "tag": "sub"
-    },
-    {
       "name": "AnimeParadise",
       "url": "https://animeparadise.moe/",
       "tag": "sub"
@@ -119,6 +114,11 @@
       "tag": "both"
     },
     {
+      "name": "AnimeVibe",
+      "url": "https://animevibe.to/",
+      "tag": "both"
+    },
+    {
       "name": "AnimeWave",
       "url": "https://animewave.net/",
       "tag": "both"
@@ -126,11 +126,6 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
-      "tag": "both"
-    },
-    {
-      "name": "Aniwatch",
-      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -282,20 +277,15 @@
       "name": "MangaStream",
       "url": "https://readmng.com/",
       "tag": "manga"
-    },
-    {
-      "name": "WeebCentral",
-      "url": "https://weebcentral.com/",
-      "tag": "manga"
     }
   ],
-  "count": 56,
-  "updated": "2026-10-31T11:17:17.671393+00:00",
+  "count": 54,
+  "updated": "2026-11-01T12:08:31.609057+00:00",
   "categories": {
-    "sub": 19,
+    "sub": 18,
     "both": 11,
     "dub": 3,
     "official": 12,
-    "manga": 11
+    "manga": 10
   }
 }
