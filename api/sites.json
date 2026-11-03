@@ -124,11 +124,6 @@
       "tag": "both"
     },
     {
-      "name": "AnimeWave",
-      "url": "https://animewave.net/",
-      "tag": "both"
-    },
-    {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
       "tag": "both"
@@ -294,11 +289,11 @@
       "tag": "manga"
     }
   ],
-  "count": 57,
-  "updated": "2026-11-02T13:07:27.411135+00:00",
+  "count": 56,
+  "updated": "2026-11-03T12:44:46.748245+00:00",
   "categories": {
     "sub": 19,
-    "both": 12,
+    "both": 11,
     "dub": 3,
     "official": 12,
     "manga": 11
