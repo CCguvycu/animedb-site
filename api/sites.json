@@ -129,11 +129,6 @@
       "tag": "both"
     },
     {
-      "name": "Aniwatch",
-      "url": "https://aniwatch.to/",
-      "tag": "both"
-    },
-    {
       "name": "Kayoanime",
       "url": "https://kayoanime.com/",
       "tag": "both"
@@ -289,11 +284,11 @@
       "tag": "manga"
     }
   ],
-  "count": 56,
-  "updated": "2026-11-07T11:58:27.845683+00:00",
+  "count": 55,
+  "updated": "2026-11-08T12:09:08.269186+00:00",
   "categories": {
     "sub": 19,
-    "both": 11,
+    "both": 10,
     "dub": 3,
     "official": 12,
     "manga": 11
