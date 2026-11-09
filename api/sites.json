@@ -98,12 +98,6 @@
       "tag": "sub"
     },
     {
-      "name": "Rive",
-      "url": "https://rivestream.live/",
-      "tag": "both",
-      "top": true
-    },
-    {
       "name": "AnimeDekho",
       "url": "https://animedekho.com/",
       "tag": "both"
@@ -126,6 +120,11 @@
     {
       "name": "Aniplot",
       "url": "https://aniplot.com/",
+      "tag": "both"
+    },
+    {
+      "name": "Aniwatch",
+      "url": "https://aniwatch.to/",
       "tag": "both"
     },
     {
@@ -285,7 +284,7 @@
     }
   ],
   "count": 55,
-  "updated": "2026-11-08T12:09:08.269186+00:00",
+  "updated": "2026-11-09T13:39:35.963918+00:00",
   "categories": {
     "sub": 19,
     "both": 10,
